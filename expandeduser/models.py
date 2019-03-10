@@ -11,8 +11,8 @@ class custom_user(AbstractUser):
     userCity = models.CharField(max_length=30,null=True, blank=True)
     userCountry = models.CharField(max_length=30,null=True, blank=True)
     userDoB = models.DateField(null=True, blank=True)
-    userSecondEmail = models.email(max_length=50,null=True, blank=True)
+    userSecondEmail = models.EmailField(max_length=50,null=True, blank=True)
 
 
     def __str__(self):
-return self.email
+        return self.email
