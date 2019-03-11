@@ -58,7 +58,7 @@ ROOT_URLCONF = 'amibit2.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -120,3 +120,8 @@ STATIC_URL = '/static/'
 
 
 AUTH_USER_MODEL = 'expandeduser.custom_user'
+
+
+
+LOGIN_REDIRECT_URL = 'admin'
+LOGOUT_REDIRECT_URL = 'admin'
