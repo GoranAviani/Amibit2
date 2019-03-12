@@ -13,7 +13,9 @@ DATABASES = {
     }
 }
 
-
+#Google oauth key and secret
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = 'OAUTH2_KEY'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'OAUTH2_SECRET'
 
 
 
