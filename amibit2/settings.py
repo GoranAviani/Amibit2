@@ -134,8 +134,7 @@ AUTHENTICATION_BACKENDS = (
     'social_core.backends.google.GoogleOAuth2',
     'django.contrib.auth.backends.ModelBackend',
 )
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '1024658430008-5v4dte9f9snfcce2pe6hic966dk8mmun.apps.googleusercontent.com'
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'khn313NFCisZRzOxs31tHDgl'
+
 LOGIN_URL = '/auth/login/google-oauth2/'
 SOCIAL_AUTH_URL_NAMESPACE = 'social'
 
