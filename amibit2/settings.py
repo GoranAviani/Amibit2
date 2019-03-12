@@ -123,5 +123,5 @@ AUTH_USER_MODEL = 'expandeduser.custom_user'
 
 
 
-LOGIN_REDIRECT_URL = 'admin'
-LOGOUT_REDIRECT_URL = 'admin'
+LOGIN_REDIRECT_URL = 'index'
+LOGOUT_REDIRECT_URL = 'index'
