@@ -1,8 +1,7 @@
 <!-- templates/index.html -->
-{% extends 'base.html' %}
 
 
-{% block content %}
+
 
 {% if user.is_authenticated %}
     <a href="#">Hi {{ user.username }}! </a>
@@ -15,5 +14,3 @@
 
 index page
 
-
-{% endblock %}
