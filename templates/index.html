@@ -10,3 +10,32 @@
 
 index page
 
+
+{% block title %}index Up{% endblock %}
+
+{% block content %}
+<h2>Sign up</h2>
+
+<form action="/users/login/" method="post">{% csrf_token %}
+  <label for="username">User name:</label>
+  <input type="text" name="username" value="" id="username">
+  <label for="password">Password:</label>
+  <input type="password" name="password" value="" id="password">
+
+  <input type="submit" value="login" />
+
+</form>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<form action="/users/signup/" method="post">
+  {% csrf_token %}
+  <label for="username">User name:</label>
+  <input type="text" name="username" value="" id="username">
+  <label for="password">Password:</label>
+  <input type="password" name="password1" value="" id="password">
+  <label for="password">Repeat password:</label>
+  <input type="password" name="password2" value="" id="password">
+
+  <button type="submit">Sign up</button>
+</form>
+{% endblock %}
+
