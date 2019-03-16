@@ -14,7 +14,9 @@ index page
 {% block title %}index Up{% endblock %}
 
 {% block content %}
-<h2>Sign up</h2>
+<h2>Index</h2>
+
+
 
 <form action="/users/login/" method="post">{% csrf_token %}
   <label for="username">User name:</label>
@@ -24,7 +26,14 @@ index page
 
   <input type="submit" value="login" />
 
+  <a class="btn btn-primary" href="{% url 'social:begin' 'google-oauth2' %}">
+    Login with Google
+  </a>
+  </div>
+
 </form>
+
+
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 <form action="/users/signup/" method="post">
   {% csrf_token %}
