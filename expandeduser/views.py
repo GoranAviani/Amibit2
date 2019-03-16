@@ -8,5 +8,5 @@ from .forms import custom_user_creation_form
 
 class sign_up(generic.CreateView):
     form_class = custom_user_creation_form
-    success_url = reverse_lazy('login') #TODO 
+    success_url = reverse_lazy('dashboard') #TODO 
     template_name = 'signup.html'
