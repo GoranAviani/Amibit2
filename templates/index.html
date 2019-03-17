@@ -2,18 +2,12 @@
 
 
 
-
-
-
 index page
-
 
 {% block title %}index{% endblock %}
 
 {% block content %}
 <h2>Index</h2>
-
-
 
 <form action="/users/login/" method="post">{% csrf_token %}
   <label for="username">User name:</label>
