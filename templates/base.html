@@ -128,14 +128,12 @@
   
 
                  <div class="form-group"> 
-                    <input type="url" name="logout" class="btn btn-primary btn-block" value="Logout">
-                  </div>
-                  <div class="form-group"> 
-                      <a href="{% url 'login' %}" class="btn btn-primary btn-block">Log out</a>
+                   
+                      <a href="{% url 'logout' %}" class=" ">Log out</a>
                     </div>
                   
                 {% else %}
-                    <a href="{% url 'login' %}" class="btn btn-primary btn-block">Login</a>
+                    <a href="{% url 'login' %}" class="btn btn-primary btn-block">Log in</a>
                 {% endif %}
                 
                 
