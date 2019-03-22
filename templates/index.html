@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Bootstrap Navbar Dropdown Login and Signup Form with Social Buttons</title>
+  <title>Amibit2</title>
   
   <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
@@ -17,44 +17,11 @@
 </head>
 <body>
 
-<h2>Index</h2>
 
-<form action="/users/login/" method="post">{% csrf_token %}
-  <label for="username">User name:</label>
-  <input type="text" name="username" value="" id="username">
-  <label for="password">Password:</label>
-  <input type="password" name="password" value="" id="password">
-
-  <input type="submit" value="login" />
-
-  <a class="btn btn-primary" href="{% url 'social:begin' 'google-oauth2' %}">
-    Login with Google
-  </a>
-  </div>
-
-</form>
-
-
-<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-<form action="/users/signup/" method="post">
-  {% csrf_token %}
-  <label for="username">User name:</label>
-  <input type="text" name="username" value="" id="username">
-  <label for="password">Password:</label>
-  <input type="password" name="password1" value="" id="password">
-  <label for="password">Repeat password:</label>
-  <input type="password" name="password2" value="" id="password">
-
-  <button type="submit">Sign up</button>
-</form>
-<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-
-
-
-
+  <br/><br/><br/><br/>
 <div class="container">
   <div class="row">
-    <div class="col-md-6 col-md-offset-3">
+    <div class="col-md-6 col-md-offset-6">
       <div class="panel panel-login">
         <div class="panel-heading">
           <div class="row">
@@ -129,6 +96,45 @@
   </div>
 </div>
 
+
+
+
+
+
+
+
+
+
+
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<form action="/users/login/" method="post">{% csrf_token %}
+  <label for="username">User name:</label>
+  <input type="text" name="username" value="" id="username">
+  <label for="password">Password:</label>
+  <input type="password" name="password" value="" id="password">
+
+  <input type="submit" value="login" />
+
+  <a class="btn btn-primary" href="{% url 'social:begin' 'google-oauth2' %}">
+    Login with Google
+  </a>
+  </div>
+
+</form>
+
+
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<form action="/users/signup/" method="post">
+  {% csrf_token %}
+  <label for="username">User name:</label>
+  <input type="text" name="username" value="" id="username">
+  <label for="password">Password:</label>
+  <input type="password" name="password1" value="" id="password">
+  <label for="password">Repeat password:</label>
+  <input type="password" name="password2" value="" id="password">
+
+  <button type="submit">Sign up</button>
+</form>
 
 
 
