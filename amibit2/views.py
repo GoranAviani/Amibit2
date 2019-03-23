@@ -16,3 +16,13 @@ def dashboard(request):
    #return redirect('dashboard')
    return render(request,'dashboard.html')
   
+
+
+
+
+def search_bar(request):
+   #return redirect('dashboard')
+   return render(request,'adasdlogin.html')
+  
+
+
