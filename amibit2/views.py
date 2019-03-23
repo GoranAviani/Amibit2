@@ -21,8 +21,11 @@ def dashboard(request):
 
 
 def search_bar(request):
-   #return redirect('dashboard')
-   return render(request,'adasdlogin.html')
-  
+
+   text = request.GET.get('search_bar')
+   print(text)
+   return redirect('index')
+
+
 
 
