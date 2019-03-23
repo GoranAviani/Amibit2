@@ -3,7 +3,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 
-
 def index(request):
 #   return render(request,'index.html')
 
@@ -17,9 +16,7 @@ def dashboard(request):
    return render(request,'dashboard.html')
   
 
-
-
-
+#this is called from base.html
 def search_bar(request):
    HTTP_URL = "http://"
    HTTPS_URL = "https://"
@@ -36,7 +33,4 @@ def search_bar(request):
       return redirect(HTTP_URL+"www.duckduckgo.com/?q="+(text))
 
    return redirect('index')
-
-
-
 

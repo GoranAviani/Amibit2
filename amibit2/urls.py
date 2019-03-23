@@ -17,15 +17,12 @@ from django.contrib import admin
 from django.urls import path, include
 from . import views
 
-
-
-
 urlpatterns = [
     path('', views.index, name='index'),
     path('dashboard/', views.dashboard, name='dashboard'),
     path('admin/', admin.site.urls),
     path('users/', include('django.contrib.auth.urls')),
     path('users/', include('expandeduser.urls')),
-    path('search/', views.search_bar, name='search_bar'),
+    path('search/', views.search_bar, name='search_bar'), #search/ is used in base.html
 
 ]
