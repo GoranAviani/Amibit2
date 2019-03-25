@@ -1,6 +1,8 @@
 *.pyc
 /amibit2/local_settings.py
-
+*.pyc
+*~
+*.swp
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
