@@ -119,9 +119,11 @@
                 {% endif %}
                 
                 <div class="form-group">
-                    <a href="{% url 'user_settings_menu' %}" class="btn btn-primary btn-block">Log in</a>
-                  
-                </div>
+                    <form action="{% url 'user_settings_menu' %}">
+                      <input type="submit" class="btn btn-primary btn-block" value="User settings" />
+                  </form>
+                    
+                  </div>
                 <div class="form-group">
                     2 button
                 </div>
