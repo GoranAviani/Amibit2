@@ -17,6 +17,10 @@ def user_settings_menu(request):
         'expanded_user/user_settings_menu.html',
 )
 
+def user_profile(request):
+    return render(request,'expanded_user/user_profile.html')
+
+
 '''
 def user_info_edit_profile(request):
     if request.method == 'POST':
