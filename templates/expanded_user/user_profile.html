@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Amibit User Settings</title>
+</head>
+<body>
+  <div class="normal-center-page ">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <div class="well normal-center-container">
+            <h2 class="text-center">Hi {{ user.username }}, <br/> This is your profile page!</h2><br />
+            <div class="text-center">
+              <h4><p><p>Here you can edit your user info or your change your password.</p></p></h4>
+              <br/><br/>
+							<h4><p>Your profile</p></h4>
+							Username: {{user.username}}<br/><br/>
+							First name: {{user.first_name}}<br/><br/>
+                            Last name: {{user.last_name}}<br/><br/>
+                            Mobile phone: {{user.userMobilenumber}}<br/><br/>
+                            Country: {{user.userCountry}}<br/><br/>
+                            City: {{user.userCountry}}<br/><br/>
+                            Date of birth: {{user.userDoB}}<br/><br/>
+                            Primary e-mail: {{user.email}}<br/><br/>
+                            Secondary e-mail: {{user.userSecondEmail}}<br/><br/><br/><br/>
+							
+							<a href=# class="btn btn-main-blue btn-100percent">Edit your personal info </a>
+						</br><br/><br/><br/><br/>
+							<h4><p>Security</p></h4>
+							Password: ****************<br/><br/>
+							<a href=# class="btn btn-main-blue btn-100percent">Change your password</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+{% endblock %}
