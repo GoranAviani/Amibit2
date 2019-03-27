@@ -20,6 +20,16 @@ def user_settings_menu(request):
 def user_profile(request):
     return render(request,'expanded_user/user_profile.html')
 
+def edit_user_profile(request):
+     if request.method == 'POST':
+        user_profile_form = UserInfo(request.POST, instance = request.user)
+        if user_profile_form.is_valid():
+            user_profile_form.save()
+            return redirect('user_profile')
+        else:
+            user_profile_form = UserInfo(instance=request.user)
+            return render (request, 'expanded_user/edit_user_profile.html', {'user_profile_form' : user_profile_form})
+
 
 '''
 def user_info_edit_profile(request):
