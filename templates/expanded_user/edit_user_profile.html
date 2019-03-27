@@ -5,7 +5,25 @@
 
 <form method="post">
     {% csrf_token %}
-    {{user_profile_form_data.as_p}}
+    {{user_profile_form_data.username}}
+    <br/>
+    {{user_profile_form_data.first_name}}
+    <br/>
+    {{user_profile_form_data.last_name}}
+    <br/>
+    {{user_profile_form_data.email}}
+    <br/>
+    {{user_profile_form_data.userSecondEmail}}
+    <br/>
+    {{user_profile_form_data.userDoB}}
+    <br/>
+    {{user_profile_form_data.userCountry}}
+    <br/>
+    {{user_profile_form_data.userCity}}
+    <br/>
+    {{user_profile_form_data.userMobilenumber}}
+    <br/>
+
     <button type="submit">Save</button>
 </form>
 
