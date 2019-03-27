@@ -17,3 +17,14 @@ class custom_user_change_form(UserChangeForm):
    class Meta:
         model = custom_user
         fields = ('username', 'email')
+
+
+class user_profile_form(forms.ModelForm):
+    class Meta:
+        model = custom_user
+        fields = (
+            'username',
+            'first_name',
+            'last_name',
+            'email',
+)
