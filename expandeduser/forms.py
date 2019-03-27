@@ -20,6 +20,8 @@ class custom_user_change_form(UserChangeForm):
 
 
 class user_profile_form(forms.ModelForm):
+    username = forms.CharField(widget=forms.TextInput(attrs={'readonly':'readonly','class':'nekicss'}))
+
     class Meta:
         model = custom_user
         fields = (
@@ -33,3 +35,4 @@ class user_profile_form(forms.ModelForm):
             'userCity',
             'userMobilenumber',
 )
+        
