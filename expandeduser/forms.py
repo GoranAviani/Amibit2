@@ -27,4 +27,9 @@ class user_profile_form(forms.ModelForm):
             'first_name',
             'last_name',
             'email',
+            'userSecondEmail',
+            'userDoB',
+            'userCountry',
+            'userCity',
+            'userMobilenumber',
 )
