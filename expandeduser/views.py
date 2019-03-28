@@ -9,7 +9,9 @@ from .forms import (
     custom_user_creation_form,
     user_profile_form
 )
-
+from django.contrib.auth import (
+    update_session_auth_hash,
+)
 from django.contrib.auth.forms import PasswordChangeForm
 
 
@@ -39,17 +41,19 @@ def edit_user_profile(request):
         return render (request, 'expanded_user/edit_user_profile.html', {'user_profile_form_data' : user_profile_form_data})
 
 
-def edit_user_password(request):
-    if request.method == 'POST':
-        change_password_form_data = PasswordChangeForm(data = request.POST, user = request.user) #PasswordChangeForm inbuilt in django
 
-        if change_password_form_data.is_valid():
-            change_password_form_data.save()
-            change_password_form_data(request, change_password_form_data.user)
+def edit_user_password(request):
+  
+    if request.method == 'POST':
+        change_password_form = PasswordChangeForm(data = request.POST, user = request.user) #PasswordChangeForm is inbuilt in Django
+        currentUser = request.user
+        if change_password_form.is_valid():
+            change_password_form.save()
+            update_session_auth_hash(request, change_password_form.user)
             return redirect('user_profile')
         else:
-            change_password_form_data=PasswordChangeForm(user = request.user)
-            return render (request, 'expanded_user/change_user_password.html', {'change_password_form_data' : change_password_form_data})
+            change_password_form=PasswordChangeForm(user = request.user)
+            return render (request, 'expanded_user/change_user_password.html', {'change_password_form' : change_password_form})
     else:
-        change_password_form_data=PasswordChangeForm(user = request.user)
-    return render (request, 'expanded_user/change_user_password.html', {'change_password_form_data' : change_password_form_data})
+        change_password_form=PasswordChangeForm(user = request.user)
+        return render (request, 'expanded_user/change_user_password.html', {'change_password_form' : change_password_form})
