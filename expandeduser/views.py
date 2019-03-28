@@ -31,15 +31,16 @@ def user_profile(request):
     return render(request,'expanded_user/user_profile.html')
 
 def edit_user_profile(request):
-    if request.method == 'POST':
-        user_profile_form_data = user_profile_form(request.POST, instance = request.user)
-        if user_profile_form_data.is_valid():
-            user_profile_form_data.save()
-            return redirect('user_profile')
-    else:
-        user_profile_form_data = user_profile_form(instance=request.user)
-        return render (request, 'expanded_user/edit_user_profile.html', {'user_profile_form_data' : user_profile_form_data})
-
+    if request.user.is_authenticated():
+        if request.method == 'POST':
+            user_profile_form_data = user_profile_form(request.POST, instance = request.user)
+            if user_profile_form_data.is_valid():
+                user_profile_form_data.save()
+                return redirect('user_profile')
+        else:
+            user_profile_form_data = user_profile_form(instance=request.user)
+            return render (request, 'expanded_user/edit_user_profile.html', {'user_profile_form_data' : user_profile_form_data})
+    return redirect('index')
 
 
 def edit_user_password(request):
