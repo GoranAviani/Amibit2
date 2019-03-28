@@ -7,5 +7,7 @@ urlpatterns = [
 
     path('setttings/', views.user_settings_menu, name='user_settings_menu'),
     path('profile/', views.user_profile, name='user_profile'),
-    path('profile/edit/', views.edit_user_profile, name='edit_user_profile'),
+    path('profile/edit-info/', views.edit_user_profile, name='edit_user_profile'),
+    path('profile/edit-password/', views.edit_user_password, name='edit_user_password'),
+
 ]
