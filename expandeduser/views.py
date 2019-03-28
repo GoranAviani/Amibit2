@@ -21,17 +21,26 @@ class sign_up(generic.CreateView):
     success_url = reverse_lazy('dashboard') #TODO 
     template_name = 'signup.html'
 
+
+
+
 def user_settings_menu(request):
-     return render(
-         request,
-        'expanded_user/user_settings_menu.html',
-)
+    if request.user.is_authenticated:
+        return render(
+            request,
+            'expanded_user/user_settings_menu.html',
+            )
+    else:
+       return render(request,'index.html')
 
 def user_profile(request):
-    return render(request,'expanded_user/user_profile.html')
-
+    if request.user.is_authenticated:
+        return render(request,'expanded_user/user_profile.html')
+    else:
+        return render(request,'index.html')
+    
 def edit_user_profile(request):
-    if request.user.is_authenticated():
+    if request.user.is_authenticated:
         if request.method == 'POST':
             user_profile_form_data = user_profile_form(request.POST, instance = request.user)
             if user_profile_form_data.is_valid():
@@ -40,11 +49,12 @@ def edit_user_profile(request):
         else:
             user_profile_form_data = user_profile_form(instance=request.user)
             return render (request, 'expanded_user/edit_user_profile.html', {'user_profile_form_data' : user_profile_form_data})
-    return redirect('index')
+    else:
+        return render(request,'index.html')
 
 
 def edit_user_password(request):
-    if request.user.is_authenticated():
+    if request.user.is_authenticated:
         if request.method == 'POST':
             change_password_form = PasswordChangeForm(data = request.POST, user = request.user) #PasswordChangeForm is inbuilt in Django
             currentUser = request.user
@@ -58,4 +68,5 @@ def edit_user_password(request):
         else:
             change_password_form=PasswordChangeForm(user = request.user)
             return render (request, 'expanded_user/change_user_password.html', {'change_password_form' : change_password_form})
-    return redirect('index')
+    else:
+        return render(request,'index.html')
