@@ -16,24 +16,35 @@
     text-decoration: none;
     }	
   .navbar .social-media-btn .btn-primary {
-    background: #507cc0;
+    background: #3c5a99;
   }
   .navbar .social-media-btn .btn-primary:hover {
-    background: #4676bd;
+    background: #334c83;
   }
-
+  .navbar .social-media-btn .btn-linkedin {
+    background: #0077b5;
+  }
+  .navbar .social-media-btn .btn-linkedin:hover {
+    background: #0068a0;
+  }
+  .navbar .social-media-btn .btn-google {
+    background: #4285f4;
+  }
+  .navbar .social-media-btn .btn-google:hover {
+    background: #366dc5;
+  }
   .navbar .social-media-btn .btn-danger {
-    background: #507cc0;
+    background: #ff0000;
   }
   .navbar .social-media-btn .btn-danger:hover {
-    background: #4676bd;
+    background: #c50000;
   }
 
   .navbar .social-media-btn .btn-info {
-    background: #64ccf1;
+    background: #38A1F3;
   }
   .navbar .social-media-btn .btn-info:hover {
-    background: #4ec7ef;
+    background: rgb(50, 143, 214);
   }
   .navbar .social-media-btn .btn i {
     margin-right: 5px;
