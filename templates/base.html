@@ -54,8 +54,7 @@
         {% csrf_token %}
         <div class="input-group search-box">								
           <input type="text" name="search_bar" class="form-control" placeholder="Search here...">
-          <button type="submit" class="input-group-addon" ><i class="material-icons">&#xE8B6;</i></button>
-          
+          <button type="submit" class="input-group-addon" ><i class="material-icons">&#xE8B6;</i></button>   
         </div>
       </form>
 
@@ -119,27 +118,28 @@
                 {% endif %}
                 
                 <div class="form-group">
-                    <form action="{% url 'user_settings_menu' %}">
+                  <form action="{% url 'user_settings_menu' %}">
                       <input type="submit" class="btn btn-primary btn-block" value="User settings" />
-                  </form>
-                    
-                  </div>
+                  </form>   
+                </div>
                 <div class="form-group">
                     2 button
                 </div>
                 <div class="form-group">
                     3 button
                 </div>
-                {% if user.is_authenticated %}
-  
-
-                 <div class="form-group"> 
-                   
-                      <a href="{% url 'logout' %}" class=" ">Log out</a>
-                    </div>
-                  
+                {% if user.is_authenticated %}         
+                  <div class="form-group">
+                    <form action="{% url 'logout' %}">
+                        <input type="submit" class="btn btn-primary btn-block" value="Log out" />
+                    </form>   
+                  </div>      
                 {% else %}
-                    <a href="{% url 'login' %}" class="btn btn-primary btn-block">Log in</a>
+                  <div class="form-group">
+                    <form action="{% url 'login' %}">
+                        <input type="submit" class="btn btn-primary btn-block" value="Log in" />
+                    </form>   
+                  </div>
                 {% endif %}
                 
                 
