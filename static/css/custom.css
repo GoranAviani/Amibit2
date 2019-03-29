@@ -12,13 +12,13 @@
     transition: all 0.4s;
     text-align: center;
     line-height: 34px;
-    width: 15%;
+    /*width: 15%;*/
     text-decoration: none;
     }	
-  .navbar .social-media-btn .btn-primary {
+  .navbar .social-media-btn .btn-facebook {
     background: #3c5a99;
   }
-  .navbar .social-media-btn .btn-primary:hover {
+  .navbar .social-media-btn .btn-facebook:hover {
     background: #334c83;
   }
   .navbar .social-media-btn .btn-linkedin {
@@ -33,21 +33,21 @@
   .navbar .social-media-btn .btn-google:hover {
     background: #366dc5;
   }
-  .navbar .social-media-btn .btn-danger {
+  .navbar .social-media-btn .btn-youtube {
     background: #ff0000;
   }
-  .navbar .social-media-btn .btn-danger:hover {
+  .navbar .social-media-btn .btn-youtube:hover {
     background: #c50000;
   }
 
-  .navbar .social-media-btn .btn-info {
+  .navbar .social-media-btn .btn-twitter {
     background: #38A1F3;
   }
-  .navbar .social-media-btn .btn-info:hover {
-    background: rgb(50, 143, 214);
+  .navbar .social-media-btn .btn-twitter:hover {
+    background: #4b94d8;
   }
   .navbar .social-media-btn .btn i {
-    margin-right: 5px;
+    
     font-size: 16px;
     position: relative;
     top: 2px;
