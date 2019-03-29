@@ -5,23 +5,23 @@
 
 <form method="post">
     {% csrf_token %}
-    {{user_profile_form_data.username}}
+    Username: {{user_profile_form_data.username}}
     <br/>
-    {{user_profile_form_data.first_name}}
+    First name: {{user_profile_form_data.first_name}}
     <br/>
-    {{user_profile_form_data.last_name}}
+    Last name: {{user_profile_form_data.last_name}}
     <br/>
-    {{user_profile_form_data.email}}
+    Email: {{user_profile_form_data.email}}
     <br/>
-    {{user_profile_form_data.userSecondEmail}}
+    Secondary email: {{user_profile_form_data.userSecondEmail}}
     <br/>
-    {{user_profile_form_data.userDoB}}
+    Date of birth: {{user_profile_form_data.userDoB}}
     <br/>
-    {{user_profile_form_data.userCountry}}
+    Country: {{user_profile_form_data.userCountry}}
     <br/>
-    {{user_profile_form_data.userCity}}
+    Town: {{user_profile_form_data.userCity}}
     <br/>
-    {{user_profile_form_data.userMobilenumber}}
+    Mobile number: {{user_profile_form_data.userMobilenumber}}
     <br/>
 
     <button type="submit">Save</button>
