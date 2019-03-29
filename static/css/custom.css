@@ -1,0 +1,43 @@
+/* Custom css code*/
+/* -------------------------------------- */
+
+
+/* Social media buttons located in the navbar*/
+.navbar .form-wrapper .social-media-btn .btn, .navbar .form-wrapper .social-media-btn .btn:hover {
+    color: #fff;
+        margin: 0;
+    padding: 0 !important;
+    font-size: 13px;
+    border: none;
+    transition: all 0.4s;
+    text-align: center;
+    line-height: 34px;
+    width: 15%;
+    text-decoration: none;
+    }	
+  .navbar .social-media-btn .btn-primary {
+    background: #507cc0;
+  }
+  .navbar .social-media-btn .btn-primary:hover {
+    background: #4676bd;
+  }
+
+  .navbar .social-media-btn .btn-danger {
+    background: #507cc0;
+  }
+  .navbar .social-media-btn .btn-danger:hover {
+    background: #4676bd;
+  }
+
+  .navbar .social-media-btn .btn-info {
+    background: #64ccf1;
+  }
+  .navbar .social-media-btn .btn-info:hover {
+    background: #4ec7ef;
+  }
+  .navbar .social-media-btn .btn i {
+    margin-right: 5px;
+    font-size: 16px;
+    position: relative;
+    top: 2px;
+  }
