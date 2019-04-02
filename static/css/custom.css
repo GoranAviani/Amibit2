@@ -5,7 +5,7 @@
 /* Social media buttons located in the navbar*/
 .navbar .form-wrapper .social-media-btn .btn, .navbar .form-wrapper .social-media-btn .btn:hover {
     color: #fff;
-    margin: 0;
+    margin-right: 5px;
     padding: 0 !important;
     font-size: 13px;
     border: none;
@@ -52,3 +52,8 @@
     position: relative;
     top: 2px;
   }
+
+
+
+
+
