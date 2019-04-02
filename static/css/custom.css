@@ -55,5 +55,13 @@
 
 
 
+/* Social media buttons wont go over menu button when in mobile size*/
+@media (max-width: 768px){
+  .mobile-dropdown-rule{
+    padding-top: 0px;
+    margin-bottom: 34px;
 
+
+  }
+}
 
