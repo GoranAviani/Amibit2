@@ -150,6 +150,28 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
 
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
+
+
+
+# EMAIL_HOST = 'smtp.zoho.com'
+# EMAIL_HOST_USER = 'admin@amibit.org'
+# EMAIL_HOST_PASSWORD = '2008anja'
+# EMAIL_PORT = 587
+# EMAIL_USE_TLS = True
+# EMAIL_USE_SSL = False
+
+# EMAIL_BACKEND = ‘django.core.mail.backends.smtp.EmailBackend’
+# EMAIL_HOST = ‘smtp.zoho.com’
+# EMAIL_USE_TLS = True
+# EMAIL_PORT = 587
+# EMAIL_HOST_USER = 'admin@amibit.org’
+# EMAIL_HOST_PASSWORD = '2008anja'
+
+
+
+
+# Local sending emails for password reset on http://127.0.0.1:8000/users/profile/password-reset/
+#EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+#Live sending emails is inside of local_setting
 
