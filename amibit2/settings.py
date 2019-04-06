@@ -145,3 +145,11 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 #for local comment for production uncomment
 #PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 #STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
+
+
+
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+
