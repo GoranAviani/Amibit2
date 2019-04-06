@@ -45,7 +45,7 @@ def edit_user_profile(request):
             user_profile_form_data = user_profile_form(request.POST, instance = request.user)
             if user_profile_form_data.is_valid():
                 user_profile_form_data.save()
-                return render(request,'expanded_user/change_user_password_done.html')
+                return redirect('user_profile')
         else:
             user_profile_form_data = user_profile_form(instance=request.user)
             return render (request, 'expanded_user/edit_user_profile.html', {'user_profile_form_data' : user_profile_form_data})
@@ -60,8 +60,8 @@ def edit_user_password(request):
             currentUser = request.user
             if change_password_form.is_valid():
                 change_password_form.save()
-                update_session_auth_hash(request, change_password_form.user)
-                return redirect('user_profile')
+                update_session_auth_hash(request, change_password_form.user) 
+                return render(request,'expanded_user/change_user_password_done.html')
             else:
                 change_password_form=PasswordChangeForm(user = request.user)
                 return render (request, 'expanded_user/change_user_password.html', {'change_password_form' : change_password_form})
