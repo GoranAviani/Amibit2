@@ -45,7 +45,7 @@ def edit_user_profile(request):
             user_profile_form_data = user_profile_form(request.POST, instance = request.user)
             if user_profile_form_data.is_valid():
                 user_profile_form_data.save()
-                return redirect('user_profile')
+                return render(request,'expanded_user/change_user_password_done.html')
         else:
             user_profile_form_data = user_profile_form(instance=request.user)
             return render (request, 'expanded_user/edit_user_profile.html', {'user_profile_form_data' : user_profile_form_data})
