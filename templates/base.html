@@ -133,14 +133,16 @@
                 {% if user.is_authenticated %}
                   <p class="hint-text"> {{ user.username }} welcome to your main menu</p>
                 {% else %}
-                  <p class="hint-text"> Welcome to your main menu</p>
+                  <p class="hint-text"> Hi Guest, please login to unlock all features</p>
                 {% endif %}
                 
+                {% if user.is_authenticated %}
                 <div class="form-group">
                   <form action="{% url 'user_settings_menu' %}">
                       <input type="submit" class="btn btn-primary btn-block" value="User settings" />
                   </form>   
                 </div>
+                {% endif %}
                 <div class="form-group">
                     2 button
                 </div>
