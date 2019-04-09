@@ -30,3 +30,8 @@ def about(request):
     request,
     'otherPages/about.html'
 )
+def contact(request):
+    return render(
+    request,
+    'otherPages/contact.html'
+)
