@@ -25,4 +25,6 @@ urlpatterns = [
     path('users/', include('expandeduser.urls')),
     path('search/', views.search_bar, name='search_bar'), #search/ is used in base.html
 
+    path('about/', views.about, name='about'), #search/ is used in base.html
+
 ]

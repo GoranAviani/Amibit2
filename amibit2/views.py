@@ -25,3 +25,8 @@ def search_bar(request):
 
    #return redirect('index')
 
+def about(request):
+    return render(
+    request,
+    'otherPages/about.html'
+)
