@@ -41,8 +41,9 @@ INSTALLED_APPS = [
 
     
     'expandeduser.apps.ExpandeduserConfig',
+    'notelink.apps.NotelinkConfig',
 
-     'social_django',
+    'social_django',
 ]
 
 MIDDLEWARE = [

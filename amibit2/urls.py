@@ -23,6 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('users/', include('django.contrib.auth.urls')),
     path('users/', include('expandeduser.urls')),
+    path('nl/', include('notelink.urls')),
     path('search/', views.search_bar, name='search_bar'), #search/ is used in base.html
 
     path('about/', views.about, name='about'), 
