@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .forms import (
     create_link_form
 )
@@ -15,7 +15,7 @@ def create_link(request):
                 #Check does the link have http or https in the beginning
                 #form.link_url = add_HTTP_to_linkurl(form.link_url)
                 form.save()
-                messages.success(request, 'Link saved!',extra_tags='create_link')
+               # messages.success(request, 'Link saved!',extra_tags='create_link')
             return redirect('dashboard')
         else:
             create_link_form_data = create_link_form()
