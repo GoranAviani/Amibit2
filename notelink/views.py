@@ -11,6 +11,8 @@ def create_link(request):
             create_link_form_data = create_link_form(request.POST)
             if create_link_form_data.is_valid():
                 form = create_link_form_data.save(commit=False)
+                #form.link_name = create_link_form_data.linkName
+                #form.link_url = create_link_form_data.linkUrl
                 form.link_user = request.user
                 #Check does the link have http or https in the beginning
                 #form.link_url = add_HTTP_to_linkurl(form.link_url)
