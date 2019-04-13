@@ -30,7 +30,7 @@
                 <a href="{{link.linkUrl}}" target="_self" class="btn btn-blue-title btn-100percent">
                   <span class="pull-left">{{ link.linkName }}</span>&nbsp;
                 </a>
-                <a href ="#" class="btn btn-white-blue pull-left col-md-5 col-xs-12">
+                <a href ="{% url 'update_link' link.id %}" class="btn btn-white-blue pull-left col-md-5 col-xs-12">
                   Update
                 </a>
                 <a href ="#" class="btn btn-white-blue pull-right col-md-5 col-xs-12">
