@@ -3,7 +3,6 @@ from .forms import (
     create_link_form
 )
 from .myModules.link_calculations import check_url_link
-
 from .models import link
 
 
@@ -24,7 +23,6 @@ def create_link(request):
             create_link_form_data = create_link_form()
             return render(request, 'note_link/create_link.html', {'create_link_form_data': create_link_form_data})
     else:
-        # if user is not authenticated inform him of that
         return render(request,'otherPages/not_authenticaded.html')
 
 
@@ -48,5 +46,4 @@ def update_link(request, id):
         else:
             return render(request, 'perasis/not_owner.html') #TODO
     else:
-        # if user is not authenticated inform him of that
         return render(request,'otherPages/not_authenticaded.html')

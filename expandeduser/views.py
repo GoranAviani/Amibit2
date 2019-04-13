@@ -1,10 +1,8 @@
 from django.shortcuts import render
-
 # Create your views here.
 from django.urls import reverse_lazy
 from django.views import generic
 from django.shortcuts import redirect
-
 from .forms import (
     custom_user_creation_form,
     user_profile_form
@@ -20,9 +18,6 @@ class sign_up(generic.CreateView):
     form_class = custom_user_creation_form
     success_url = reverse_lazy('dashboard') #TODO 
     template_name = 'signup.html'
-
-
-
 
 def user_settings_menu(request):
     if request.user.is_authenticated:
@@ -52,7 +47,6 @@ def edit_user_profile(request):
     else:
         return render(request,'index.html')
 
-
 def edit_user_password(request):
     if request.user.is_authenticated:
         if request.method == 'POST':
@@ -69,4 +63,4 @@ def edit_user_password(request):
             change_password_form=PasswordChangeForm(user = request.user)
             return render (request, 'expanded_user/change_user_password.html', {'change_password_form' : change_password_form})
     else:
-        return render(request,'index.html')
+        return render(request,'index.html') 
