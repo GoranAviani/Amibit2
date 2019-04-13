@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from .forms import (
     create_link_form
 )
-
+from .myModules.link_calculations import check_url_link
 
 # Create your views here.
 def create_link(request):
@@ -11,11 +11,9 @@ def create_link(request):
             create_link_form_data = create_link_form(request.POST)
             if create_link_form_data.is_valid():
                 form = create_link_form_data.save(commit=False)
-                #form.link_name = create_link_form_data.linkName
-                #form.link_url = create_link_form_data.linkUrl
                 form.linkUser = request.user
                 #Check does the link have http or https in the beginning
-                #form.link_url = add_HTTP_to_linkurl(form.link_url)
+                #form.linkUser = add_HTTP_to_linkurl(form.linkUser)
                 form.save()
                # messages.success(request, 'Link saved!',extra_tags='create_link')
             return redirect('dashboard')
