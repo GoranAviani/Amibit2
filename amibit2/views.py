@@ -2,7 +2,7 @@
 #Location of non app single pages
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
-from amibit2.custom_modules.search_bar import *
+from .myModules.search_bar import *
 from notelink.models import link
 
 
@@ -32,7 +32,7 @@ def dashboard(request):
 
   
 
-#this is called from base.html
+#this is a search that is called from base.html
 def search_bar(request):
    text = request.GET.get('search_bar')  
    return redirect(get_web_url(text))
