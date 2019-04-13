@@ -53,21 +53,12 @@ def update_link(request, id):
 def delete_link(request, id):
     deletedLink = get_object_or_404(link, id=id)
     if request.user.is_authenticated:
-        if updatedLink.linkUser == request.user:
-            if request.method == 'POST':
-                update_link_form_data = create_link_form(request.POST)
-                if update_link_form_data.is_valid():
-                    form = update_link_form_data.save(commit=False)
-                    form.id = id
-                    form.linkUser = request.user
-                    # Check does the link have http or https in the beginning
-                    form.linkUrl = check_url_link(form.linkUrl)
-                    form.save()
-                    return redirect('dashboard')
-            else:
-                update_link_form_data = create_link_form(instance = updatedLink)
-                return render(request, 'note_link/update_link.html', {'update_link_form_data': update_link_form_data})
+        if deletedLink.linkUser == request.user:
+            deletedLink.delete()
+            return redirect('dashboard')
         else:
-            return render(request, 'perasis/not_owner.html') #TODO
+            return render(request,'perasis/not_owner.html') #TODO
     else:
-        return render(request,'otherPages/not_authenticaded.html')
+        # if user is not authenticated inform him of that
+        return render(request, 'otherPages/not_authenticaded.html')
+
