@@ -3,6 +3,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from amibit2.custom_modules.search_bar import *
+from notelink.models import link
 
 
 def index(request):
@@ -14,8 +15,21 @@ def index(request):
       return render(request,'index.html')
 
 def dashboard(request):
-   #return redirect('dashboard')
-   return render(request,'dashboard.html')
+   if request.user.is_authenticated:
+         queryUserLink = link.objects.filter(linkUser=request.user).order_by('-id')
+       #  queryNote = Note.objects.filter(note_user=request.user).order_by('-note_timestamp')
+         return render(request, 'dashboard.html', {
+         'queryUserLink': queryUserLink,
+        # 'queryNote': queryNote,
+         })
+   else:
+        #if user is not authenticated inform him of that
+        return render(request, 'otherPages/not_authenticaded.html')
+
+
+
+
+
   
 
 #this is called from base.html

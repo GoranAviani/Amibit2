@@ -12,4 +12,42 @@
         <a href="{% url 'login' %}">You are not logged in</a>
     {% endif %}
 
+
+
+
+
+
+    <div id = LinkContainer class="col-md-3 col-xs-12">
+        <a href ="{% url 'create_link' %}" class="btn btn-main-orange-link btn-3d-orange col-md-12 col-xs-12" >
+            Create link
+        </a>
+        <div class="links-list-container">
+          {% if queryUserLink %}
+          <button onclick="toggle_links()" class="btn btn-lists btn-3d-blue visible-xs">LINKS</button>
+          <div id = ListofLinks>
+            {% for link in queryUserLink %}
+            <div class="col-md-12 col-xs-12 single-link-container">
+                <a href="{{link.linkUrl}}" target="_self" class="btn btn-blue-title btn-100percent">
+                  <span class="pull-left">{{ link.linkName }}</span>&nbsp;
+                </a>
+                <a href ="#" class="btn btn-white-blue pull-left col-md-5 col-xs-12">
+                  Update
+                </a>
+                <a href ="#" class="btn btn-white-blue pull-right col-md-5 col-xs-12">
+                  Delete
+                </a>
+            </div>
+    
+            {% endfor %}
+          </div>
+          {% else %}
+            <p>There are no links available. Click <a href="{% url 'craete_link' %}">here</a> to add links</p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+
+
+
+
 {% endblock %}
