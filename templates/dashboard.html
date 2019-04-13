@@ -33,10 +33,9 @@
                 <a href ="{% url 'update_link' link.id %}" class="btn btn-white-blue pull-left col-md-5 col-xs-12">
                   Update
                 </a>
-                <a href ="#" class="btn btn-white-blue pull-right col-md-5 col-xs-12">
-                  Delete
-                </a>
+                  <a href="{% url 'update_link' link.id %}" class='btn btn-danger' onclick="return confirmaDeletion()">Delete</a>
             </div>
+            
     
             {% endfor %}
           </div>
