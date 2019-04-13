@@ -13,7 +13,7 @@ def create_link(request):
                 form = create_link_form_data.save(commit=False)
                 form.linkUser = request.user
                 #Check does the link have http or https in the beginning
-                #form.linkUser = add_HTTP_to_linkurl(form.linkUser)
+                form.linkUrl = check_url_link(form.linkUrl) #TODO
                 form.save()
                # messages.success(request, 'Link saved!',extra_tags='create_link')
             return redirect('dashboard')

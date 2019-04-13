@@ -1,2 +1,2 @@
-def check_url_link():
-    pass
+def check_url_link(urlLink):
+    return urlLink
