@@ -10,9 +10,9 @@ from .models import link
 
 
 class link_admin(admin.ModelAdmin):
-    list_display = ("link_name" , "link_url" , "link_user")
-    list_filter = ("link_name", "link_url" , "link_user")
-    search_fields= ("link_name","link_url","link_user")
+    list_display = ("linkName" , "linkUrl" , "linkUser")
+    list_filter = ("linkName", "linkUrl" , "linkUser")
+    search_fields= ("linkName","linkUrl","linkUser")
 
 
 admin.site.register(link, link_admin)
