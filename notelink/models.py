@@ -11,7 +11,7 @@ class link(models.Model):
         return self.linkName
 
 
-class Note(models.Model):
+class note(models.Model):
     noteUser = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     noteTitle = models.CharField(max_length=200)
     noteText = models.TextField()
