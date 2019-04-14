@@ -17,10 +17,10 @@ def index(request):
 def dashboard(request):
    if request.user.is_authenticated:
          queryUserLink = link.objects.filter(linkUser=request.user).order_by('-id')
-         queryNote = note.objects.filter(noteUser=request.user).order_by('-noteTimestamp')
+         queryUserNote = note.objects.filter(noteUser=request.user).order_by('-noteTimestamp')
          return render(request, 'dashboard.html', {
          'queryUserLink': queryUserLink,
-         'queryNote': queryNote,
+         'queryUserNote': queryUserNote,
          })
    else:
         #if user is not authenticated inform him of that

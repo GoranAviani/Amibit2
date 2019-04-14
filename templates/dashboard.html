@@ -19,19 +19,19 @@
           Create note
         </a>
       </div>
-        {% if queryNote %}
+        {% if queryUserNote %}
         <div  class="col-md-12 col-xs-12 notes-list-container">
           <button onclick="toggle_notes()" class="btn btn-lists btn-3d-blue visible-xs">NOTES</button>
             <div id = ListofNotes class="grid" data-isotope='{ "itemSelector": ".grid-item", "layoutMode": "fitRows" }'>
               <div class="grid">
-                {% for y in queryNote %}
+                {% for y in queryUserNote %}
                   <div class="grid-item ">
                     <a href ="#" class="btn btn-blue-title btn-100percent">{{y.noteTitle}}</a>
                     <div class="dashboard-note-text">
-                      {{ y.note_text|truncatewords:6|linebreaks }}
+                      {{ y.noteText|truncatewords:6|linebreaks }}
                     </div>
                     <li>
-                      {{ y.note_timestamp }}
+                      {{ y.noteTimestamp }}
                     </li>
                     <br>
                     <div class="col-md-12 col-xs-12">
@@ -45,7 +45,7 @@
            </div>
           </div>
         {% else %}
-          <p>There are no notes available. Click <a href="{% url 'note_create' %}">here</a> to add note</p>
+          <p>There are no notes available. Click <a href="{% url 'create_note' %}">here</a> to add note</p>
         {% endif %}
   </div>
 
