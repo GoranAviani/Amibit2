@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import (
-    create_link_form
+    create_link_form,
+    create_note_form
 )
 from .myModules.link_calculations import check_url_link
 from .models import link
@@ -62,3 +63,20 @@ def delete_link(request, id):
         # if user is not authenticated inform him of that
         return render(request, 'otherPages/not_authenticaded.html')
 
+
+def create_note(request):
+    if request.user.is_authenticated:
+        if request.method == 'POST':
+            create_note_form_data = create_note_form(request.POST)
+            if create_note_form_data.is_valid():
+                form = create_note_form_data.save(commit=False)
+                form.noteUser = request.user
+                #Check does the link have http or https in the beginning
+                form.save()
+               # messages.success(request, 'Note saved!',extra_tags='create_note')
+            return redirect('dashboard')
+        else:
+            create_note_form_data = create_note_form()
+            return render(request, 'note_link/create_note.html', {'create_note_form_data': create_note_form_data})
+    else:
+        return render(request,'otherPages/not_authenticaded.html')
