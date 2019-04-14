@@ -24,14 +24,14 @@
           <button onclick="toggle_notes()" class="btn btn-lists btn-3d-blue visible-xs">NOTES</button>
             <div id = ListofNotes class="grid" data-isotope='{ "itemSelector": ".grid-item", "layoutMode": "fitRows" }'>
               <div class="grid">
-                {% for y in queryUserNote %}
+                {% for note in queryUserNote %}
                   <div class="grid-item ">
                     <a href ="#" class="btn btn-blue-title btn-100percent">{{y.noteTitle}}</a>
                     <div class="dashboard-note-text">
-                      {{ y.noteText|truncatewords:6|linebreaks }}
+                      {{ note.noteText|truncatewords:6|linebreaks }}
                     </div>
                     <li>
-                      {{ y.noteTimestamp }}
+                      {{ note.noteTimestamp }}
                     </li>
                     <br>
                     <div class="col-md-12 col-xs-12">
