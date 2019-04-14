@@ -13,7 +13,41 @@
     {% endif %}
 
 
-
+    <div id = NoteContainer class="col-md-9 col-xs-12">
+      <div class="col-md-12 col-xs-12">
+        <a href ="{% url 'create_note' %}" class="btn btn-main-orange-note btn-3d-orange pull-left col-md-4 col-xs-12">
+          Create note
+        </a>
+      </div>
+        {% if queryNote %}
+        <div  class="col-md-12 col-xs-12 notes-list-container">
+          <button onclick="toggle_notes()" class="btn btn-lists btn-3d-blue visible-xs">NOTES</button>
+            <div id = ListofNotes class="grid" data-isotope='{ "itemSelector": ".grid-item", "layoutMode": "fitRows" }'>
+              <div class="grid">
+                {% for y in queryNote %}
+                  <div class="grid-item ">
+                    <a href ="#" class="btn btn-blue-title btn-100percent">{{y.noteTitle}}</a>
+                    <div class="dashboard-note-text">
+                      {{ y.note_text|truncatewords:6|linebreaks }}
+                    </div>
+                    <li>
+                      {{ y.note_timestamp }}
+                    </li>
+                    <br>
+                    <div class="col-md-12 col-xs-12">
+                    <a href ="#" class="btn btn-white-blue-special btn-100percent">
+                      Update
+                    </a>
+                  </div>
+                  </div>
+              {% endfor %}
+            </div>
+           </div>
+          </div>
+        {% else %}
+          <p>There are no notes available. Click <a href="{% url 'note_create' %}">here</a> to add note</p>
+        {% endif %}
+  </div>
 
 
 
