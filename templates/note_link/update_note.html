@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="normal-center-page ">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1 col-xs-10 col-xs-offset-1">
+        <div class="well  normal-center-container">
+          <h2 class="text-center">Edit note</h2>
+          <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+              <label>Title</label>
+              {{ update_note_form_data.noteTitle }} {{ update_note_form_data.noteTimestamp }}
+              
+            </div>
+            <div class="form-group">
+              <label>Note</label>
+              {{ update_note_form_data.noteText }}
+            </div>
+              <button type="submit" class="btn  btn-primary btn-main-blue btn-big btn-100percent">Save</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
