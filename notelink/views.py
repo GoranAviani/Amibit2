@@ -1,10 +1,13 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import (
     create_link_form,
-    create_note_form
+    create_note_form,
+    update_note_form,
 )
 from .myModules.link_calculations import check_url_link
-from .models import link
+from .models import link, note
+
+import datetime
 
 
 # Create your views here.
@@ -78,5 +81,28 @@ def create_note(request):
         else:
             create_note_form_data = create_note_form()
             return render(request, 'note_link/create_note.html', {'create_note_form_data': create_note_form_data})
+    else:
+        return render(request,'otherPages/not_authenticaded.html')
+
+
+def update_note(request, id):
+    updatedNote = get_object_or_404(note, id=id)
+    if request.user.is_authenticated:
+        if updatedNote.noteUser == request.user:
+            if request.method == 'POST':
+                update_note_form_data = update_note_form(request.POST)
+                if update_note_form_data.is_valid():
+                    form = update_note_form_data.save(commit=False)
+                    form.id = id
+                    form.noteUser = request.user
+                    note.noteTimestamp = datetime.datetime.now()
+                    note.noteSlug = note.noteTitle
+                    form.save()
+                    return redirect('dashboard')
+            else:
+                update_note_form_data = update_note_form(instance = updatedNote)
+                return render(request, 'note_link/update_note.html', {'update_note_form_data': update_note_form_data})
+        else:
+            return render(request, 'perasis/not_owner.html') #TODO
     else:
         return render(request,'otherPages/not_authenticaded.html')
