@@ -106,3 +106,16 @@ def update_note(request, id):
             return render(request, 'perasis/not_owner.html') #TODO
     else:
         return render(request,'otherPages/not_authenticaded.html')
+
+
+def delete_note(request, id):
+    deletedNote = get_object_or_404(note, id=id)
+    if request.user.is_authenticated:
+        if deletedNote.noteUser == request.user:
+            deletedNote.delete()
+            return redirect('dashboard')
+        else:
+            return render(request,'perasis/not_owner.html') #TODO
+    else:
+        # if user is not authenticated inform him of that
+        return render(request, 'otherPages/not_authenticaded.html')
