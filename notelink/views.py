@@ -94,9 +94,9 @@ def update_note(request, id):
                 if update_note_form_data.is_valid():
                     form = update_note_form_data.save(commit=False)
                     form.id = id
+                    form.noteTimestamp = datetime.datetime.now()
                     form.noteUser = request.user
-                    note.noteTimestamp = datetime.datetime.now()
-                    note.noteSlug = note.noteTitle
+                    form.noteSlug = note.noteTitle
                     form.save()
                     return redirect('dashboard')
             else:
