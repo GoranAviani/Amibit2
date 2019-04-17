@@ -38,6 +38,8 @@
                     <a href ="{% url 'update_note' note.id %}" class="btn btn-white-blue-special btn-100percent">
                       Update
                     </a>
+                    <a href="{% url 'delete_note' note.id %}" class='btn btn-danger' onclick="return confirmNoteDeletion()">Delete</a>
+           
                   </div>
                   </div>
               {% endfor %}
@@ -67,7 +69,7 @@
                 <a href ="{% url 'update_link' link.id %}" class="btn btn-white-blue pull-left col-md-5 col-xs-12">
                   Update
                 </a>
-                  <a href="{% url 'delete_link' link.id %}" class='btn btn-danger' onclick="return confirmaDeletion()">Delete</a>
+                  <a href="{% url 'delete_link' link.id %}" class='btn btn-danger' onclick="return confirmLinkDeletion()">Delete</a>
             </div>
             
     
