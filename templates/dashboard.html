@@ -13,16 +13,20 @@
           <button onclick="toggle_notes()" class="btn btn-lists btn-3d-blue visible-xs">NOTES</button>
             <div id = ListofNotes class="grid" data-isotope='{ "itemSelector": ".grid-item", "layoutMode": "fitRows" }'>
               <div class="grid">
+                  
+                      
+                    
                 {% for note in queryUserNote %}
-                  <div class="grid-item ">
-                    <a href ="{% url 'update_note' note.id %}" class="btn btn-danger btn-100percent">{{note.noteTitle}}
+                <div class="grid-item ">
+                    <a href ="{% url 'update_note' note.id %}" class="btn note-button btn-100percent">
+                      {{note.noteTitle}}
                       <div class="dashboard-note-text">
                         {{ note.noteText|truncatewords:6|linebreaks }}
                       </div>
                       <li>
                         {{ note.noteTimestamp }}
                       </li>
-                    </a>     
+                    </a>  
                     <br>
                     <div class="col-md-12 col-xs-12">
                     <a href ="{% url 'update_note' note.id %}" class="btn btn-white-blue-special btn-100percent">
@@ -31,7 +35,9 @@
                     <a href="{% url 'delete_note' note.id %}" class='btn btn-danger' onclick="return confirmNoteDeletion()">Delete</a>
            
                   </div>
-                  </div>
+
+                </div>
+     
               {% endfor %}
             </div>
            </div>
@@ -45,7 +51,7 @@
 
     <div id = LinkContainer class="col-md-3 col-xs-12">
         <a href ="{% url 'create_link' %}" class="btn btn-main-orange-link btn-3d-orange col-md-12 col-xs-12" >
-            Create link
+            Create a link...
         </a>
         <div class="links-list-container">
           {% if queryUserLink %}
