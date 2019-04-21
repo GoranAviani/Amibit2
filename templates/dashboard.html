@@ -17,12 +17,13 @@
                       
                     
                 {% for note in queryUserNote %}
-                <div class="grid-item ">
+                <div class="grid-item">
                     <a href ="{% url 'update_note' note.id %}" class="btn note-button btn-100percent">
-                      {{note.noteTitle}}
+                      <h1>{{note.noteTitle}}</h1>
                       <div class="dashboard-note-text">
                         {{ note.noteText|truncatewords:6|linebreaks }}
                       </div>
+                      <br>
                       <li>
                         {{ note.noteTimestamp }}
                       </li>
