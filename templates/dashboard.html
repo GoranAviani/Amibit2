@@ -2,21 +2,10 @@
 
 
 {% block content %}
-
-    this is dashboard
-
-    {% if user.is_authenticated %}
-        
-        <li><a href="{% url 'logout' %}">Logout</a></li>
-    {% else %}
-        <a href="{% url 'login' %}">You are not logged in</a>
-    {% endif %}
-
-
     <div id = NoteContainer class="col-md-9 col-xs-12">
       <div class="col-md-12 col-xs-12">
         <a href ="{% url 'create_note' %}" class="btn btn-main-orange-note btn-3d-orange pull-left col-md-4 col-xs-12">
-          Create note
+          Take a note...
         </a>
       </div>
         {% if queryUserNote %}
@@ -26,13 +15,14 @@
               <div class="grid">
                 {% for note in queryUserNote %}
                   <div class="grid-item ">
-                    <a href ="{% url 'update_note' note.id %}" class="btn btn-blue-title btn-100percent">{{note.noteTitle}}</a>
-                    <div class="dashboard-note-text">
-                      {{ note.noteText|truncatewords:6|linebreaks }}
-                    </div>
-                    <li>
-                      {{ note.noteTimestamp }}
-                    </li>
+                    <a href ="{% url 'update_note' note.id %}" class="btn btn-danger btn-100percent">{{note.noteTitle}}
+                      <div class="dashboard-note-text">
+                        {{ note.noteText|truncatewords:6|linebreaks }}
+                      </div>
+                      <li>
+                        {{ note.noteTimestamp }}
+                      </li>
+                    </a>     
                     <br>
                     <div class="col-md-12 col-xs-12">
                     <a href ="{% url 'update_note' note.id %}" class="btn btn-white-blue-special btn-100percent">
