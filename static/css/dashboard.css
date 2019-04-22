@@ -36,23 +36,33 @@
     }
     .note-button{ 
       background: #fff;
-      border-radius: 4px;
-      box-shadow: 0 2px 5px #ccc;
+      
+      
       margin-left: 10px;
       margin-bottom: 16px;
       width: 100%;
-      color: #000000;   
-      
-      
+
+
+
+
+
+   
+     
+    
     }
-  
+    .note-button:hover {
+        
+        -webkit-box-shadow: 2px 2px 6px 3px rgba(189,189,189,0.88);
+        -moz-box-shadow: 2px 2px 6px 3px rgba(189,189,189,0.88);
+        box-shadow: 2px 2px 6px 3px rgba(189,189,189,0.88);
+    }
   
     .dashboard-note-text{
         text-align: left;
         word-wrap:break-word;
         height: 55%;
         overflow: hidden;
-        
+        color: #000000;
       }
     
     .moj-btn{
@@ -73,9 +83,13 @@
         -ms-user-select: none;
         user-select: none;
         background-image: none;
-        border: 1px solid transparent;
-        border-radius: 4px;
+
         
+        border: 1px solid ;
+        border-radius: 4px;
+        border-color: rgb(214, 214, 214);
+
+       
     }
 
     a:hover, a:visited, a:link, a:active {
@@ -83,3 +97,4 @@
         text-decoration: none!important;
  
     }
+
