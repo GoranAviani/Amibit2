@@ -30,8 +30,9 @@
                       </div>
                     </a>
                         
-                        <a href="{% url 'delete_note' note.id %}" class=' btn-danger' onclick="return confirmNoteDeletion()">Delete</a>
-                    </div>
+                        <a href="{% url 'delete_note' note.id %}" class="mybuttonoverlap btn" onclick="return confirmNoteDeletion()"><i class="glyphicon glyphicon-trash"></i> </a>
+
+                      </div>
                 </div>
      
               {% endfor %}

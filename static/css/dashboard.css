@@ -99,3 +99,22 @@
  
     }
 
+
+
+
+
+
+
+
+
+
+
+    .mybuttonoverlap{
+        
+        float:right;
+        display: none;
+        	
+    }
+    .note-button:hover .mybuttonoverlap{ 
+        display:block;
+    }
