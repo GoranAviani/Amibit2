@@ -101,20 +101,12 @@
 
 
 
-
-
-
-
-
-
-
-
-    .mybuttonoverlap{
-        
+    .note-control-buttons{
+        color:  rgb(172, 172, 172);
         float:right;
         display: none;
         	
     }
-    .note-button:hover .mybuttonoverlap{ 
+    .note-button:hover .note-control-buttons{ 
         display:block;
     }
