@@ -17,6 +17,10 @@
         .note-button{
             height: 250px;
         }
+
+        .dashboard-note-text{
+            margin-bottom: 8px;
+        }
   
     }
     @media (max-width: 768px) {
