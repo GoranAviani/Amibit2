@@ -54,6 +54,7 @@
     .dashboard-note-text{
         text-align: left;
         word-wrap:break-word;
+        
       }
     
     .moj-btn{
@@ -76,4 +77,11 @@
         background-image: none;
         border: 1px solid transparent;
         border-radius: 4px;
+        
+    }
+
+    a:hover, a:visited, a:link, a:active {
+
+        text-decoration: none!important;
+ 
     }
