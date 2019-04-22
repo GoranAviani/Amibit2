@@ -26,17 +26,14 @@
                       <div class="dashboard-note-text">
                         {{ note.noteText}}
                       </div>
-                     
-
-                    </a>  
-                    <br>
-                    <div class="col-md-12 col-xs-12">
-                    <a href ="{% url 'update_note' note.id %}" class="btn btn-white-blue-special btn-100percent">
-                      Update
                     </a>
-                    <a href="{% url 'delete_note' note.id %}" class='btn btn-danger' onclick="return confirmNoteDeletion()">Delete</a>
+                        
+                        <a href="{% url 'delete_note' note.id %}" class=' btn-danger' onclick="return confirmNoteDeletion()">Delete</a>
            
-                  </div>
+                      
+
+                      
+                    <br>
 
                 </div>
      
