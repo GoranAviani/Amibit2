@@ -6,14 +6,16 @@
         .grid-item {
           float: left;
           width: 23%;
-          margin-right: 10px;
-  
-         
+        
+          margin-right: 10px;  
         }
     
         .note-button h1{
           font-size: 20px;
           margin-bottom: 16px;
+        }
+        .note-button{
+            height: 250px;
         }
   
     }
@@ -32,16 +34,46 @@
           font-size: 16px;
           margin-bottom: 10px;
         }
+        .note-button{
+            height: 150px;
+        }
     }
-    .note-button{
-      color: #000000; 
+    .note-button{ 
       background: #fff;
       border-radius: 4px;
       box-shadow: 0 2px 5px #ccc;
+      margin-left: 10px;
       margin-bottom: 16px;
       width: 100%;
-      float: left;
+      color: #000000;   
+      overflow: hidden;
+      
     }
   
   
-  
+    .dashboard-note-text{
+        text-align: left;
+        word-wrap:break-word;
+      }
+    
+    .moj-btn{
+        display: inline-block;
+        padding: 6px 12px;
+        margin-bottom: 0;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.42857143;
+        text-align: center;
+        white-space: wrap;     /* Only difference from notmal btn- used for note text button */
+        vertical-align: middle;
+        -ms-touch-action: manipulation;
+        touch-action: manipulation;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        background-image: none;
+        border: 1px solid transparent;
+        border-radius: 4px;
+    }
