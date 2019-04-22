@@ -1,0 +1,47 @@
+
+/* Notes in DASHBOARD*/
+
+    /* ---- .grid-item ---- */
+    @media (min-width: 768px) {
+        .grid-item {
+          float: left;
+          width: 23%;
+          margin-right: 10px;
+  
+         
+        }
+    
+        .note-button h1{
+          font-size: 20px;
+          margin-bottom: 16px;
+        }
+  
+    }
+    @media (max-width: 768px) {
+        .grid-item {
+          float: left;
+          width: 100%;
+          border: 1px solid #888888;
+          margin-right: 2px;
+          margin-bottom: 2px;
+          white-space: nowrap;
+          overflow: hidden;
+          background-color: #ffffff;
+        }
+        .note-button h1{
+          font-size: 16px;
+          margin-bottom: 10px;
+        }
+    }
+    .note-button{
+      color: #000000; 
+      background: #fff;
+      border-radius: 4px;
+      box-shadow: 0 2px 5px #ccc;
+      margin-bottom: 16px;
+      width: 100%;
+      float: left;
+    }
+  
+  
+  
