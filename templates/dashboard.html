@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load static %}
 
 {% block content %}
     <div id = NoteContainer class="col-md-9 col-xs-12">
@@ -29,7 +29,7 @@
                         {{ note.noteText}}
                       </div>
                     </a>
-                    <a href="#" class="btn note-upper-left-button" src= "{% static 'landing/img/logo.png' %}"></a>    
+                    <img href="#" class="btn note-upper-left-button" src="{% static 'images/notelink/pen.png' %}"/>    
                     <a href="{% url 'delete_note' note.id %}" class="btn note-control-buttons" onclick="return confirmNoteDeletion()"><i class="glyphicon glyphicon-trash"></i> </a>    
                     <a href="{% url 'update_note' note.id %}" class="btn note-control-buttons"><i class="glyphicon glyphicon-pencil"></i> </a>
                         
