@@ -5,14 +5,13 @@
     @media (min-width: 768px) {
         .grid-item {
           float: left;
-          width: 23%;
-        
+          width: 23%;   
           margin-right: 10px;  
         }
     
         .note-button h1{
           font-size: 20px;
-          margin-bottom: 16px;
+          margin-bottom: 6px;
         }
         .note-button{
             height: 250px;
@@ -21,18 +20,15 @@
     }
     @media (max-width: 768px) {
         .grid-item {
-          float: left;
-          width: 100%;
-          border: 1px solid #888888;
-          margin-right: 2px;
-          margin-bottom: 2px;
-          white-space: nowrap;
-          overflow: hidden;
-          background-color: #ffffff;
+            float: left;
+            width: 100%;   
+            margin-bottom: 20px;  
+          
+          
         }
         .note-button h1{
           font-size: 16px;
-          margin-bottom: 10px;
+          margin-bottom: 3px;
         }
         .note-button{
             height: 150px;
@@ -46,7 +42,7 @@
       margin-bottom: 16px;
       width: 100%;
       color: #000000;   
-      overflow: hidden;
+      
       
     }
   
@@ -54,7 +50,8 @@
     .dashboard-note-text{
         text-align: left;
         word-wrap:break-word;
-        
+        height: 55%;
+        overflow: hidden;
       }
     
     .moj-btn{
