@@ -52,11 +52,20 @@
         <button onclick="toggle_links()" class="btn btn-lists btn-3d-blue visible-xs">LINKS</button>
         <div id = ListofLinks>
           {% for link in queryUserLink %}
+          
             <a href="{{link.linkUrl}}" target="_self" class="moj-btn link-button btn-100percent">          
               <span class="pull-left">{{ link.linkName }}</span>&nbsp;
             </a>        
-          {% endfor %}
+            <a href ="{% url 'update_link' link.id %}" class="btn btn-white-blue pull-right col-md-5 col-xs-12">
+                Update
+              </a>
+              <a href="{% url 'delete_link' link.id %}" class='btn btn-danger pull-right' onclick="return confirmLinkDeletion()">
+                Delete
+              </a>
+        
+            {% endfor %}
         </div>
+        
       {% else %}
           <p>There are no links available. Click <a href="{% url 'create_link' %}">here</a> to add links</p>
       {% endif %}
