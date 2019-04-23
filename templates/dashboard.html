@@ -43,8 +43,6 @@
         {% endif %}
   </div>
 
-
-
   <div id = LinkContainer class="col-md-3 col-xs-12">
     <a href ="{% url 'create_link' %}" class="btn btn-main-orange-link btn-3d-orange col-md-12 col-xs-12" >
       Create a link...
@@ -54,27 +52,19 @@
         <button onclick="toggle_links()" class="btn btn-lists btn-3d-blue visible-xs">LINKS</button>
         <div id = ListofLinks>
           {% for link in queryUserLink %}
-            <div class="col-md-12 col-xs-12 moj-btn link-button">
-              <a href="{{link.linkUrl}}" target="_self" class="btn btn-blue-title btn-100percent">
-                <span class="pull-left">{{ link.linkName }}</span>&nbsp;
-              </a>
-            </div>
-            <a href ="{% url 'update_link' link.id %}" class="btn btn-white-blue pull-right col-md-5 col-xs-12">
-              Update
-            </a>
-            <a href="{% url 'delete_link' link.id %}" class='btn btn-danger pull-right' onclick="return confirmLinkDeletion()">
-              Delete
-            </a>
+            <a href="{{link.linkUrl}}" target="_self" class="moj-btn link-button btn-100percent">          
+              <span class="pull-left">{{ link.linkName }}</span>&nbsp;
+            </a>        
           {% endfor %}
         </div>
-        {% else %}
+      {% else %}
           <p>There are no links available. Click <a href="{% url 'create_link' %}">here</a> to add links</p>
-        {% endif %}
+      {% endif %}
       </div>
     </div>
   </div>
 
-
+  
 
 
 {% endblock %}
