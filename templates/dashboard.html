@@ -26,9 +26,12 @@
                         </div>
                       </a>
                       <img href="#" class="btn note-upper-left-button" src="{% static 'images/notelink/pen.png' %}"/>    
-                      <a href="{% url 'delete_note' note.id %}" class="btn note-control-buttons" onclick="return confirmNoteDeletion()"><i class="glyphicon glyphicon-trash"></i> </a>    
-                      <a href="{% url 'update_note' note.id %}" class="btn note-control-buttons"><i class="glyphicon glyphicon-pencil"></i>
-                    </a>
+                      <a href="{% url 'delete_note' note.id %}" class="btn note-control-buttons" onclick="return confirmNoteDeletion()">
+                        <i class="glyphicon glyphicon-trash"></i> 
+                      </a>    
+                      <a href="{% url 'update_note' note.id %}" class="btn note-control-buttons">
+                        <i class="glyphicon glyphicon-pencil"></i>
+                      </a>
                     </div>                
                 </div>  
               {% endfor %}
@@ -49,15 +52,21 @@
         <button onclick="toggle_links()" class="btn btn-lists btn-3d-blue visible-xs">LINKS</button>
         <div id = ListofLinks>
           {% for link in queryUserLink %}
-            <a href="{{link.linkUrl}}" target="_self" class="moj-btn link-button btn-100percent">          
-              <span class="pull-left">{{ link.linkName }}</span>&nbsp;
-            </a>        
-            <a href ="{% url 'update_link' link.id %}" class="btn btn-white-blue pull-right col-md-5 col-xs-12">
+
+              <div class="moj-btn link-button btn-100percent" class = "col-md-12 col-xs-12">
+
+            <a href="{{link.linkUrl}}" target="_self">          
+                <span class="pull-left">{{ link.linkName }}</span>&nbsp;         
+             
+          
+          <a href ="{% url 'update_link' link.id %}" class="btn btn-white-blue pull-right col-md-5 col-xs-12">
               Update
             </a>
             <a href="{% url 'delete_link' link.id %}" class='btn btn-danger pull-right' onclick="return confirmLinkDeletion()">
               Delete
             </a>
+          
+        </div>
           {% endfor %}
         </div>
       {% else %}

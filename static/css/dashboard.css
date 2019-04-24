@@ -21,7 +21,15 @@
         .dashboard-note-text{
             margin-bottom: 8px;
         }
-  
+        .link-button{ 
+            height: 60px;
+        }
+
+        
+
+
+
+
     }
     @media (max-width: 768px) {
         .grid-item {
@@ -36,6 +44,12 @@
         .note-button{
             height: 204px;
         }
+        .link-button{ 
+            height: 40px;
+          }
+
+
+
     }
     .note-button{ 
       background: #fff;
