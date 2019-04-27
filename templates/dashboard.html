@@ -55,14 +55,14 @@
 
               <div class = "">
 
-            <a href="{{link.linkUrl}}" target="_self" class="moj-btn link-button btn-100percent col-md-12 col-xs-12">          
+            <a href="{{link.linkUrl}}" target="_self" class="moj-btn link-button btn-100percent col-md-8 col-xs-8">          
                 <span class="pull-left">{{ link.linkName }}</span>&nbsp;         
              
               
-          <a href ="{% url 'update_link' link.id %}" class="btn btn-white-blue pull-right col-md-5 col-xs-12">
+          <a href ="{% url 'update_link' link.id %}" class="moj-btn link-button col-md-2 col-xs-2">
               Update
             </a>
-            <a href="{% url 'delete_link' link.id %}" class='btn btn-danger pull-right' onclick="return confirmLinkDeletion()">
+            <a href="{% url 'delete_link' link.id %}" class='moj-btn link-button col-md-2 col-xs-2' onclick="return confirmLinkDeletion()">
               Delete
             </a>
           
