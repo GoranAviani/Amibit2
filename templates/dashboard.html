@@ -53,12 +53,12 @@
         <div id = ListofLinks>
           {% for link in queryUserLink %}
 
-              <div class="moj-btn link-button btn-100percent" class = "col-md-12 col-xs-12">
+              <div class = "">
 
-            <a href="{{link.linkUrl}}" target="_self">          
+            <a href="{{link.linkUrl}}" target="_self" class="moj-btn link-button btn-100percent col-md-12 col-xs-12">          
                 <span class="pull-left">{{ link.linkName }}</span>&nbsp;         
              
-          
+              
           <a href ="{% url 'update_link' link.id %}" class="btn btn-white-blue pull-right col-md-5 col-xs-12">
               Update
             </a>
@@ -66,7 +66,7 @@
               Delete
             </a>
           
-        </div>
+          </div> 
           {% endfor %}
         </div>
       {% else %}
