@@ -75,7 +75,7 @@ def create_note(request):
             if create_note_form_data.is_valid():
                 form = create_note_form_data.save(commit=False)
                 form.noteUser = request.user
-                #Check does the link have http or https in the beginning
+                form.noteSlug = check_note_slug(form.noteTitle)
                 form.save()
                # messages.success(request, 'Note saved!',extra_tags='create_note')
             return redirect('dashboard')
@@ -97,7 +97,7 @@ def update_note(request, id):
                     form.id = id
                     form.noteTimestamp = datetime.datetime.now()
                     form.noteUser = request.user
-                    form.noteSlug = note.noteTitle
+                    form.noteSlug = check_note_slug(form.noteTitle)
                     form.save()
                     return redirect('dashboard')
             else:
