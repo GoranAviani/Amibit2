@@ -6,6 +6,7 @@ from .forms import (
 )
 from .myModules.link_calculations import check_url_link
 from .models import link, note
+from .myModules.note_calculations import check_note_slug
 
 import datetime
 
