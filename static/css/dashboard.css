@@ -68,8 +68,8 @@
   
     .link-button{ 
         background: #fff;
-        margin-bottom: 20px;
-        
+        margin-bottom: 10px;
+       
       }
 
     .link-button:hover {     
@@ -89,7 +89,7 @@
     .moj-btn{
         display: inline-block;
         padding: 6px 12px;
-        margin-bottom: 0;
+       
         font-size: 14px;
         font-weight: 400;
         line-height: 1.42857143;
@@ -145,3 +145,6 @@
         display:block;
     }
 
+    .padding-bottom-10px{
+        padding-bottom: 10px !important;
+    }
