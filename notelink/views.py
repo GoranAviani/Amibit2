@@ -49,7 +49,7 @@ def update_link(request, id):
                 update_link_form_data = create_link_form(instance = updatedLink)
                 return render(request, 'note_link/update_link.html', {'update_link_form_data': update_link_form_data})
         else:
-            return render(request, 'perasis/not_owner.html') #TODO
+            return render(request, 'otherPages/not_owner.html') #TODO
     else:
         return render(request,'otherPages/not_authenticaded.html')
 
@@ -62,7 +62,7 @@ def delete_link(request, id):
             deletedLink.delete()
             return redirect('dashboard')
         else:
-            return render(request,'perasis/not_owner.html') #TODO
+            return render(request,'otherPages/not_owner.html') #TODO
     else:
         # if user is not authenticated inform him of that
         return render(request, 'otherPages/not_authenticaded.html')
@@ -104,7 +104,7 @@ def update_note(request, id):
                 update_note_form_data = update_note_form(instance = updatedNote)
                 return render(request, 'note_link/update_note.html', {'update_note_form_data': update_note_form_data})
         else:
-            return render(request, 'perasis/not_owner.html') #TODO
+            return render(request, 'otherPages/not_owner.html') #TODO
     else:
         return render(request,'otherPages/not_authenticaded.html')
 
@@ -116,7 +116,7 @@ def delete_note(request, id):
             deletedNote.delete()
             return redirect('dashboard')
         else:
-            return render(request,'perasis/not_owner.html') #TODO
+            return render(request,'otherPages/not_owner.html') #TODO
     else:
         # if user is not authenticated inform him of that
         return render(request, 'otherPages/not_authenticaded.html')
