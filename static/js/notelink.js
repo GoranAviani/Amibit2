@@ -10,7 +10,7 @@ window.onload = function() {
   
 
 
-  function toggle_notes() {
+function toggle_notes() {
     var x = document.getElementById("DashboardNotes");
     if (x.style.display === "none") {
         x.style.display = "block";
@@ -33,16 +33,16 @@ function toggle_links() {
 
 function confirmLinkDeletion() {
     var res = confirm("You are about to delete a link. Are you sure?");
-      if (res) {
-          return true;
-      } else {
-          return false;
-      }
+    if (res) {
+        return true;
+    } else {
+        return false;
+    }
   }
 
 
 function confirmNoteDeletion() {
-var res = confirm("You are about to delete a note. Are you sure?");
+    var res = confirm("You are about to delete a note. Are you sure?");
     if (res) {
         return true;
     } else {
