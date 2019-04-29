@@ -11,7 +11,7 @@
         {% if queryUserNote %}
         <div  class="col-md-12 col-xs-12 notes-list-container">
           <button onclick="toggle_notes()" class="btn btn-lists btn-3d-blue visible-xs">NOTES</button>
-            <div id = ListofNotes class="grid" data-isotope='{ "itemSelector": ".grid-item", "layoutMode": "fitRows" }'>
+            <div id = DashboardNotes class="grid" data-isotope='{ "itemSelector": ".grid-item", "layoutMode": "fitRows" }'>
               <div class="grid">                  
               {% for note in queryUserNote %}
                 <div class="grid-item">
@@ -50,7 +50,7 @@
     <div class="links-list-container">
       {% if queryUserLink %}
         <button onclick="toggle_links()" class="btn btn-lists btn-3d-blue visible-xs">LINKS</button>
-        <div id = ListofLinks>
+        <div id = DashboardLinks>
           {% for link in queryUserLink %}
 
               <div class = "">
