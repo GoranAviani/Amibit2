@@ -254,49 +254,14 @@
 	</header><!--/ Header end -->
 
 	<!-- Slider start -->
-	<section id="home" class="no-padding">	
-    	<div id="main-slide" class="cd-hero">
-			<ul class="cd-hero-slider">
-				<li class="selected">
-					<div class="overlay2">
-						<img class="" src="images/slider/bg1.jpg" alt="slider">
-					</div>
-					<div class="cd-full-width">
-						<h2>Need To Invent The Future!</h2>
-						<h3>We Making Difference To Great Things Possible</h3>
-						<a href="#0" class="btn btn-primary white cd-btn">Start Now</a>
-						<a href="#0" class="btn btn-primary solid cd-btn">Learn More</a>
-					</div> <!-- .cd-full-width -->
-				</li>
-				<li>
-					<div class="overlay2">
-						<img class="" src="images/slider/bg2.jpg" alt="slider">
-					</div>
-					<div class="cd-half-width">
-						<h2>How Big Can You Dream?</h2>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. In consequatur cumque natus!</p>
-						<a href="#0" class="cd-btn btn btn-primary solid">Take a Tour</a>
-					</div> <!-- .cd-half-width -->
 
-					<div class="cd-half-width cd-img-container">
-						<img src="images/slider/bg-thumb1.png" alt="">
-					</div> <!-- .cd-half-width.cd-img-container -->
-				</li>
-				<li>
-					<div class="overlay2">
-						<img class="" src="images/slider/bg3.jpg" alt="slider">
-					</div>
-					<div class="cd-half-width cd-img-container img-right">
-						<img src="images/slider/bg-thumb2.png" alt="">
-					</div> <!-- .cd-half-width.cd-img-container -->
-					<div class="cd-half-width">
-						<h2>Your Challenge is Our Progress</h2>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. In consequatur cumque natus!</p>
-						<a href="#0" class="cd-btn btn btn-primary white">Start</a>
-						<a href="#0" class="cd-btn btn secondary btn-primary solid">Learn More</a>
-					</div> <!-- .cd-half-width -->
-				</li>
-				<li class="cd-bg-video">
+ 
+      
+  
+
+
+
+				<div class="cd-bg-video">
 					<div class="cd-full-width">
 						<h2>WE ARE HERE TO MAKE IT HAPPEN</h2>
 						<h3>We Making Difference To Great Things Possible</h3>
@@ -304,26 +269,20 @@
 						<a href="#0" class="cd-btn btn btn-primary solid">Learn more</a>
 					</div> <!-- .cd-full-width -->
 
-					<div class="cd-bg-video-wrapper" data-video="videos/video">
+					<div class="cd-bg-video-wrapper" data-video="{% static 'videos/video,mp4' %}">
 						<!-- video element will be loaded using jQuery -->
 					</div> <!-- .cd-bg-video-wrapper -->
-				</li>
-			</ul> <!--/ cd-hero-slider -->
+				</div>
+			
 
-		<div class="cd-slider-nav">
-			<nav>
-				<span class="cd-marker item-1"></span>
-				<ul>
-					<li class="selected"><a href="#0"><i class="fa fa-bicycle"></i> Invent</a></li>
-					<li><a href="#0"><i class="fa fa-hotel"></i> Dream</a></li>
-					<li><a href="#0"><i class="fa fa-android"></i> Tech</a></li>
-					<li class="video"><a href="#0"><i class="fa fa-video-camera"></i> Video</a></li>
-				</ul>
-			</nav> 
-		</div> <!-- .cd-slider-nav -->
+	
 
-		</div><!--/ Main slider end -->    	
-    </section> <!--/ Slider end -->
+
+
+
+
+
+	
 
 
     <!-- Service box start -->
@@ -1125,34 +1084,34 @@
 	================================================== -->
 
 	<!-- initialize jQuery Library -->
-	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="{% static 'js/js/jquery.js' %}"></script>
 	<!-- Bootstrap jQuery -->
-	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="{% static 'js/js/bootstrap.min.js' %}"></script>
 	<!-- Style Switcher -->
-	<script type="text/javascript" src="js/style-switcher.js"></script>
+	<script type="text/javascript" src="{% static 'js/js/style-switcher.js' %}"></script>
 	<!-- Owl Carousel -->
-	<script type="text/javascript" src="js/owl.carousel.js"></script>
+	<script type="text/javascript" src="{% static 'js/js/owl.carousel.js' %}"></script>
 	<!-- PrettyPhoto -->
-	<script type="text/javascript" src="js/jquery.prettyPhoto.js"></script>
+	<script type="text/javascript" src="{% static 'js/js/jquery.prettyPhoto.js' %}"></script>
 	<!-- Bxslider -->
-	<script type="text/javascript" src="js/jquery.flexslider.js"></script>
+	<script type="text/javascript" src="{% static 'js/js/jquery.flexslider.js' %} "></script>
 	<!-- CD Hero slider -->
-	<script type="text/javascript" src="js/cd-hero.js"></script>
+	<script type="text/javascript" src="{% static 'js/js/cd-hero.js' %}"></script>
 	<!-- Isotope -->
-	<script type="text/javascript" src="js/isotope.js"></script>
-	<script type="text/javascript" src="js/ini.isotope.js"></script>
+	<script type="text/javascript" src="{% static 'js/js/isotope.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/js/ini.isotope.js' %}"></script>
 	<!-- Wow Animation -->
-	<script type="text/javascript" src="js/wow.min.js"></script>
+	<script type="text/javascript" src="{% static 'js/js/wow.min.js' %}"></script>
 	<!-- SmoothScroll -->
-	<script type="text/javascript" src="js/smoothscroll.js"></script>
+	<script type="text/javascript" src="{% static 'js/js/smoothscroll.js' %}"></script>
 	<!-- Eeasing -->
-	<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+	<script type="text/javascript" src="{% static 'js/js/jquery.easing.1.3.js' %}"></script>
 	<!-- Counter -->
-	<script type="text/javascript" src="js/jquery.counterup.min.js"></script>
+	<script type="text/javascript" src="{% static 'js/js/jquery.counterup.min.js' %}"></script>
 	<!-- Waypoints -->
-	<script type="text/javascript" src="js/waypoints.min.js"></script>
+	<script type="text/javascript" src="{% static 'js/js/waypoints.min.js' %}"></script>
 	<!-- Template custom -->
-	<script type="text/javascript" src="js/custom.js"></script>
+	<script type="text/javascript" src="{% static 'js/js/custom.js' %}"></script>
 	</div><!-- Body inner end -->
 
 
