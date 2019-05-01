@@ -275,9 +275,12 @@ Single slide style
  
  @media only screen and (max-width: 1170px) {
 	.cd-hero-slider1 {
-	  height: 420px;
+	  height: 520px;
 	}
-	
+	.cd-hero-slider1 .cd-full-width,
+	.cd-hero-slider1 .cd-half-width {
+	  padding-top: 120px;
+	}
   }
 
 
