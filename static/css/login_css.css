@@ -126,7 +126,7 @@
 
 
   @media only screen and (max-width: 768px) {
-
+	
 	.cd-hero-slider1 .cd-full-width,
    .cd-hero-slider1 .cd-half-width {
 	 padding-top: 100px;
@@ -135,10 +135,7 @@
 	   height: 400px;
 	}
  
-   .overlay2 img {
-	   width: auto;
-	   height: 400px;
-	}
+   
 	.cd-hero-slider1 h2 {
 	  font-size: 2em !important;
 	}
@@ -159,9 +156,7 @@
 	   margin-top: 10px !important;
 	}
  
-	.cd-slider-nav a i {
-	  font-size: 20px !important;
-	}
+
  
  }
  
@@ -280,3 +275,13 @@ Single slide style
 	font-size: 1.4rem;
 	line-height: 1.4;
   }
+
+
+
+  @media only screen and (min-width: 1170px) {
+	.cd-hero-slider1 .cd-full-width,
+	.cd-hero-slider1 .cd-half-width {
+	  padding-top: 220px;
+	}
+
+}
