@@ -165,7 +165,12 @@
 	 height: 720px;
    }
  }
- 
+ @media only screen and (min-width: 768px) {
+	.cd-hero-slider1 {
+	  height: 420px;
+	}
+	
+  }
 
 
 
@@ -285,3 +290,4 @@ Single slide style
 	}
 
 }
+
