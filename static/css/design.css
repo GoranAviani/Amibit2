@@ -1,0 +1,194 @@
+
+
+
+
+
+.cd-hero-slider1 {
+	position: relative;
+	overflow: hidden;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+  }
+  .cd-hero-slider1 li {
+	
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+
+  }
+
+
+
+
+
+ /* -------------------------------- 
+
+Single slide style
+
+-------------------------------- */
+.cd-hero-slider1 li {
+	background-position: center center;
+	background-size: cover;
+	background-repeat: no-repeat;
+  }
+  .cd-hero-slider1 li:first-of-type {
+	background-color: #2c343b;
+  }
+
+
+
+  .cd-hero-slider1 li:nth-of-type(4) {
+	background-color: #2c343b;
+	background-image: url("../images/slider/video-replace-mobile.jpg");
+  }
+  
+  .cd-hero-slider1 .cd-full-width,
+  .cd-hero-slider1 .cd-half-width {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	z-index: 100;
+	left: 0;
+	top: 0;
+	/* this padding is used to align the text */
+	text-align: center;
+	/* Force Hardware Acceleration in WebKit */
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+	-webkit-transform: translateZ(0);
+	-moz-transform: translateZ(0);
+	-ms-transform: translateZ(0);
+	-o-transform: translateZ(0);
+	transform: translateZ(0);
+  }
+  .cd-hero-slider1 .cd-img-container {
+	/* hide image on mobile device 
+	display: block;*/
+  }
+
+
+
+
+
+
+  .cd-hero-slider1 .cd-bg-video-wrapper {
+	/* hide video on mobile device */
+	
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+  }
+  
+
+  .cd-hero-slider1 .cd-bg-video-wrapper video {
+	/* you won't see this element in the html, but it will be injected using js */
+	display: block;
+	min-height: 100%;
+	min-width: 100%;
+	max-width: none;
+	height: auto;
+	width: auto;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	bottom: auto;
+	right: auto;
+	-webkit-transform: translateX(-50%) translateY(-50%);
+	-moz-transform: translateX(-50%) translateY(-50%);
+	-ms-transform: translateX(-50%) translateY(-50%);
+	-o-transform: translateX(-50%) translateY(-50%);
+	transform: translateX(-50%) translateY(-50%);
+  }
+
+
+
+  .cd-hero-slider1 h2, .cd-hero-slider1 p {
+	text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+	line-height: 1.2;
+	margin: 0 auto 14px;
+	color: #ffffff;
+	width: 90%;
+	max-width: 400px;
+  }
+  .cd-hero-slider1 h2 {
+	font-size: 48px;
+  }
+  
+  .cd-hero-slider1 h3 {
+	font-size: 24px;
+	color: #fff;
+  }
+  .cd-hero-slider1 p {
+	font-size: 1.4rem;
+	line-height: 1.4;
+  }
+
+
+
+
+
+
+  @media only screen and (max-width: 768px) {
+	
+	.cd-hero-slider1 .cd-full-width,
+   .cd-hero-slider1 .cd-half-width {
+	 padding-top: 100px;
+   }
+	.cd-hero-slider1 {
+	   height: 400px;
+	}
+ 
+   
+	.cd-hero-slider1 h2 {
+	  font-size: 2em !important;
+	}
+	.cd-hero-slider1 h3, .cd-hero-slider1 p{
+	   display: none;
+	}
+ 
+	.cd-hero-slider1 .cd-half-width {
+	 width: 80%;
+	}
+ 
+	.cd-hero-slider1 .cd-img-container {
+	   display: none;
+	}
+ 
+ 
+	.cd-hero-slider1 .cd-btn{
+	   margin-top: 10px !important;
+	}
+ 
+
+ 
+ }
+ 
+ @media only screen and (max-width: 1170px) {
+	.cd-hero-slider1 {
+	  height: 520px;
+	}
+	.cd-hero-slider1 .cd-full-width,
+	.cd-hero-slider1 .cd-half-width {
+	  padding-top: 120px;
+	}
+  }
+
+
+
+
+  @media only screen and (min-width: 1170px) {
+	.cd-hero-slider1 {
+		height: 720px;
+	  }
+
+	.cd-hero-slider1 .cd-full-width,
+	.cd-hero-slider1 .cd-half-width {
+	  padding-top: 180px;
+	}
+
+}
