@@ -12,10 +12,11 @@
 .panel-login {
 	background: rgb(204, 204, 204); /* Fallback for older browsers without RGBA-support */
     background: rgba(204, 204, 204, 0.1);
-	border-color: #ccc;
-	-webkit-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
-	-moz-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
-	box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
+	/* border-color: #ccc;
+	-webkit-box-shadow: 0px 2px 3px 0px rgb(204, 204, 204) !important;
+	-moz-box-shadow: 0px 2px 3px 0px rgb(204, 204, 204) !important;
+	box-shadow: 0px 2px 3px 0px rgb(204, 204, 204) !important;
+	*/
 }
 .panel-login>.panel-heading {
 	
