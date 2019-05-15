@@ -25,15 +25,25 @@
 
 
 
-<!-- Template styles-->
-<link rel="stylesheet" href="{% static 'css/design/style.css' %}">
-	
+	<!-- Template styles-->
+	<link rel="stylesheet" href="{% static 'css/design/style.css' %}">
+	<!-- Responsive styles-->
+	<link rel="stylesheet" href="{% static 'css/design/responsive.css' %}">
+	<!-- Animation -->
+	<link rel="stylesheet" href="{% static 'css/design/animate.css' %}">
+	<!-- Prettyphoto -->
+	<link rel="stylesheet" href="{% static 'css/design/prettyPhoto.css' %}">
+	<!-- Owl Carousel -->
+	<link rel="stylesheet" href="{% static 'css/design/owl.carousel.css' %}">
+	<link rel="stylesheet" href="{% static 'css/design/owl.theme.css' %}">
+	<!-- Flexslider -->
+	<link rel="stylesheet" href="{% static 'css/design/flexslider.css' %}">
+	<!-- Flexslider -->
+	<link rel="stylesheet" href="{% static 'css/design/cd-hero.css' %}">
+	<!-- Style Swicther -->
+	<link id="style-switch" href="{% static 'css/design/presets/preset3.css' %}" media="screen" rel="stylesheet" type="text/css">
 
-<!-- Style Swicther -->
-<link id="style-switch" href="{% static 'css/design/presets/preset3.css' %}" media="screen" rel="stylesheet" type="text/css">
 
-
-	
 
 
 
@@ -47,9 +57,10 @@
     });
   </script>
 -->
-  <nav class="navbar navbar-default navbar-expand-lg navbar-light">
+
+<nav class="navbar navbar-default navbar-expand-lg navbar-light">
     <div class="navbar-header d-flex col">
-      <a class="navbar-brand" href="{% url 'index' %}">ami<b>bit</b>2</a>  		
+      <a class="navbar-brand" href="{% url 'index' %}">ami<b>bit</b>2</a>     
       <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle navbar-toggler ml-auto">
         <span class="navbar-toggler-icon"></span>
         <span class="icon-bar"></span>
@@ -59,80 +70,95 @@
     </div>
     <!-- Collection of nav links, forms, and other content for toggling -->
     <div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
-      <ul class="nav navbar-nav">
-
-        <!-- <li class="nav-item"><a href="#" class="nav-link">Home</a></li>-->
-        <li class="nav-item"><a href="{% url 'about' %}"  class="btn btn-red">About</a></li>			
-       <!-- <li class="nav-item dropdown">
-          <a data-toggle="dropdown" class="nav-link dropdown-toggle" href="#">Services <b class="caret"></b></a>
-          <ul class="dropdown-menu">					
-            <li><a href="#" class="dropdown-item">Web Design</a></li>
-            <li><a href="#" class="dropdown-item">Web Development</a></li>
-            <li><a href="#" class="dropdown-item">Graphic Design</a></li>
-            <li><a href="#" class="dropdown-item">Digital Marketing</a></li>
-          </ul>
-        </li>-->
-         <!--<li class="nav-item active"><a href="#" class="nav-link">Pricing</a></li> -->
-         <!--<li class="nav-item"><a href="#" class="nav-link">Blog</a></li> -->
-        <li class="nav-item"><a href="{% url 'contact' %}" class="nav-link">Contact</a></li>
-      </ul>
+      
       <form class="navbar-form form-inline" action="/search/" method="GET" >
         {% csrf_token %}
-        <div class="input-group search-box">								
+        <div class="input-group search-box">                
           <input type="text" name="search_bar" id="base_search" class="form-control" placeholder="Search here...">
-          <button type="submit" class="input-group-addon" ><i class="material-icons">&#xE8B6;</i></button>   
+          <button type="submit" class="input-group-addon" ><i class="material-icons">&#xE8B6;</i></button>  
         </div>
       </form>
+ 
+       <ul class="nav navbar-nav navbar-right ml-auto">     
+ 
+ 
 
-       <ul class="nav navbar-nav navbar-right ml-auto">			
-      <!--  <li class="nav-item">
-          <a data-toggle="dropdown" class="nav-link dropdown-toggle" href="#">Login</a>
-          <ul class="dropdown-menu form-wrapper">					
-            <li>
-              <form action="/examples/actions/confirmation.php" method="post">
-                <p class="hint-text">Sign in with your social media account</p>
-                <div class="form-group social-btn clearfix">
-                  <a href="#" class="btn btn-primary pull-left"><i class="fa fa-facebook"></i> Facebook</a>
-                  <a href="#" class="btn btn-info pull-right"><i class="fa fa-twitter"></i> Twitter</a>
-                </div>
-                <div class="or-seperator"><b>or</b></div>
-                <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Username" required="required">
-                </div>
-                <div class="form-group">
-                  <input type="password" class="form-control" placeholder="Password" required="required">
-                </div>
-                <input type="submit" class="btn btn-primary btn-block" value="Login">
-                <div class="form-footer">
-                  <a href="#">Forgot Your password?</a>
-                </div>
-              </form>
-            </li>
-          </ul>
-        </li>
-        <li class="nav-item">
-          <a href="#" data-toggle="dropdown" class="btn btn-primary dropdown-toggle get-started-btn mt-1 mb-1">Sign up</a>
-          <ul class="dropdown-menu form-wrapper">					
-            <li>
-              <form action="/examples/actions/confirmation.php" method="post">
-                <p class="hint-text">Fill in this form to create your account!</p>
-                <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Username" required="required">
-                </div>
-                <div class="form-group">
-                  <input type="password" class="form-control" placeholder="Password" required="required">
-                </div>
-                <div class="form-group">
-                  <input type="password" class="form-control" placeholder="Confirm Password" required="required">
-                </div>
-                <div class="form-group">
-                  <label class="checkbox-inline"><input type="checkbox" required="required"> I accept the <a href="#">Terms &amp; Conditions</a></label>
-                </div>
-                <input type="submit" class="btn btn-primary btn-block" value="Sign up">
-              </form>
-            </li>
-          </ul>
-        </li>-->
+
+
+
+
+          <nav class="collapse navbar-collapse clearfix" role="navigation">
+              <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown active">
+                               <a href="#" class="dropdown-toggle text-red" data-toggle="dropdown">Home <i class="fa fa-angle-down"></i></a>
+                               <div class="dropdown-menu">
+                    <ul>
+                                    <li class="active"><a href="index.html">Home 1</a></li>
+                                    <li><a href="index-2.html">Home 2</a></li>
+                                    <li><a href="index-3.html">Home 3</a></li>
+                                    <li><a href="index-4.html">Home 4</a></li>
+                                </ul>
+                            </div>
+                          </li>
+                <li class="dropdown">
+                               <a href="#" class="dropdown-toggle text-red" data-toggle="dropdown">Company <i class="fa fa-angle-down"></i></a>
+                               <div class="dropdown-menu">
+                    <ul>
+                                    <li><a href="about.html">About Us</a></li>
+                                    <li><a href="service.html">Services</a></li>
+                                    <li><a href="career.html">Career</a></li>
+                                    <li><a href="testimonial.html">Testimonials</a></li>
+                                    <li><a href="faq.html">Faq</a></li>
+                                </ul>
+                            </div>
+                          </li>
+                <li class="dropdown">
+                               <a href="#" class="dropdown-toggle text-red" data-toggle="dropdown">Portfolio <i class="fa fa-angle-down"></i></a>
+                               <div class="dropdown-menu">
+                    <ul>
+                                    <li><a href="portfolio-classic.html">Portfolio Classic</a></li>
+                                    <li><a href="portfolio-static.html">Portfolio Static</a></li>
+                                    <li><a href="portfolio-item.html">Portfolio Single</a></li>
+                                </ul>
+                            </div>
+                          </li>
+                          <li class="dropdown">
+                               <a href="#" class="dropdown-toggle text-red" data-toggle="dropdown">Pages <i class="fa fa-angle-down"></i></a>
+                               <div class="dropdown-menu">
+                    <ul>
+                                     <li><a href="team.html">Our Team</a></li>
+                                     <li><a href="about2.html">About Us - 2</a></li>
+                                     <li><a href="service2.html">Services - 2</a></li>
+                                     <li><a href="service-single.html">Services Single</a></li>
+                                     <li><a href="pricing.html">Pricing Table</a></li>
+                                     <li><a href="404.html">404 Page</a></li>
+                                </ul>
+                            </div>
+                          </li>
+                          <li class="dropdown">
+                               <a href="#" class="dropdown-toggle text-red" data-toggle="dropdown">Blog <i class="fa fa-angle-down"></i></a>
+                               <div class="dropdown-menu">
+                    <ul>
+                                      <li><a href="blog-rightside.html">Blog with Sidebar</a></li>
+                                    <li><a href="blog-item.html">Blog Single</a></li>
+                                </ul>
+                            </div>
+                          </li>
+                          <li class="dropdown">
+                               <a href="#" class="dropdown-toggle text-red padding-left" data-toggle="dropdown">Menu <i class="fa fa-angle-down"></i></a>
+                               <div class="dropdown-menu">
+                    <ul>
+                                      <li><a href="typography.html">Typography</a></li>
+                                    <li><a href="elements.html">Elements</a></li>
+                                </ul>
+                            </div>
+                          </li>
+                      <li>
+                        </ul>
+            </nav><!--/ Navigation end -->
+
+
+
         
 
 
