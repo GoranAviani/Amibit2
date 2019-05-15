@@ -68,6 +68,11 @@
         <span class="icon-bar"></span>
       </button>
     </div>
+
+
+
+
+    
     <!-- Collection of nav links, forms, and other content for toggling -->
     <div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
       
@@ -92,12 +97,16 @@
                 <li class="dropdown active">
                                <a href="#" class="dropdown-toggle text-red" data-toggle="dropdown">Home <i class="fa fa-angle-down"></i></a>
                                <div class="dropdown-menu">
+
+
                     <ul>
-                                    <li class="active"><a href="index.html">Home 1</a></li>
-                                    <li><a href="index-2.html">Home 2</a></li>
-                                    <li><a href="index-3.html">Home 3</a></li>
-                                    <li><a href="index-4.html">Home 4</a></li>
-                                </ul>
+                      <li> 
+                        <a href="https://www.facebook.com/" target="_self" class="text-red"><i class="fa fa-facebook btn-facebook "></i></a>
+                      </li>
+                      <li><a href="index-2.html">Home 2</a></li>
+                      <li><a href="index-3.html">Home 3</a></li>
+                      <li><a href="index-4.html">Home 4</a></li>
+                    </ul>
                             </div>
                           </li>
                 <li class="dropdown">
@@ -144,11 +153,23 @@
                                 </ul>
                             </div>
                           </li>
+                          
                           <li class="dropdown">
                                <a href="#" class="dropdown-toggle text-red padding-left" data-toggle="dropdown">Menu <i class="fa fa-angle-down"></i></a>
                                <div class="dropdown-menu">
-                    <ul>
-                                      <li><a href="typography.html">Typography</a></li>
+                    <ul>{% if user.is_authenticated %}
+                                      <li>
+
+
+                                          
+                                          <a href="{% url 'user_settings_menu' %}" class="text-red">User settings</a>
+                     
+                                           
+                                         
+
+                                      </li>
+
+                                      {% endif %}
                                     <li><a href="elements.html">Elements</a></li>
                                 </ul>
                             </div>
