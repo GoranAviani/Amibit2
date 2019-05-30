@@ -259,7 +259,7 @@ body{
 
 
 .gray-bckg{
-  background-color: rgb(238, 238, 238);
+  background-color: rgb(23, 173, 48);
 }
 
 /*LOGO*/
@@ -271,9 +271,16 @@ body{
 	background: #f56a57 !important;
 }
 
+.border-bottom{
+  border-bottom: 1px solid #000;
+}
+.width-100{
+  width: 100% !important;
+}
 
-
-
+.width-80{
+  width: 80% !important;
+}
 
 
   
