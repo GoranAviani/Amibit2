@@ -262,9 +262,14 @@ body{
   background-color: rgb(238, 238, 238);
 }
 
+/*LOGO*/
+.navbar-brand.navbar-bg{
+	background: #ee3b24 !important;
+}
 
-
-
+.navbar-brand.navbar-bg:hover{
+	background: #f56a57 !important;
+}
 
 
 
