@@ -28,6 +28,30 @@
 
 
 
+
+
+
+
+  	<!-- Template styles-->
+	<link rel="stylesheet" href="{% static 'css/design/style.css' %}">
+	<!-- Responsive styles-->
+	<link rel="stylesheet" href="{% static 'css/design/responsive.css' %}">
+	<!-- Animation -->
+	<link rel="stylesheet" href="{% static 'css/design/animate.css' %}">
+	<!-- Prettyphoto -->
+	<link rel="stylesheet" href="{% static 'css/design/prettyPhoto.css' %}">
+	<!-- Owl Carousel -->
+	<link rel="stylesheet" href="{% static 'css/design/owl.carousel.css' %}">
+	<link rel="stylesheet" href="{% static 'css/design/owl.theme.css' %}">
+	<!-- Flexslider -->
+	<link rel="stylesheet" href="{% static 'css/design/flexslider.css' %}">
+	<!-- Flexslider -->
+	<link rel="stylesheet" href="{% static 'css/design/cd-hero.css' %}">
+	<!-- Style Swicther -->
+	<link id="style-switch" href="{% static 'css/design/presets/preset3.css' %}" media="screen" rel="stylesheet" type="text/css">
+
+
+
 </head>
 <body>
   <!-- <script type="text/javascript">
@@ -38,151 +62,116 @@
   </script>
 -->
 
+
 <nav class="navbar navbar-default navbar-expand-lg navbar-light">
-    <div class="navbar-header d-flex col">
-      <a class="navbar-brand" href="{% url 'index' %}">ami<b>bit</b>2</a>     
-      <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle navbar-toggler ml-auto">
-        <span class="navbar-toggler-icon"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-    </div>
+
+<!-- Header start -->
+<header id="header" class="navbar-fixed-top header-solid" role="banner">
+  <div class="container">
+    <div class="row">
+      <!-- Logo start -->
+      <div class="navbar-header">
+         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+          </button>
+          <div class="navbar-brand navbar-bg">
+            <a href="{% url 'index' %}">
+              <img class="img-responsive" src="{% static 'images/images/incodaqdark.png' %}" alt="logo">
+            </a> 
+          </div>                   
+      </div><!--/ Logo end -->
+      <nav class="collapse navbar-collapse clearfix" role="navigation">
+        <ul class="nav navbar-nav navbar-right">
+          <li class="dropdown active">
+                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Home <i class="fa fa-angle-down"></i></a>
+                         <div class="dropdown-menu">
+              <ul>
+                              <li class="active"><a href="{% url 'index' %}">Home 1</a></li>
+                              <li><a href="index-2.html">Home 2</a></li>
+                              <li><a href="index-3.html">Home 3</a></li>
+                              <li><a href="index-4.html">Home 4</a></li>
+                          </ul>
+                      </div>
+                    </li>
+          <li class="dropdown">
+                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Company <i class="fa fa-angle-down"></i></a>
+                         <div class="dropdown-menu">
+              <ul>
+                              <li><a href="about.html">About Us</a></li>
+                              <li><a href="service.html">Services</a></li>
+                              <li><a href="career.html">Career</a></li>
+                              <li><a href="testimonial.html">Testimonials</a></li>
+                              <li><a href="faq.html">Faq</a></li>
+                          </ul>
+                      </div>
+                    </li>
+          <li class="dropdown">
+                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Portfolio <i class="fa fa-angle-down"></i></a>
+                         <div class="dropdown-menu">
+              <ul>
+                              <li><a href="portfolio-classic.html">Portfolio Classic</a></li>
+                              <li><a href="portfolio-static.html">Portfolio Static</a></li>
+                              <li><a href="portfolio-item.html">Portfolio Single</a></li>
+                          </ul>
+                      </div>
+                    </li>
+                    <li class="dropdown">
+                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages <i class="fa fa-angle-down"></i></a>
+                         <div class="dropdown-menu">
+              <ul>
+                               <li><a href="team.html">Our Team</a></li>
+                               <li><a href="about2.html">About Us - 2</a></li>
+                               <li><a href="service2.html">Services - 2</a></li>
+                               <li><a href="service-single.html">Services Single</a></li>
+                               <li><a href="pricing.html">Pricing Table</a></li>
+                               <li><a href="404.html">404 Page</a></li>
+                          </ul>
+                      </div>
+                    </li>
+                    <li class="dropdown">
+                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Blog <i class="fa fa-angle-down"></i></a>
+                         <div class="dropdown-menu">
+              <ul>
+                                <li><a href="blog-rightside.html">Blog with Sidebar</a></li>
+                              <li><a href="blog-item.html">Blog Single</a></li>
+                          </ul>
+                      </div>
+                    </li>
+                    <li class="dropdown">
+                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Features <i class="fa fa-angle-down"></i></a>
+                         <div class="dropdown-menu">
+              <ul>
+                                <li><a href="typography.html">Typography</a></li>
+                              <li><a href="elements.html">Elements</a></li>
+                          </ul>
+                      </div>
+                    </li>
+                <li><a href="contact.html">Contact</a></li>
+                  </ul>
+      </nav><!--/ Navigation end -->
+    </div><!--/ Row end -->
+  </div><!--/ Container end -->
+</header><!--/ Header end -->
+
+</nav>
 
 
 
 
-    
-    <!-- Collection of nav links, forms, and other content for toggling -->
-    <div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
-      
-      <form class="navbar-form form-inline" action="/search/" method="GET" >
-        {% csrf_token %}
-        <div class="input-group search-box">                
-          <input type="text" name="search_bar" id="base_search" class="form-control" placeholder="Search here...">
-          <button type="submit" class="input-group-addon" ><i class="material-icons">&#xE8B6;</i></button>  
-        </div>
-      </form>
- 
-       <ul class="nav navbar-nav navbar-right ml-auto">     
- 
- 
 
 
 
 
 
-        <li class="nav-item">
-                <li class="dropdown active">
-                               <a href="#" class="dropdown-toggle text-red" data-toggle="dropdown">Home <i class="fa fa-angle-down"></i></a>
-                               <div class="dropdown-menu">
 
 
-                    <ul>
-                      <li> 
-                        <a href="https://www.facebook.com/" target="_self" class="text-red"><i class="fa fa-facebook btn-facebook "></i></a>
-                      </li>
-                      <li>
-                        <a href="https://www.gmail.com/" target="_self" class="btn btn-google col-md-2 col-xs-2 "><i class="fa fa-google"></i> </a>
-                  
-
-                      </li>
-                      <li><a href="index-3.html">Home 3</a></li>
-                      <li><a href="index-4.html">Home 4</a></li>
-                    </ul>
-                            </div>
-                          </li>
-              
-                        </li>                 
-                        <li class="nav-item">
-                          <li class="dropdown">
-                               <a href="#" class="dropdown-toggle text-red padding-left" data-toggle="dropdown">Menu <i class="fa fa-angle-down"></i></a>
-                               <div class="dropdown-menu">
-                    <ul>{% if user.is_authenticated %}
-                                      <li>
 
 
-                                          
-                                          <a href="{% url 'user_settings_menu' %}" class="text-red">User settings</a>
-                     
-                                           
-                                         
-
-                                      </li>
-
-                                      {% endif %}
-                                    <li><a href="elements.html">Elements</a></li>
-                                </ul>
-                            </div>
-                          </li>
-                      <li>
-                      </li> 
 
 
-        
-
-
-        <li class="nav-item">
-          <a data-toggle="dropdown" class="nav-link dropdown-toggle" href="#">Quick links</a>
-          <ul class="mobile-dropdown-rule dropdown-menu form-wrapper col-md-12 col-xs-12">					
-            <li>             
-                <div class="form-group social-media-btn ">   
-                  <a href="https://www.facebook.com/" target="_self" class="btn btn-facebook  col-md-2 col-xs-2 "><i class="fa fa-facebook"></i> </a>
-                  <a href="https://www.gmail.com/" target="_self" class="btn btn-google col-md-2 col-xs-2 "><i class="fa fa-google"></i> </a>
-                  <a href="https://www.youtube.com/" target="_self" class="btn btn-youtube col-md-2 col-xs-2"><i class="fa fa-youtube"></i> </a>
-                  <a href="https://www.linkedin.com/" target="_self" class="btn btn-linkedin col-md-2 col-xs-2"><i class="fa fa-linkedin"></i> </a>
-                  <a href="https://www.twitter.com/" target="_self" class="btn btn-twitter col-md-2 col-xs-2"><i class="fa fa-twitter"></i> </a>
-                </div>
-            </li>
-          </ul>
-        </li>
-        
-        <li class="nav-item">
-          <a href="#" data-toggle="dropdown" class="btn btn-primary dropdown-toggle get-started-btn mt-1 mb-1">Menu</a>
-          <ul class="dropdown-menu form-wrapper">					
-            <li>
-                {% if user.is_authenticated %}
-                  <p class="hint-text"> {{ user.username }} welcome to your main menu</p>
-                {% else %}
-                  <p class="hint-text"> Hi Guest, please login to unlock all features</p>
-                {% endif %}
-                
-                {% if user.is_authenticated %}
-                <div class="form-group">
-                  <form action="{% url 'user_settings_menu' %}">
-                      <input type="submit" class="btn btn-primary btn-block" value="User settings" />
-                  </form>   
-                </div>
-                {% endif %}
-                <div class="form-group">
-                    2 button
-                </div>
-                <div class="form-group">
-                    3 button
-                </div>
-                {% if user.is_authenticated %}         
-                  <div class="form-group">
-                    <form action="{% url 'logout' %}">
-                        <input type="submit" class="btn btn-primary btn-block" value="Log out" />
-                    </form>   
-                  </div>      
-                {% else %}
-                  <div class="form-group">
-                    <form action="{% url 'login' %}">
-                        <input type="submit" class="btn btn-primary btn-block" value="Log in" />
-                    </form>   
-                  </div>
-                {% endif %}
-                
-                
-               
-                
-                </li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-  </nav>
                                                                  
 
 
