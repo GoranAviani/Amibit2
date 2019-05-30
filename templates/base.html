@@ -84,7 +84,29 @@
           </div>                   
       </div><!--/ Logo end -->
       <nav class="collapse navbar-collapse clearfix" role="navigation">
+
+
+
+
+
+
+
+
         <ul class="nav navbar-nav navbar-right">
+
+          <li class="dropdown active">
+
+            <form class="navbar-form form-inline" action="/search/" method="GET" >
+              {% csrf_token %}
+              <div class="input-group search-box">                
+                <input type="text" name="search_bar" id="base_search" class="form-control" placeholder="Search here...">
+                <button type="submit" class="input-group-addon" ><i class="material-icons">&#xE8B6;</i></button>  
+              </div>
+            </form>
+       
+          </li>
+
+
           <li class="dropdown active">
                          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Home <i class="fa fa-angle-down"></i></a>
                          <div class="dropdown-menu">
@@ -108,38 +130,8 @@
                           </ul>
                       </div>
                     </li>
-          <li class="dropdown active">
-                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Portfolio <i class="fa fa-angle-down"></i></a>
-                         <div class="dropdown-menu">
-              <ul>
-                              <li><a href="portfolio-classic.html">Portfolio Classic</a></li>
-                              <li><a href="portfolio-static.html">Portfolio Static</a></li>
-                              <li><a href="portfolio-item.html">Portfolio Single</a></li>
-                          </ul>
-                      </div>
-                    </li>
-                    <li class="dropdown active">
-                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages <i class="fa fa-angle-down"></i></a>
-                         <div class="dropdown-menu">
-              <ul>
-                               <li><a href="team.html">Our Team</a></li>
-                               <li><a href="about2.html">About Us - 2</a></li>
-                               <li><a href="service2.html">Services - 2</a></li>
-                               <li><a href="service-single.html">Services Single</a></li>
-                               <li><a href="pricing.html">Pricing Table</a></li>
-                               <li><a href="404.html">404 Page</a></li>
-                          </ul>
-                      </div>
-                    </li>
-                    <li class="dropdown active">
-                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Blog <i class="fa fa-angle-down"></i></a>
-                         <div class="dropdown-menu">
-              <ul>
-                                <li><a href="blog-rightside.html">Blog with Sidebar</a></li>
-                              <li><a href="blog-item.html">Blog Single</a></li>
-                          </ul>
-                      </div>
-                    </li>
+
+                   
                     <li class="dropdown active">
                          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Features <i class="fa fa-angle-down"></i></a>
                          <div class="dropdown-menu">
