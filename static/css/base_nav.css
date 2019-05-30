@@ -282,5 +282,7 @@ body{
   width: 80% !important;
 }
 
-
+.display-block{
+  display: block !important;
+}
   
