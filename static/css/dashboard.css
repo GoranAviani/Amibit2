@@ -281,3 +281,8 @@
 .margin-10-bottom{
     margin-bottom: 10px;
 }
+
+
+.hover-red-text:hover{
+    color:#ee3b24 !important;
+}
