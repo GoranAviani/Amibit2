@@ -10,39 +10,35 @@
          
   
         </div><!-- Content row  end -->
-  
-        <div class="gap-40"></div>
-  
-        <div class="row">
-            <div >
-                <div class="row">
-                    <div class="col-md-12">
-                        <h2 class="text-center">New note</h2>
-                    </div>  
-                  </div>
-              <div class="row">
-                <div class="col-md-12">
-                    <label>Title</label>
-                    <input class="form-control" name="name" id="name" placeholder="" type="text" required>
-                </div>  
+          <div class="gap-40"></div>
+          <div class="row">
+              <div >
+                  <div class="row">
+                      <div class="col-md-12  margine-10-lr">
+                          <h2 class="text-center">New note</h2>
+                      </div>  
+                    </div>
+                    <form method="post">
+                        {% csrf_token %}
+                    <div class="row">
+                  <div class="col-md-12  margine-10-lr">
+                      <label>Title</label>
+                      {{create_note_form_data.noteTitle}}
+                  </div>  
+                </div>
+                <div class="form-group  margine-10-lr">
+                  <label>Text</label>
+                  {{create_note_form_data.noteText}}
+                </div>
+                <div class="text-right"><br>
+                  <button class="btn btn-primary solid blank  margine-10-lr" type="submit">Save</button> 
+                </div>
+              </form>
               </div>
-              <div class="form-group">
-                <label>Text</label>
-                <textarea class="form-control" name="message" id="message" placeholder="" rows="12" required></textarea>
-              </div>
-              <div class="text-right"><br>
-                <button class="btn btn-primary solid blank" type="submit">Save</button> 
-              </div>
-            </form>
-            </div>
               
       </div><!--/ container end -->
   
     </section><!--/ Main container end -->
-
-
-
-
 
 
 
