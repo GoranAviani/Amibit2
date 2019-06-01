@@ -3,11 +3,11 @@
 
 {% block content %}
     <div id = NoteContainer class="col-md-9 col-xs-12">
-      <div class="col-md-12 col-xs-12">
+      
         <a href ="{% url 'create_note' %}" class="btn btn-primary solid margin-30-top margin-10-bottom hover-red-text pull-left col-md-4 col-xs-12">
           Take a note
         </a>
-      </div>
+      
         {% if queryUserNote %}
         <button onclick="toggle_notes()" class="btn btn-primary solid visible-xs col-md-12 col-xs-12">YOUR NOTES</button>      
         <div  class="col-md-12 col-xs-12 notes-list-container">
