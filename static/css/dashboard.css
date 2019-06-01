@@ -119,11 +119,19 @@
  
     }
 
+  
+
+    .note-control-buttons-text{
+        color:  rgb(138, 138, 138);
+        
+    }
+
     .note-control-buttons{
         color:  rgb(138, 138, 138);
-        float:right;
+        padding: 0px 0px 0px 0px !important;   
+        margin-top: 5px;
         display: none;
-        	
+        display:block;
     }
     .note-button:hover .note-control-buttons{ 
         display:block;
