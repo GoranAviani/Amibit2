@@ -315,6 +315,10 @@
     color:#ee3b24 !important;
 }
 
+.hover-black-text:hover{
+    color:#000 !important;
+}
+
 .dashboard-note-datetime{
     font-size: 12px;
 }
