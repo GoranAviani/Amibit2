@@ -16,6 +16,7 @@
         }
         .note-button{
             height: 250px;
+            margin-left: 10px;
         }
 
         .dashboard-note-text{
@@ -67,7 +68,7 @@
     .note-button{ 
       background: #fff;
       padding: 0px 12px;
-      margin-left: 10px;
+      
       margin-bottom: 16px;
       width: 100%;
     }
