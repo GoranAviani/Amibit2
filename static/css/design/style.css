@@ -2489,8 +2489,8 @@ ul.arrow li:before {
 
 .copyright.angle:before{
 	background: #191919;
-	height: 50px;
-  	top: -25px;
+	height: 70px;
+  	top: -35px;
   	-webkit-transform: skew(0deg,-2deg);
   	-moz-transform: skew(0deg,-2deg);
   	-ms-transform: skewX(0deg) skewY(-2deg);
