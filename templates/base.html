@@ -84,87 +84,52 @@
           </div>                   
       </div><!--/ Logo end -->
       <nav class="collapse navbar-collapse clearfix" role="navigation">
-
-
-
-
-
-
-
-
         <ul class="nav navbar-nav navbar-right width-80">
-
           <li class="dropdown active col-lg-6 col-md-6">
-
             <form class="navbar-form" action="/search/" method="GET" >
               {% csrf_token %}
               <div class="input-group search-box  width-100">                
                 <input type="text" name="search_bar" id="base_search" class="form-control" placeholder="Search here...">
                 <button type="submit" class="input-group-addon" ><i class="material-icons display-block">&#xE8B6;</i></button>  
               </div>
-            </form>
-       
+            </form>    
           </li>
-
-
           <li class="dropdown">
-                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Qucik links <i class="fa fa-angle-down"></i></a>
-                         <div class="dropdown-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Qucik links <i class="fa fa-angle-down"></i></a>
+            <div class="dropdown-menu social-media-btn">
               <ul>
-                              <li><a href="{% url 'index' %}">Home 1</a></li>
-                              <li><a href="index-2.html">Home 2</a></li>
-                              <li><a href="index-3.html">Home 3</a></li>
-                              <li><a href="index-4.html">Home 4</a></li>
-                          </ul>
-                      </div>
-                    </li>
+                <li><a href="https://www.facebook.com/" target="_self" class=""><i class="fa fa-facebook"></i> - Facebook</a></li>
+                <li><a href="https://www.gmail.com/" target="_self" class=""><i class="fa fa-google"></i> - Gmail</a></li>
+                <li><a href="https://www.youtube.com/" target="_self" class=""><i class="fa fa-youtube"></i> - Youtube</a></li>
+                <li><a href="https://www.linkedin.com/" target="_self" class=""><i class="fa fa-linkedin"></i> - LinkedIn</a></li>
+                <li><a href="https://www.twitter.com/" target="_self" class=""><i class="fa fa-twitter"></i> - Twitter</a></li>
+              </ul>
+            </div>
+          </li>
           <li class="dropdown">
-                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Company <i class="fa fa-angle-down"></i></a>
-                         <div class="dropdown-menu">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Help <i class="fa fa-angle-down"></i></a>
+              <div class="dropdown-menu">
               <ul>
-                              <li><a href="about.html">About Us</a></li>
-                              <li><a href="service.html">Services</a></li>
-                              <li><a href="career.html">Career</a></li>
-                              <li><a href="testimonial.html">Testimonials</a></li>
-                              <li><a href="faq.html">Faq</a></li>
-                          </ul>
-                      </div>
-                    </li>
-
-                   
-                    <li class="dropdown">
-                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Features <i class="fa fa-angle-down"></i></a>
-                         <div class="dropdown-menu">
+                  <li><a href="">Faq</a></li>
+                  <li><a href="{% url 'about' %}">About</a></li>
+                  <li><a href="{% url 'contact' %}">Conact</a></li>            
+              </ul>
+            </div>
+          </li>         
+          <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Account <i class="fa fa-angle-down"></i></a>
+              <div class="dropdown-menu">
               <ul>
-                                <li><a href="typography.html">Typography</a></li>
-                              <li><a href="elements.html">Elements</a></li>
-
-
-
-
-                              {% if user.is_authenticated %}         
-                              <li><div class="form-group">
-                                <form action="{% url 'logout' %}">
-                                    <input type="submit" class="btn btn-primary btn-block" value="Log out" />
-                                </form>   
-                              </div>
-                            </li>      
-                            {% else %}
-                            <li> <div class="form-group">
-                                <form action="{% url 'login' %}">
-                                    <input type="submit" class="btn btn-primary btn-block" value="Log in" />
-                                </form>   
-                              </div>
-                            </li>
-                            {% endif %}
-
-
-
-                          </ul>
-                      </div>
-                    </li>
-                
-                  </ul>
+                  <li><a href="{% url 'user_settings_menu' %}">Profile</a></li>
+                  {% if user.is_authenticated %}
+                    <li><a href="{% url 'logout' %}" class="btn btn-primary solid hover-red-text ">Log out</a></li>         
+                  {% else %}
+                    <li><a href="{% url 'login' %}" class="btn btn-primary solid hover-red-text ">Log in</a></li>         
+                  {% endif %}
+                </ul>
+            </div>
+          </li>       
+        </ul>
       </nav><!--/ Navigation end -->
     </div><!--/ Row end -->
   </div><!--/ Container end -->

@@ -52,10 +52,11 @@
 		height: 750px;
 	}
 
-	.dropdown i{
+	/* need t comment out to show social media glyphs
+		.dropdown i{
 		display: none;
 	}
-
+*/
 }
 
 /* Small Devices, Tablets */

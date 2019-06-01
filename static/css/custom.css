@@ -3,20 +3,11 @@
 
 
 /* Social media buttons located in the navbar*/
-.navbar .form-wrapper .social-media-btn .btn, .navbar .form-wrapper .social-media-btn .btn:hover {
-    color: #fff;
-    margin-right: 5px;
-    padding: 0 !important;
-    font-size: 13px;
-    border: none;
-    transition: all 0.4s;
-    text-align: center;
-    line-height: 34px;
-    /*width: 15%;*/
-    text-decoration: none;
-    }	
+.visible{
+  display: block !important;
+}
   .navbar .social-media-btn .btn-facebook {
-    background: #3c5a99;
+    display: block !important;
   }
   .navbar .social-media-btn .btn-facebook:hover {
     background: #334c83;
