@@ -11,14 +11,14 @@
       <div class="row">
         <div >
           <div class="row">
-            <div class="col-md-12  margine-10-lr">
+            <div class="margine-10-lr">
               <h2 class="text-center">New note</h2>
             </div>  
           </div>
           <form method="post">
             {% csrf_token %}
-            <div class="row">
-              <div class="col-md-12  margine-10-lr">
+            <div class="row margine-10-lr">
+              <div>
                 <label>Title</label>
                 {{create_note_form_data.noteTitle}}
               </div>  
