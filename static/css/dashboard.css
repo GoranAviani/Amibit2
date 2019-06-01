@@ -19,7 +19,7 @@
         }
 
         .dashboard-note-text{
-            margin-bottom: 8px;
+            margin-bottom: 0px;
         }
         .link-button{ 
             height: 40px;
@@ -52,7 +52,7 @@
     }
     .note-button{ 
       background: #fff;
-      
+      padding: 13px 12px;
       
       margin-left: 10px;
       margin-bottom: 16px;
@@ -68,6 +68,7 @@
     .link-button{ 
         background: #fff;
         margin-bottom: 10px;
+        padding: 6px 12px;
        
       }
 
@@ -87,7 +88,7 @@
     
     .moj-btn{
         display: inline-block;
-        padding: 6px 12px;
+        
        
         font-size: 14px;
         font-weight: 400;
@@ -264,6 +265,14 @@
   }
 
 
+
+  .margin-5-top{
+    margin-top: 5px !important;
+}
+
+  .margin-10-top{
+    margin-top: 10px !important;
+}
 
 .margin-30-top{
     margin-top: 30px;

@@ -17,7 +17,7 @@
                 <div class="grid-item">
                     <div class="moj-btn note-button btn-100percent">
                       <a href ="{% url 'update_note' note.id %}" >
-                        <h1>{{note.noteTitle}}</h1>
+                        <h1 class = "margin-5-top">{{note.noteTitle}}</h1>
                         <div class="dashboard-note-datetime">
                           {{ note.noteTimestamp }}
                         </div>
@@ -26,6 +26,7 @@
                         </div>
                       </a>
                       <img href="#" class="btn note-upper-left-button" src="{% static 'images/notelink/pen.png' %}"/>    
+                     
                       <a href="{% url 'delete_note' note.id %}" class="btn-moj note-control-buttons" onclick="return confirmNoteDeletion()">
                         <i class="glyphicon glyphicon-trash"></i> 
                       </a>    
