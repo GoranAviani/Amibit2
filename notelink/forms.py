@@ -25,8 +25,8 @@ class create_note_form(forms.ModelForm):
 )
 
 class update_note_form(forms.ModelForm):
-    noteTitle = forms.CharField(label='', widget=forms.TextInput(attrs={'class':'note-title-input'}))
-    noteText = forms.CharField(label='', widget=forms.Textarea(attrs={'class':'note-text-input'}))
+    noteTitle = forms.CharField(label='', widget=forms.TextInput(attrs={'class':'form-control'}))
+    noteText = forms.CharField(label='', widget=forms.Textarea(attrs={'class':'form-control'}))
     #noteTimestamp = forms.DateField(label='', widget=forms.DateInput(attrs={'type':'datetime','readonly':'readonly', 'class':'note-text-input'}))
     
     class Meta:
