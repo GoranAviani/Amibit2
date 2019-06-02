@@ -3,8 +3,8 @@ from django import forms
 from .models import link, note
 
 class create_link_form(forms.ModelForm):
-    linkName = forms.CharField(label='', widget=forms.TextInput(attrs={'class':'note-title-input'}))
-    linkUrl = forms.CharField(label='', widget=forms.TextInput(attrs={'class':'note-title-input'}))
+    linkName = forms.CharField(label='', widget=forms.TextInput(attrs={'class':'form-control'}))
+    linkUrl = forms.CharField(label='', widget=forms.TextInput(attrs={'class':'form-control'}))
     class Meta:
         model = link
         fields = (
