@@ -42,7 +42,7 @@
     src: url('../fonts/jaapokki/jaapokki-regular.eot?#iefix') format('embedded-opentype'),
          url('../fonts/jaapokki/jaapokki-regular.woff') format('woff'),
          url('../fonts/jaapokki/jaapokki-regular.ttf') format('truetype'),
-         url('../fonts/jaapokki/jaapokki-regular.svg#JaapokkiRegular') format('svg');
+         url('../fonts/jaapokki/jaapokki-regular.svg#JaapokkiRegular') format('svg'); 
     font-weight: normal;
     font-style: normal;
 }
@@ -2315,7 +2315,7 @@ figure.effect-oscar:hover img {
 
 .footer{
 	padding: 60px 0 100px;
-	background: #2e2e2e url(../images/footer-bg.jpg) no-repeat center 0;
+	/* background: #2e2e2e url(../images/footer-bg.jpg) no-repeat center 0; */
 	background-size: cover;
 	color: #fff;
 	font-size: 14px;  
