@@ -49,3 +49,9 @@ def contact(request):
     request,
     'otherPages/contact.html'
 )
+
+def faq(request):
+    return render(
+    request,
+    'otherPages/faq.html'
+)

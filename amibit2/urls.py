@@ -27,6 +27,7 @@ urlpatterns = [
     path('search/', views.search_bar, name='search_bar'), #search/ is used in base.html
 
     path('about/', views.about, name='about'), 
-    path('contact/', views.contact, name='contact'), 
+    path('contact/', views.contact, name='contact'),
+    path('faq/', views.contact, name='faq'), 
 
 ]
