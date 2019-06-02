@@ -9,9 +9,13 @@ from .forms import (
 )
 from django.contrib.auth import (
     update_session_auth_hash,
+
+
+    authenticate, #user = authenticate(username=user.username, password=raw_password)
+    login,
+    #logout,
 )
 from django.contrib.auth.forms import PasswordChangeForm
-
 
 
 #class sign_up(generic.CreateView):
@@ -27,8 +31,8 @@ def sign_up_user(request):
             form.refresh_from_db()
             form.save()
             raw_password = signup_form.cleaned_data.get('password1')
-            #form1 = authenticate(username=form.username, password=raw_password)
-            #login(request, form1)
+            form_login = authenticate(username=form.username, password=raw_password)
+            login(request, form_login)
             return redirect('dashboard')
     else:
         signup_form = user_signup_form()
