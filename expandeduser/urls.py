@@ -3,7 +3,7 @@ from . import views
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
-    path('signup/', views.sign_up.as_view(), name='signup'),
+    path('signup/', views.sign_up_user, name='signup'),
     path('', include('social_django.urls', namespace='social')),
 
     path('setttings/', views.user_settings_menu, name='user_settings_menu'),

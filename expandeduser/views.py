@@ -4,7 +4,7 @@ from django.urls import reverse_lazy
 from django.views import generic
 from django.shortcuts import redirect
 from .forms import (
-    custom_user_creation_form,
+    user_signup_form,
     user_profile_form
 )
 from django.contrib.auth import (
@@ -14,10 +14,27 @@ from django.contrib.auth.forms import PasswordChangeForm
 
 
 
-class sign_up(generic.CreateView):
-    form_class = custom_user_creation_form
-    success_url = reverse_lazy('dashboard') #TODO 
-    template_name = 'signup.html'
+#class sign_up(generic.CreateView):
+#    form_class = custom_user_creation_form
+#    success_url = reverse_lazy('dashboard') #TODO 
+#    template_name = 'signup.html'
+
+def sign_up_user(request):
+    if request.method == 'POST':
+        signup_form = user_signup_form(request.POST)
+        if signup_form.is_valid():
+            form = signup_form.save()
+            form.refresh_from_db()
+            form.save()
+            raw_password = signup_form.cleaned_data.get('password1')
+            #form1 = authenticate(username=form.username, password=raw_password)
+            #login(request, form1)
+            return redirect('dashboard')
+    else:
+        signup_form = user_signup_form()
+        return render(request, 'signup.html', {'signup_form': signup_form})
+
+
 
 def user_settings_menu(request):
     if request.user.is_authenticated:
