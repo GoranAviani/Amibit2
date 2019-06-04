@@ -283,7 +283,10 @@
       margin-right: 30px;
   }
 
-
+  .padding-left-0{
+      
+    margin-left: 0px !important;
+}
 
   .margin-5-top{
     margin-top: 5px !important;
