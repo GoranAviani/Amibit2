@@ -2,7 +2,7 @@ var screen_width = window.innerWidth;
 var screen_height = window.innerHeight;
 
 window.onload = function() {
-    if(screen_width <= 768) {
+    if(screen_width <= 1000) {
       document.getElementById("DashboardNotes").style.display = "none";
       document.getElementById("DashboardLinks").style.display = "none";
     }
