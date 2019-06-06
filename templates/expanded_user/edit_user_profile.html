@@ -2,7 +2,7 @@
 
 {% block content %}
 
-
+<div class="container margin-30-top">
 <form method="post">
     {% csrf_token %}
     Username: {{user_profile_form_data.username}}
@@ -24,8 +24,8 @@
     Mobile number: {{user_profile_form_data.userMobilenumber}}
     <br/>
 
-    <button type="submit">Save</button>
+    <button type="submit" class="btn btn-primary solid width-100 hover-black-text" >Save</button>
 </form>
-
+</div>
 
 {% endblock %}
