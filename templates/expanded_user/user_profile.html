@@ -12,15 +12,14 @@
   <title>Amibit User Settings</title>
 </head>
 <body>
-  <div class="normal-center-page ">
-    <div class="container">
+  
+    <div class="container <div class="normal-center-page margin-30-top"></div>">
       <div class="row">
-        <div class="col-md-6 col-md-offset-3">
-          <div class="well normal-center-container">
-            <h2 class="text-center">Hi {{ user.username }}, <br/> This is your profile page!</h2><br />
+        <div class="col-md-8 col-md-offset-2">
+            <h3 class="text-center">{{ user.username }}, here you can change your data</h3><br />
             <div class="text-center">
-              <h4><p><p>Here you can edit your user info or your change your password.</p></p></h4>
-              <br/><br/>
+             
+              <br/>
 							<h4><p>Your profile</p></h4>
                 Username: {{user.username}}<br/><br/>
                 First name: {{user.first_name}}<br/><br/>
@@ -32,16 +31,15 @@
                 Primary e-mail: {{user.email}}<br/><br/>
                 Secondary e-mail: {{user.userSecondEmail}}<br/><br/><br/><br/>
 							
-							<a href="{% url 'edit_user_profile' %}" class="btn btn-main-blue btn-100percent">Edit your personal info </a>
+							<a href="{% url 'edit_user_profile' %}" class="btn btn-primary solid width-100 hover-black-text">Edit your personal info </a>
 						</br><br/><br/><br/><br/>
 							<h4><p>Security</p></h4>
 							Password: ****************<br/><br/>
-							<a href="{% url 'edit_user_password' %}" class="btn btn-main-blue btn-100percent">Change your password</a>
+							<a href="{% url 'edit_user_password' %}" class="btn btn-primary solid width-100 hover-black-text">Change your password</a>
             </div>
-          </div>
         </div>
       </div>
     </div>
-  </div>
+ 
 </body>
 {% endblock %}
