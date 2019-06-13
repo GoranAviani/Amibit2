@@ -313,6 +313,9 @@
     margin-bottom: 10px;
 }
 
+.text-color-black{
+   color: #000; 
+}
 
 .hover-red-text:hover{
     color:#ee3b24 !important;
