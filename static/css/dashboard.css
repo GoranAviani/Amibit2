@@ -30,7 +30,7 @@
         .dashboard-note-text{
             text-align: left;
             word-wrap:break-word;
-            height: 56%;
+            height: 66%;
             overflow: hidden;
             color: #000000;
           }
@@ -58,7 +58,7 @@
           .dashboard-note-text{
             text-align: left;
             word-wrap:break-word;
-            height: 55%;
+            height: 63%;
             overflow: hidden;
             color: #000000;
           }
@@ -313,6 +313,9 @@
     margin-bottom: 10px;
 }
 
+.text-color-black{
+   color: #000; 
+}
 
 .hover-red-text:hover{
     color:#ee3b24 !important;
@@ -328,4 +331,14 @@
 
 .width-100{
     width: 100%
+}
+
+
+.text-overflow{
+    text-overflow: ellipsis;
+
+    /* Required for text-overflow to do anything */
+    white-space: nowrap;
+    overflow: hidden;
+
 }
