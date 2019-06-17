@@ -2,82 +2,92 @@
 {% load static %}
 
 {% block content %}
-<div id = NoteContainer class="col-lg-9 col-md-9 col-xs-12">
-  <a href ="{% url 'create_note' %}" class="btn btn-primary solid margin-30-top margin-10-bottom hover-red-text pull-left col-md-4 col-xs-12">
-    Take a note
-  </a>
-  {% if queryUserNote %}
-    <button onclick="toggle_notes()" class="btn btn-primary solid visible-xs col-lg-12 col-md-12 col-xs-12">YOUR NOTES</button>      
-    <div  class="col-lg-12 col-md-12 col-xs-12">
-      <div id = DashboardNotes class="grid" data-isotope='{ "itemSelector": ".grid-item", "layoutMode": "fitRows" }'>
-        <div class="grid">                  
-          {% for note in queryUserNote %}
-            <div class="grid-item">
-              <div class="moj-btn note-button btn-100percent">
-                <a href ="{% url 'update_note' note.id %}" >
-                  <h6 class = "margin-15-top text-overflow text-color-black">{{note.noteTitle}}</h6>
-                  <div class="dashboard-note-datetime text-color-black">
-                    {{ note.noteTimestamp }}
-                  </div>
-                  <div class="dashboard-note-text">
-                    {{ note.noteText}}
-                  </div>
-                </a>
-                <img href="#" class="btn note-upper-left-button" src="{% static 'images/notelink/pen.png' %}"/>    
-                <div  class="">
-                    <div class="note-control-buttons col-lg-6  col-md-6 col-xs-6">  
-                        <a href="{% url 'update_note' note.id %}" class=" note-control-buttons-text">
-                          <i class="glyphicon glyphicon-pencil"></i>
-                        </a>
-                    </div>
-                  <div class="note-control-buttons col-lg-6 col-md-6 col-xs-6">
-                    <a href="{% url 'delete_note' note.id %}" class=" note-control-buttons-text" onclick="return confirmNoteDeletion()">
-                      <i class="glyphicon glyphicon-trash"></i> 
-                    </a>
-                  </div>   
-                </div>
-              </div>                
-            </div>  
-          {% endfor %}
+    <div id = NoteContainer class="col-lg-9 col-md-9 col-xs-12">
+      
+        <a href ="{% url 'create_note' %}" class="btn btn-primary solid margin-30-top margin-10-bottom hover-red-text pull-left col-md-4 col-xs-12">
+          Take a note
+        </a>
+      
+        {% if queryUserNote %}
+        <button onclick="toggle_notes()" class="btn btn-primary solid visible-xs col-lg-12 col-md-12 col-xs-12">YOUR NOTES</button>      
+        <div  class="col-lg-12 col-md-12 col-xs-12 notes-list-container">
+             <div id = DashboardNotes class="grid" data-isotope='{ "itemSelector": ".grid-item", "layoutMode": "fitRows" }'>
+              <div class="grid">                  
+              {% for note in queryUserNote %}
+                <div class="grid-item">
+                    <div class="moj-btn note-button btn-100percent">
+                      <a href ="{% url 'update_note' note.id %}" >
+                        <h1 class = "margin-5-top">{{note.noteTitle}}</h1>
+                        <div class="dashboard-note-datetime">
+                          {{ note.noteTimestamp }}
+                        </div>
+                        <div class="dashboard-note-text">
+                          {{ note.noteText}}
+                        </div>
+                      </a>
+                      <img href="#" class="btn note-upper-left-button" src="{% static 'images/notelink/pen.png' %}"/>    
+                      <div  class="">
+                          <div class="note-control-buttons col-lg-6  col-md-6 col-xs-6">  
+                              <a href="{% url 'update_note' note.id %}" class=" note-control-buttons-text">
+                                <i class="glyphicon glyphicon-pencil"></i>
+                              </a>
+                          </div>
+                        <div class="note-control-buttons col-lg-6 col-md-6 col-xs-6">
+                          <a href="{% url 'delete_note' note.id %}" class=" note-control-buttons-text" onclick="return confirmNoteDeletion()">
+                            <i class="glyphicon glyphicon-trash"></i> 
+                          </a>
+                        </div>  
+                        
+                      </div>
+                    </div>                
+                </div>  
+              {% endfor %}
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  {% else %}
-    <div class="row padding-left-0 col-lg-9 col-md-9 col-xs-12 ">
-      <p>You haven't written any notes. Click <a href="{% url 'create_note' %}">here</a> to write some!</p>
-    </div>    
-  {% endif %}
-</div>
+        {% else %}
+        <div class="row padding-left-0 col-lg-12 col-md-12 col-xs-12 ">
+          <p>You haven't written any notes. Click <a href="{% url 'create_note' %}">here</a> to write some!</p>
+        </div>    
+        {% endif %}
+      
+    
+  </div>
 
-<div id = LinkContainer class="col-lg-3 col-md-3 col-xs-12">
-  <a href ="{% url 'create_link' %}" class="btn btn-primary solid margin-30-top margin-10-bottom hover-red-text col-md-12 col-xs-12" >
-    Create a link
-  </a>
-  <div class="links-list-container">
-    {% if queryUserLink %}
-      <button onclick="toggle_links()" class="btn btn-primary solid visible-xs col-md-12 col-xs-12">YOUR LINKS</button>
-      <div id = DashboardLinks>
-        {% for link in queryUserLink %}
-          <div class = "">
+  <div id = LinkContainer class="col-md-3 col-xs-12">
+    <a href ="{% url 'create_link' %}" class="btn btn-primary solid margin-30-top margin-10-bottom hover-red-text col-md-12 col-xs-12" >
+      Create a link
+    </a>
+    <div class="links-list-container">
+      {% if queryUserLink %}
+        <button onclick="toggle_links()" class="btn btn-primary solid visible-xs col-md-12 col-xs-12">YOUR LINKS</button>
+        <div id = DashboardLinks>
+          {% for link in queryUserLink %}
+
+              <div class = "">
+
             <a href="{{link.linkUrl}}" target="_self" class="moj-btn link-button btn-100percent col-md-8 col-xs-8">          
-                <span class="pull-left">{{ link.linkName }}</span>&nbsp;  
-            </a>          
-            <a href ="{% url 'update_link' link.id %}" class="moj-btn link-button col-md-2 col-xs-2">
-              <i class="glyphicon glyphicon-pencil"></i>
+                <span class="pull-left">{{ link.linkName }}</span>&nbsp;         
+             
+              
+          <a href ="{% url 'update_link' link.id %}" class="moj-btn link-button col-md-2 col-xs-2">
+            <i class="glyphicon glyphicon-pencil"></i>
             </a>
             <a href="{% url 'delete_link' link.id %}" class='moj-btn link-button col-md-2 col-xs-2' onclick="return confirmLinkDeletion()">
               <i class="glyphicon glyphicon-trash"></i>
-            </a>    
+            </a>
+          
           </div> 
-        {% endfor %}     
+          {% endfor %}
+        </div>
+      {% else %}
+          <p>You haven't added any links. Click <a href="{% url 'create_link' %}">here</a> to add some!</p>
+      {% endif %}
       </div>
-    {% else %}
-      </div class="r col-lg-3 col-md-3 col-xs-12 ">
-        <p>You haven't added any links. Click <a href="{% url 'create_link' %}">here</a> to add some!</p>
-      </div>
-    {% endif %}
+    </div>
   </div>
-</div>
+
+  
 
 
 {% endblock %}
