@@ -15,7 +15,7 @@
           margin-bottom: 6px;
         }
         .note-button{
-            height: 250px;
+            height: 280px;
             margin-left: 10px;
         }
 
@@ -137,7 +137,7 @@
     .note-control-buttons{
         color:  rgb(138, 138, 138);
         padding: 0px 0px 0px 0px !important;   
-        margin-top: 5px;
+        /* margin-top: -10px;
         /* not needed because buttons will be shown all the time
         display: none;
         */
