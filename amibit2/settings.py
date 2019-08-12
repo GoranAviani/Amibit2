@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['104.248.28.51','www.amibit.org','amibit.org','localhost','127.0.0.1']
 
@@ -139,15 +139,14 @@ LOGIN_URL = '/auth/login/google-oauth2/'
 SOCIAL_AUTH_URL_NAMESPACE = 'social'
 
 
-#for local uncomment for production comment
-#STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
-#for local comment for production uncomment
-PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
-STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
+#Path settings for dev or production:
+if DEBUG == True:
+    STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
-
-
+else:
+    PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+    STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
 
 
 
