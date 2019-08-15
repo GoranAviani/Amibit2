@@ -26,8 +26,8 @@ urlpatterns = [
     path('nl/', include('notelink.urls')),
     path('search/', views.search_bar, name='search_bar'), #search/ is used in base.html
 
-    path('about/', views.about, name='about'), 
-    path('contact/', views.contact, name='contact'),
+    #path('about/', views.about, name='about'), 
+    #path('contact/', views.contact, name='contact'),
     path('faq/', views.faq, name='faq'), 
 
 ]

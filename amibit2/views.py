@@ -39,16 +39,16 @@ def search_bar(request):
 
    #return redirect('index')
 
-def about(request):
-    return render(
-    request,
-    'otherPages/about.html'
-)
-def contact(request):
-    return render(
-    request,
-    'otherPages/contact.html'
-)
+#def about(request):
+#    return render(
+#    request,
+#    'otherPages/about.html'
+#)
+#def contact(request):
+#    return render(
+#    request,
+#    'otherPages/contact.html'
+#)
 
 def faq(request):
     return render(
