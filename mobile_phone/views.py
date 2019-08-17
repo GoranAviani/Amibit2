@@ -17,23 +17,18 @@ def edit_user_phone(request):
           
             try:
                 #if this user is found in user phone model ergo already has his phone number here
-                found_u_p_data = user_phone.objects.get(userMobilePhone=request.user)
-                data = {'userMobilePhone':found_u_p_data.userMobilePhone, 'phoneCountryCode': found_u_p_data.phoneCountryCode, "phoneNumber" : found_u_p_data.phoneNumber}
-                user_phone_form_data = user_mobile_phone_form(initial=data)
-
+                found_u_p_data = user_phone.objects.get(userMobilePhone=request.user) 
+                if user_phone_form_data.is_valid():
+                    user_phone.objects.filter(userMobilePhone=request.user).update(phoneCountryCode=user_phone_form_data["phoneCountryCode"].data, phoneNumber=user_phone_form_data["phoneNumber"].data)
+                #else goes to  else: try: except: bellow because either  way (succes or failure) 
+                # it gets redirected return redirect('edit_mobile_phone' 
             except:
-                #if this is the first time the user is inputting his phone number
                 aa = custom_user.objects.get(pk=request.user.pk)
-                user_phone_form_data.data["userMobilePhone"] = aa
-                # user_phone_form_data.data["userMobilePhone"] =  request.user
-                #print(user_phone_form_data["userMobilePhone"].data())
+                user_phone_form_data.data["userMobilePhone"] = aa # Need custom user object to work
                 if user_phone_form_data.is_valid():
                     form = user_phone_form_data.save(commit=False)
                     form.userMobilePhone = request.user
-                    #form.phoneCountryCode =  user_phone_form_data["phoneCountryCode"].data
-                    #form.phoneNumber = user_phone_form_data["phoneNumber"].data
                     form.save()
-                # messages.success(request, 'Note saved!',extra_tags='create_note')
             return redirect('edit_mobile_phone')
         else:
             try:
