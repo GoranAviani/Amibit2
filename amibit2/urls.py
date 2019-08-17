@@ -25,6 +25,7 @@ urlpatterns = [
     path('users/', include('expandeduser.urls')),
     path('nl/', include('notelink.urls')),
     path('search/', views.search_bar, name='search_bar'), #search/ is used in base.html
+    path('user_phone/', include('mobile_phone.urls')),
 
     #path('about/', views.about, name='about'), 
     #path('contact/', views.contact, name='contact'),
