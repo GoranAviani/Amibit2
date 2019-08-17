@@ -9,7 +9,8 @@ class user_phone(models.Model):
     phoneCountryCode = models.CharField(max_length=6)
     phoneNumber = models.CharField(max_length=12)
     isMobileValidated = models.BooleanField(default = False)
-    
+    sendWeatherSMS = models.BooleanField(default = False)
+
     def __str__(self):
         #result = {'phoneCountryCode': self.phoneCountryCode,'phoneNumber': self.phoneNumber, 'isMobileValidated': self.isMobileValidated}
 
