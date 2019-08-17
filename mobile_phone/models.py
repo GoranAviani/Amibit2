@@ -11,4 +11,7 @@ class user_phone(models.Model):
     isMobileValidated = models.BooleanField(default = False)
     
     def __str__(self):
-        return self.phoneNumber
+        #result = {'phoneCountryCode': self.phoneCountryCode,'phoneNumber': self.phoneNumber, 'isMobileValidated': self.isMobileValidated}
+
+        #return result
+        return u"%s %s %s" % (self.phoneCountryCode, self.phoneNumber, self.isMobileValidated)

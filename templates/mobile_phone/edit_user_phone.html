@@ -5,6 +5,8 @@
 <div class="container margin-30-top">
 <form method="post">
     {% csrf_token %}
+    Username: {{user.username}}
+    <br/>
     Mobile phone country code: {{user_phone_form_data.phoneCountryCode}}
     <br/>
     Mobile phone number: {{user_phone_form_data.phoneNumber}}
