@@ -5,10 +5,12 @@ class user_mobile_phone_form(forms.ModelForm):
     #userMobilePhone = forms.CharField(label='', widget=forms.TextInput(attrs={'readonly':'readonly','class':'form-control'}))
     phoneCountryCode = forms.CharField(label='', widget=forms.TextInput(attrs={'class':'form-control'}))
     phoneNumber = forms.CharField(label='', widget=forms.TextInput(attrs={'class':'form-control'}))
+    sendWeatherSMS = forms.BooleanField(required=False)
     class Meta:
         model = user_phone
         fields = (
             #'userMobilePhone',
             'phoneCountryCode',
             'phoneNumber',
+            'sendWeatherSMS',
 )
