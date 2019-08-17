@@ -15,9 +15,6 @@ def edit_user_phone(request):
         if request.method == 'POST':
             user_phone_form_data = user_mobile_phone_form(request.POST.copy()) #.copy() because query dict would be immutable
           
-            
-            
-          
             try:
                 #if this user is found in user phone model ergo already has his phone number here
                 found_u_p_data = user_phone.objects.get(userMobilePhone=request.user)
@@ -26,7 +23,6 @@ def edit_user_phone(request):
 
             except:
                 #if this is the first time the user is inputting his phone number
-                
                 aa = custom_user.objects.get(pk=request.user.pk)
                 user_phone_form_data.data["userMobilePhone"] = aa
                 # user_phone_form_data.data["userMobilePhone"] =  request.user
@@ -34,8 +30,8 @@ def edit_user_phone(request):
                 if user_phone_form_data.is_valid():
                     form = user_phone_form_data.save(commit=False)
                     form.userMobilePhone = request.user
-                    form.phoneCountryCode =  user_phone_form_data["phoneCountryCode"].data
-                    form.phoneNumber = user_phone_form_data["phoneNumber"].data
+                    #form.phoneCountryCode =  user_phone_form_data["phoneCountryCode"].data
+                    #form.phoneNumber = user_phone_form_data["phoneNumber"].data
                     form.save()
                 # messages.success(request, 'Note saved!',extra_tags='create_note')
             return redirect('edit_mobile_phone')
