@@ -9,7 +9,7 @@
             "name": "Django moj",
             "type": "python",
             "request": "launch",
-            "pythonPath": "/home/goran/.virtualenvs/amibit2/bin/python",
+            "pythonPath": "/home/goran/.virtualenvs/amibit2_env/bin/python",
             "program": "${workspaceFolder}/manage.py",
             "args": [
                 "runserver",
