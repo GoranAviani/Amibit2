@@ -11,6 +11,8 @@ def get_user_lat_long(stringToSend):
         'q': stringToSend,
         'format': 'json'}}
     result = make_request_params(**apiUrl, **apiEndpoint, **params)
-    print(result)
     #get here lat and long
-    return result
+    userLat = result[0]["lat"]
+    userLon = result[0]["lon"]
+
+    return userLat, userLon

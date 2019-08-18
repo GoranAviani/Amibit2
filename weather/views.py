@@ -65,10 +65,10 @@ def send_daily_forecast_to_all(request):
                 pass # user mobile is not approved /does not want to receive sms
             else:
                 #return users latitude and longitude from his address - api call
-                userLong = get_user_lat_long(stringToSend)
-                #userLat, userLong = get_user_lat_long(stringToSend)
+                #userLong = get_user_lat_long(stringToSend)
+                userLat, userLong = get_user_lat_long(stringToSend)
                 print(userLong)
-                #print(userLong)
+                print(userLong)
                 #return weather forecast for his lat and long
                 #send him a text message with weather forecast
                 #all user checks have passed and he is to receive his forecast sms
