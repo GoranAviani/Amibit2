@@ -9,13 +9,23 @@ from mobile_phone.models import user_phone
 # wants to receive weather forecast
 def get_user_mobile(user):
     try:
-        user_phone_instance = user_phone.objects.get(userMobilePhone=user)
-        #print(user_phone_instance)
-        status = "OK"
-        result = "9873505"
-        return status, result        
+        user_phone_instance = user_phone.objects.get(userMobilePhone=user)     
     except:
         #user does not have anything in user phone model
+        status = "DontSentSMS"
+        result = ""
+        return status, result
+
+    if (user_phone_instance.isMobileValidated == True and user_phone_instance.sendWeatherSMS == True):
+        #print(user_phone_instance)
+        if (user_phone_instance.phoneCountryCode != None and user_phone_instance.phoneCountryCode != None):
+            phoneCountryCode = user_phone_instance.phoneCountryCode
+            phoneNumber = user_phone_instance.phoneNumber
+        
+            status = "OK"
+            result = phoneCountryCode + phoneNumber
+            return status, result   
+    else:
         status = "DontSentSMS"
         result = ""
         return status, result
