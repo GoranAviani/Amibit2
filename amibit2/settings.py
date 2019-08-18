@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'notelink.apps.NotelinkConfig',
     'mobile_phone.apps.MobilePhoneConfig',
     'weather.apps.WeatherConfig',
-
+    'api_relay.apps.ApiRelayConfig',
 
     'social_django',
 ]
