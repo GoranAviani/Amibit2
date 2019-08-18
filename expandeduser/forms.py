@@ -54,6 +54,6 @@ class user_profile_form(forms.ModelForm):
             'userDoB',
             'userCountry',
             'userCity',
-            'userMobilenumber',
+            'userAddress',
 )
         

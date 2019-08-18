@@ -7,7 +7,7 @@ from django.contrib.auth.models import AbstractUser
 
 class custom_user(AbstractUser):
     userMobilenumber = models.CharField(max_length=50,null=True, blank=True)
-    # userAddress = models.CharField(max_length=30,null=True, blank=True)
+    userAddress = models.CharField(max_length=30,null=True, blank=True)
     userCity = models.CharField(max_length=30,null=True, blank=True)
     userCountry = models.CharField(max_length=30,null=True, blank=True)
     userDoB = models.DateField(null=True, blank=True)
