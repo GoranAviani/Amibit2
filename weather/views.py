@@ -5,17 +5,7 @@ from mobile_phone.models import user_phone
 
 # Create your views here.
 
-#This function witll return user mobile if user is approved and 
-# wants to receive weather forecast
-def get_user_mobile(user):
-    try:
-        user_phone_instance = user_phone.objects.get(userMobilePhone=user)     
-    except:
-        #user does not have anything in user phone model
-        status = "DontSentSMS"
-        result = ""
-        return status, result
-
+def get_mobile_phone(user_phone_instance):
     if (user_phone_instance.isMobileValidated == True and user_phone_instance.sendWeatherSMS == True):
         #print(user_phone_instance)
         if (user_phone_instance.phoneCountryCode != None and user_phone_instance.phoneCountryCode != None):
@@ -24,11 +14,31 @@ def get_user_mobile(user):
         
             status = "OK"
             result = phoneCountryCode + phoneNumber
-            return status, result   
+            return status, result
+        else:
+            status = "DontSentSMS"
+            result = ""
+            return status, result
     else:
         status = "DontSentSMS"
         result = ""
         return status, result
+
+
+
+#This function witll return user mobile if user is approved and 
+# wants to receive weather forecast
+def get_user_mobile_status(user):
+    try:
+        user_phone_instance = user_phone.objects.get(userMobilePhone=user)     
+    except:
+        #user does not have anything in user phone model
+        status = "DontSentSMS"
+        result = ""
+        return status, result
+
+    status, result = get_mobile_phone(user_phone_instance)
+    return status, result
 
 #This function will send weather sms message to all users that have address and city
 # and have been approved and want to receive sms messages
@@ -46,7 +56,7 @@ def send_daily_forecast_to_all(request):
             else:
                 stringToSend = str(userCity) + "," + str(userCountry)
 
-            status, result = get_user_mobile(user)
+            status, result = get_user_mobile_status(user)
             print(status)
             print(result)
 
