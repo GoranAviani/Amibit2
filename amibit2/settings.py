@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'expandeduser.apps.ExpandeduserConfig',
     'notelink.apps.NotelinkConfig',
     'mobile_phone.apps.MobilePhoneConfig',
+    'weather.apps.WeatherConfig',
+
 
     'social_django',
 ]
