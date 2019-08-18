@@ -2,6 +2,7 @@ from django.shortcuts import render
 from expandeduser.models import custom_user
 from django.http import HttpResponse
 from mobile_phone.models import user_phone
+from api_relay.views import get_user_lat_long
 
 # Create your views here.
 
@@ -56,18 +57,22 @@ def send_daily_forecast_to_all(request):
             else:
                 stringToSend = str(userCity) + "," + str(userCountry)
 
-            status, result = get_user_mobile_status(user)
-            print(status)
-            print(result)
+            userMobileStatus, userMobileNumber = get_user_mobile_status(user)
+            print(userMobileStatus)
+            print(userMobileNumber)
 
-            if status == "DontSentSMS":
+            if userMobileStatus == "DontSentSMS":
                 pass # user mobile is not approved /does not want to receive sms
             else:
                 #return users latitude and longitude from his address - api call
+                userLong = get_user_lat_long(stringToSend)
+                #userLat, userLong = get_user_lat_long(stringToSend)
+                print(userLong)
+                #print(userLong)
                 #return weather forecast for his lat and long
                 #send him a text message with weather forecast
                 #all user checks have passed and he is to receive his forecast sms
-                pass
+                
 
 
 
