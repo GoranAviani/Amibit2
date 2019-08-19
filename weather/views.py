@@ -2,7 +2,7 @@ from django.shortcuts import render
 from expandeduser.models import custom_user
 from django.http import HttpResponse
 from mobile_phone.models import user_phone
-from api_relay.views import get_user_lat_long
+from api_relay.views import get_user_lat_long, get_user_weather_forecast
 
 # Create your views here.
 
@@ -67,9 +67,10 @@ def send_daily_forecast_to_all(request):
                 #return users latitude and longitude from his address - api call
                 #userLong = get_user_lat_long(stringToSend)
                 userLat, userLong = get_user_lat_long(stringToSend)
-                print(userLong)
+                print(userLat)
                 print(userLong)
                 #return weather forecast for his lat and long
+                weatherForecast = get_user_weather_forecast(userLat, userLong)
                 #send him a text message with weather forecast
                 #all user checks have passed and he is to receive his forecast sms
                 

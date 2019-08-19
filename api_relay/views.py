@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from amibit2.local_settings import locationiqTokenKey
+from amibit2.local_settings import locationiqTokenKey, darkSkyToken
+
 # Create your views here.
 from .making_requests import make_request_params
 
@@ -16,3 +17,13 @@ def get_user_lat_long(stringToSend):
     userLon = result[0]["lon"]
 
     return userLat, userLon
+
+
+def get_user_weather_forecast(userLen, userLong):
+    
+    apiUrl = {"apiUrl": "https://api.darksky.net/forecast/"}
+    apiEndpoint = {"apiEndpoint": darkSkyToken + "/" + userLen +","+userLong}
+    params =  {"params1":{'units': "auto",}}
+    result = make_request_params(**apiUrl, **apiEndpoint, **params)
+    print(result)
+    return result
