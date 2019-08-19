@@ -3,6 +3,7 @@ from expandeduser.models import custom_user
 from django.http import HttpResponse
 from mobile_phone.models import user_phone
 from api_relay.views import get_user_lat_long_api, get_user_weather_forecast_api, send_sms_message_api
+import time
 
 # Create your views here.
 
@@ -71,8 +72,8 @@ def send_daily_forecast_to_all(request):
                 stringToSend = str(userCity) + "," + str(userCountry)
 
             userMobileStatus, userMobileNumber = get_user_mobile_status(user)
-            print(userMobileStatus)
-            print(userMobileNumber)
+            #print(userMobileStatus)
+            #print(userMobileNumber)
 
             if userMobileStatus == "DontSentSMS":
                 pass # user mobile is not approved /does not want to receive sms
@@ -82,14 +83,17 @@ def send_daily_forecast_to_all(request):
                 #return users latitude and longitude from his address - api call
                 #userLong = get_user_lat_long(stringToSend)
                 userLat, userLong = get_user_lat_long_api(stringToSend)
-                print(userLat)
-                print(userLong)
+                #print(userLat)
+                #print(userLong)
                 
                 #return weather forecast for his lat and long
                 weatherForecast = get_user_weather_forecast_api(userLat, userLong)
                 processedForecastMessage = process_forecast_for_sms_message(weatherForecast, userCity)
-                print(processedForecastMessage)
+                #print(processedForecastMessage)
                 
+                #delay of 0.5s because free Twilio account supports 2 messages in a second.
+                #if number is greather than that twilio will return 429 code.
+                time.sleep(0.5)
                 #send him a text message with weather forecast
                 send_sms_message_api(userMobileNumber, processedForecastMessage)
 
