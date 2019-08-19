@@ -25,10 +25,9 @@ def get_mobile_phone(user_phone_instance):
         result = ""
         return status, result
 
-def process_forecast_for_sms_message(result):
-    processedMessage = ("Hi, this is your daily forecast from Amibit! "
-    + "Now its {} degrees, and we expect it to be: {}" 
-    .format(str(result["currently"]["temperature"]), 
+def process_forecast_for_sms_message(result, userCity):
+    processedMessage = ("Hi, this is your daily forecast for {}! Now its {} degrees, and it is going to be: {} Your Amibit!" 
+    .format(userCity, str(result["currently"]["temperature"]), 
     str(result["hourly"]["summary"]) ) )
 
     #print(result["currently"]["summary"]) # this
@@ -85,7 +84,7 @@ def send_daily_forecast_to_all(request):
                 print(userLong)
                 #return weather forecast for his lat and long
                 weatherForecast = get_user_weather_forecast(userLat, userLong)
-                processedForecastMessage = process_forecast_for_sms_message(weatherForecast)
+                processedForecastMessage = process_forecast_for_sms_message(weatherForecast, userCity)
                 print(processedForecastMessage)
                 #send him a text message with weather forecast
                 #all user checks have passed and he is to receive his forecast sms
