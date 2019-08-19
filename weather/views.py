@@ -71,6 +71,7 @@ def send_daily_forecast_to_all(request):
                 print(userLong)
                 #return weather forecast for his lat and long
                 weatherForecast = get_user_weather_forecast(userLat, userLong)
+                print(weatherForecast)
                 #send him a text message with weather forecast
                 #all user checks have passed and he is to receive his forecast sms
                 
