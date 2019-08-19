@@ -25,7 +25,21 @@ def get_mobile_phone(user_phone_instance):
         result = ""
         return status, result
 
+def process_forecast_for_sms_message(result):
+    processedMessage = ("Hi, this is your daily forecast from Amibit! "
+    + "Now its {} degrees, and we expect it to be: {}" 
+    .format(str(result["currently"]["temperature"]), 
+    str(result["hourly"]["summary"]) ) )
 
+    #print(result["currently"]["summary"]) # this
+    #print(result["currently"]["temperature"]) #this
+    #print(result["currently"]["uvIndex"])
+
+    #print(result["hourly"])
+    #print(result["hourly"]["summary"]) #need this
+
+
+    return processedMessage
 
 #This function witll return user mobile if user is approved and 
 # wants to receive weather forecast
@@ -71,7 +85,8 @@ def send_daily_forecast_to_all(request):
                 print(userLong)
                 #return weather forecast for his lat and long
                 weatherForecast = get_user_weather_forecast(userLat, userLong)
-                print(weatherForecast)
+                processedForecastMessage = process_forecast_for_sms_message(weatherForecast)
+                print(processedForecastMessage)
                 #send him a text message with weather forecast
                 #all user checks have passed and he is to receive his forecast sms
                 

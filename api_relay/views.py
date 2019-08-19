@@ -27,21 +27,5 @@ def get_user_weather_forecast(userLen, userLong):
     result = make_request_params(**apiUrl, **apiEndpoint, **params)
     #print(result)
     
-    result = process_forecast_for_sms_message(result)
     return result
 
-def process_forecast_for_sms_message(result):
-    processedMessage = ("Hi, this is your daily forecast from Amibit! "
-    + "Now its {} degrees, and we expect it to be: {}" 
-    .format(str(result["currently"]["temperature"]), 
-    str(result["hourly"]["summary"]) ) )
-
-    #print(result["currently"]["summary"]) # this
-    #print(result["currently"]["temperature"]) #this
-    #print(result["currently"]["uvIndex"])
-
-    #print(result["hourly"])
-    #print(result["hourly"]["summary"]) #need this
-
-
-    return processedMessage
