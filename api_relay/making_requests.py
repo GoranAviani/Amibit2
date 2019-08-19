@@ -1,5 +1,7 @@
 import requests
 import json
+import twilio.rest
+#from twilio.rest import Client
 
 def make_request_params(**kwargs):
     try:
@@ -26,3 +28,14 @@ def make_request_params(**kwargs):
 
     return result.json()
 
+def twilio_api(userMobileNumber, processedForecastMessage, twilioAccountSid, twilioAuthToken, myTwilioTelephone):
+    
+    client1 = twilio.rest.Client(twilioAccountSid, twilioAuthToken)
+
+    message1 = client1.messages \
+                    .create(
+                        body=processedForecastMessage,
+                        from_= myTwilioTelephone,
+                        to=userMobileNumber
+                    )
+    print(message1.status)

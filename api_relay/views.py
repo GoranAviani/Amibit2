@@ -1,8 +1,9 @@
 from django.shortcuts import render
-from amibit2.local_settings import locationiqTokenKey, darkSkyToken
+from amibit2.local_settings import locationiqTokenKey, darkSkyToken, twilioAccountSid, twilioAuthToken, myTwilioTelephone
+
 
 # Create your views here.
-from .making_requests import make_request_params
+from .making_requests import make_request_params, twilio_api
 
 #returning users latitude and longitude
 def get_user_lat_long_api(stringToSend):
@@ -30,4 +31,4 @@ def get_user_weather_forecast_api(userLen, userLong):
     return result
 
 def send_sms_message_api(userMobileNumber, processedForecastMessage):
-    pass
+    twilio_api(userMobileNumber, processedForecastMessage, twilioAccountSid, twilioAuthToken, myTwilioTelephone)

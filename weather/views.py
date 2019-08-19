@@ -2,7 +2,7 @@ from django.shortcuts import render
 from expandeduser.models import custom_user
 from django.http import HttpResponse
 from mobile_phone.models import user_phone
-from api_relay.views import get_user_lat_long_api, get_user_weather_forecast_api
+from api_relay.views import get_user_lat_long_api, get_user_weather_forecast_api, send_sms_message_api
 
 # Create your views here.
 
