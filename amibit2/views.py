@@ -55,3 +55,12 @@ def faq(request):
     request,
     'otherPages/faq.html'
 )
+
+
+def sms_panel(request):
+   if request.user.is_superuser:
+         return render(request,'admin_panel/sms_panel.html')
+   else:
+        #if user is not authenticated inform him of that
+        return render(request, 'otherPages/not_authenticaded.html')
+
