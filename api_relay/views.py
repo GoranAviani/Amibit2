@@ -5,7 +5,7 @@ from amibit2.local_settings import locationiqTokenKey, darkSkyToken
 from .making_requests import make_request_params
 
 #returning users latitude and longitude
-def get_user_lat_long(stringToSend):
+def get_user_lat_long_api(stringToSend):
     apiUrl = {"apiUrl": "https://eu1.locationiq.com/v1/"}
     apiEndpoint = {"apiEndpoint": "search.php"}
     params =  {"params1":{'key': locationiqTokenKey,
@@ -19,7 +19,7 @@ def get_user_lat_long(stringToSend):
     return userLat, userLon
 
 
-def get_user_weather_forecast(userLen, userLong):
+def get_user_weather_forecast_api(userLen, userLong):
     
     apiUrl = {"apiUrl": "https://api.darksky.net/forecast/"}
     apiEndpoint = {"apiEndpoint": darkSkyToken + "/" + userLen +","+userLong}
@@ -29,3 +29,5 @@ def get_user_weather_forecast(userLen, userLong):
     
     return result
 
+def send_sms_message_api(userMobileNumber, processedForecastMessage):
+    pass
