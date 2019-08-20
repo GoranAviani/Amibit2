@@ -55,55 +55,64 @@ def get_user_mobile_status(user):
     status, result = get_mobile_phone(user_phone_instance)
     return status, result
 
+#the actual sending of the forecast
+def send_daily_forecast(user):
+    stringToSend =""
+    userAddress = user.userAddress
+    userCity = user.userCity
+    userCountry = user.userCountry
+
+    if (userCountry != None and userCountry != None):
+        if userAddress != None:
+            stringToSend = str(userAddress) + "," + str(userCity)+ "," + str(userCountry)
+        else:
+            stringToSend = str(userCity) + "," + str(userCountry)
+
+        userMobileStatus, userMobileNumber = get_user_mobile_status(user)
+        #print(userMobileStatus)
+        #print(userMobileNumber)
+
+        if userMobileStatus == "DontSentSMS":
+            pass # user mobile is not approved /does not want to receive sms
+        else:
+            #all user checks have passed and he is to receive his forecast sms
+            
+            #return users latitude and longitude from his address - api call
+            #userLong = get_user_lat_long(stringToSend)
+            userLat, userLong = get_user_lat_long_api(stringToSend)
+            #print(userLat)
+            #print(userLong)
+                
+            #return weather forecast for his lat and long
+            weatherForecast = get_user_weather_forecast_api(userLat, userLong)
+            processedForecastMessage = process_forecast_for_sms_message(weatherForecast, userCity)
+            #print(processedForecastMessage)
+            
+            #delay of 0.5s because free Twilio account supports 2 messages in a second.
+            #if number is greather than that twilio will return 429 code.
+            time.sleep(0.5)
+            #send him a text message with weather forecast
+            send_sms_message_api(userMobileNumber, processedForecastMessage)
+
+    else:
+        pass
+
+
+    
+
+
+
+
 #This function will send weather sms message to all users that have address and city
 # and have been approved and want to receive sms messages
 def send_daily_forecast_to_all(request):
     users = custom_user.objects.all()
     for user in users:
-        stringToSend =""
-        userAddress = user.userAddress
-        userCity = user.userCity
-        userCountry = user.userCountry
-
-        if (userCountry != None and userCountry != None):
-            if userAddress != None:
-                stringToSend = str(userAddress) + "," + str(userCity)+ "," + str(userCountry)
-            else:
-                stringToSend = str(userCity) + "," + str(userCountry)
-
-            userMobileStatus, userMobileNumber = get_user_mobile_status(user)
-            #print(userMobileStatus)
-            #print(userMobileNumber)
-
-            if userMobileStatus == "DontSentSMS":
-                pass # user mobile is not approved /does not want to receive sms
-            else:
-                #all user checks have passed and he is to receive his forecast sms
-                
-                #return users latitude and longitude from his address - api call
-                #userLong = get_user_lat_long(stringToSend)
-                userLat, userLong = get_user_lat_long_api(stringToSend)
-                #print(userLat)
-                #print(userLong)
-                
-                #return weather forecast for his lat and long
-                weatherForecast = get_user_weather_forecast_api(userLat, userLong)
-                processedForecastMessage = process_forecast_for_sms_message(weatherForecast, userCity)
-                #print(processedForecastMessage)
-                
-                #delay of 0.5s because free Twilio account supports 2 messages in a second.
-                #if number is greather than that twilio will return 429 code.
-                time.sleep(0.5)
-                #send him a text message with weather forecast
-                send_sms_message_api(userMobileNumber, processedForecastMessage)
-
-                
-
-
-
-        else:
-            pass
-
-
-
+        send_daily_forecast(user)
     return HttpResponse('Daily forecast sent to all users')
+
+
+
+def send_daily_forecast_to_user(request):
+    user = request.user
+    send_daily_forecast(user)
