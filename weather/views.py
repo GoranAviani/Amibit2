@@ -116,3 +116,4 @@ def send_daily_forecast_to_all(request):
 def send_daily_forecast_to_user(request):
     user = request.user
     send_daily_forecast(user)
+    return HttpResponse('Daily forecast has been sent to {}' .format(user.username))
