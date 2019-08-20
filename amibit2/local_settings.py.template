@@ -29,3 +29,16 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = 'NAME@YOUR_DOMAIN'
 EMAIL_HOST_PASSWORD = 'PASSWORD'
 DEFAULT_FROM_EMAIL = 'Amibit Admin <admin@amibit.org>'
+
+
+
+#Access token used to access location iq geocoding api
+#locationiqTokenKey = "YOUR_LOCATIONIQ_TOKEN"
+
+#Access token used to acces Dark sky weather api
+darkSkyToken = "YOUR_DARKSKY_TOKEN"
+
+#Twilio credentials
+twilioAccountSid = "YOUR_TWILIO_ACCOUNT_SID"
+twilioAuthToken = "YOUR_TWILIO_AUTH_TOKEN"
+myTwilioTelephone = "YOUR_TWILIO_TELEPHONE"
