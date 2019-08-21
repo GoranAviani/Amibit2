@@ -28,10 +28,12 @@ def get_mobile_phone(user_phone_instance):
 
 def process_forecast_for_sms_message(result, userCity):
     processedMessage = ("Today's forecast for {}! Now its {}. LT: {}, HT: {}. {} Your Amibit!" 
-    .format(userCity, str(result["currently"]["temperature"]),
-    str(result["daily"]["data"][0]["temperatureLow"]),
-    str(result["daily"]["data"][0]["temperatureHigh"]), 
-    str(result["hourly"]["summary"]) ) )
+    .format(
+    userCity, 
+    str(round(result["currently"]["temperature"])),
+    str(round(result["daily"]["data"][0]["temperatureLow"])),
+    str(round(result["daily"]["data"][0]["temperatureHigh"])), 
+    str(result["hourly"]["summary"]) ))
 
     #print(result["currently"]["summary"]) # this
     #print(result["currently"]["temperature"]) #this
