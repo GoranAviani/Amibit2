@@ -3,6 +3,8 @@ from amibit2.local_settings import locationiqTokenKey, darkSkyToken, twilioAccou
 
 
 # Create your views here.
+#This is the place where api functions are getting called from
+
 from .making_requests import make_request_params, twilio_api
 
 #returning users latitude and longitude
@@ -16,7 +18,6 @@ def get_user_lat_long_api(stringToSend):
     #get here lat and long
     userLat = result[0]["lat"]
     userLon = result[0]["lon"]
-
     return userLat, userLon
 
 
@@ -26,8 +27,7 @@ def get_user_weather_forecast_api(userLen, userLong):
     apiEndpoint = {"apiEndpoint": darkSkyToken + "/" + userLen +","+userLong}
     params =  {"params1":{'units': "auto",}}
     result = make_request_params(**apiUrl, **apiEndpoint, **params)
-    #print(result)
-    
+    #print(result)    
     return result
 
 def send_sms_message_api(userMobileNumber, processedForecastMessage):

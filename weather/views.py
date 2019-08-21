@@ -87,12 +87,15 @@ def send_daily_forecast(user):
                 
             #return weather forecast for his lat and long
             weatherForecast = get_user_weather_forecast_api(userLat, userLong)
+           
+            #Process raw api data to text about a forecast 
             processedForecastMessage = process_forecast_for_sms_message(weatherForecast, userCity)
             #print(processedForecastMessage)
             
             #delay of 0.5s because free Twilio account supports 2 messages in a second.
-            #if number is greather than that twilio will return 429 code.
+            #if number is greather than that 2 twilio will return 429 code.
             time.sleep(0.5)
+            
             #send him a text message with weather forecast
             send_sms_message_api(userMobileNumber, processedForecastMessage)
 
@@ -111,7 +114,7 @@ def send_daily_forecast_to_all(request):
     users = custom_user.objects.all()
     for user in users:
         send_daily_forecast(user)
-    return HttpResponse('Daily forecast sent to all users')
+    return HttpResponse('Daily forecast has been sent to all users.')
 
 
 
