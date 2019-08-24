@@ -6,6 +6,7 @@ class user_mobile_phone_form(forms.ModelForm):
     phoneCountryCode = forms.CharField(label='', widget=forms.TextInput(attrs={'class':'form-control'}))
     phoneNumber = forms.CharField(label='', widget=forms.TextInput(attrs={'class':'form-control'}))
     sendWeatherSMS = forms.BooleanField(required=False)
+    timeWeatherSMS = forms.CharField(required=False, label='', widget=forms.TextInput(attrs={'class':'form-control'}))
     class Meta:
         model = user_phone
         fields = (
@@ -13,4 +14,5 @@ class user_mobile_phone_form(forms.ModelForm):
             'phoneCountryCode',
             'phoneNumber',
             'sendWeatherSMS',
+            'timeWeatherSMS',
 )
