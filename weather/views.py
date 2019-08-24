@@ -70,23 +70,25 @@ def process_forecast_for_sms_message(result, userCity):
 
 #This function witll return user mobile if user is approved and 
 # wants to receive weather forecast
-def get_user_mobile_status(user):
+def get_user_mobile_and_time(user):
     try:
         user_phone_instance = user_phone.objects.get(userMobilePhone=user)     
     except:
         #user does not have anything in user phone model
         status = "DontSentSMS"
-        result = ""
-        return status, result
+        resultMobileNumber = ""
+        esultForecastTimeList = ""
+        return status, resultMobileNumber, resultForecastTimeList
 
-    status, result = get_user_forecast_time(user_phone_instance)
+    status, resultForecastTimeList = get_user_forecast_time(user_phone_instance)
     if status != "DontSentSMS":
-        status, result = get_mobile_phone(user_phone_instance)
-        return status, result
+        status, resuresultMobileNumber = get_mobile_phone(user_phone_instance)
+        return status, resuresultMobileNumber, resultForecastTimeList
     
     status = "DontSentSMS"
-    result = ""
-    return status, result
+    resuresultMobileNumber = ""
+    resultForecastTimeList = ""
+    return status, resuresultMobileNumber, resultForecastTimeList
 
 #the actual sending of the forecast
 def send_daily_forecast(user):
@@ -101,7 +103,7 @@ def send_daily_forecast(user):
         else:
             stringToSend = str(userCity) + "," + str(userCountry)
 
-        userMobileStatus, userMobileNumber = get_user_mobile_status(user)
+        userMobileStatus, userMobileNumber, userForecastTimeList = get_user_mobile_and_time(user)
         #print(userMobileStatus)
         #print(userMobileNumber)
 
