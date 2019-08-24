@@ -4,8 +4,28 @@ from django.http import HttpResponse
 from mobile_phone.models import user_phone
 from api_relay.views import get_user_lat_long_api, get_user_weather_forecast_api, send_sms_message_api
 import time
+import datetime
+from amibit2.processing import *
+
 
 # Create your views here.
+
+def check_user_weather_SMS_time(usersWeatherSMSTimeList):
+    return usersWeatherSMSTimeList
+
+
+def get_user_forecast_time(user_phone_instance):
+    nowTime = datetime.datetime.now()
+    nowHours = nowTime.hour
+    nowHours = nowTime.minute
+    usersWeatherSMSTime = user_phone_instance.timeWeatherSMS
+    status, usersWeatherSMSTimeList= split_by_char(usersWeatherSMSTime)
+    if status != "error":
+        usersWeatherSMSTimeList = check_user_weather_SMS_time
+    else:
+        return "DontSentSMS", usersWeatherSMSTimeList
+
+    return "sendSMS", usersWeatherSMSTimeList
 
 def get_mobile_phone(user_phone_instance):
     if (user_phone_instance.isMobileValidated == True and user_phone_instance.sendWeatherSMS == True):
@@ -56,6 +76,8 @@ def get_user_mobile_status(user):
         result = ""
         return status, result
 
+    status, result = get_user_forecast_time(user_phone_instance)
+    #if status = "DontSentSMS"
     status, result = get_mobile_phone(user_phone_instance)
     return status, result
 
@@ -65,7 +87,7 @@ def send_daily_forecast(user):
     userAddress = user.userAddress
     userCity = user.userCity
     userCountry = user.userCountry
-
+    
     if (userCountry != None and userCountry != None):
         if userAddress != None:
             stringToSend = str(userAddress) + "," + str(userCity)+ "," + str(userCountry)
