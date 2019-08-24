@@ -11,6 +11,8 @@ from amibit2.processing import *
 # Create your views here.
 
 def check_user_weather_SMS_time(usersWeatherSMSTimeList):
+    #check if [0] us between 0 and 24 and if [1] is 0 or 30, if inside
+    #these parameters it is ok, if not the time is wrong
     return usersWeatherSMSTimeList
 
 
@@ -77,8 +79,12 @@ def get_user_mobile_status(user):
         return status, result
 
     status, result = get_user_forecast_time(user_phone_instance)
-    #if status = "DontSentSMS"
-    status, result = get_mobile_phone(user_phone_instance)
+    if status != "DontSentSMS":
+        status, result = get_mobile_phone(user_phone_instance)
+        return status, result
+    
+    status = "DontSentSMS"
+    result = ""
     return status, result
 
 #the actual sending of the forecast
