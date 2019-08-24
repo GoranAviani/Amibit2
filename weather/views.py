@@ -21,7 +21,8 @@ def get_user_forecast_time(user_phone_instance):
     nowHours = nowTime.hour
     nowHours = nowTime.minute
     usersWeatherSMSTime = user_phone_instance.timeWeatherSMS
-    status, usersWeatherSMSTimeList= split_by_char(usersWeatherSMSTime)
+    charForSplit = ":" #time hours and minutes are splitted by :
+    status, usersWeatherSMSTimeList= split_by_char(usersWeatherSMSTime, charForSplit)
     if status != "error":
         usersWeatherSMSTimeList = check_user_weather_SMS_time
     else:
