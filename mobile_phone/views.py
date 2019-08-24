@@ -22,6 +22,7 @@ def edit_user_phone(request):
                     user_phone.objects.filter(userMobilePhone=request.user).update(phoneCountryCode=user_phone_form_data["phoneCountryCode"].data
                     , phoneNumber=user_phone_form_data["phoneNumber"].data
                     , sendWeatherSMS=user_phone_form_data["sendWeatherSMS"].data
+                    , timeWeatherSMS=user_phone_form_data["timeWeatherSMS"].data
                     )
                     #, sendWeatherSMS=user_mobile_phone_form["sendWeatherSMS"].data)
                 #else goes to  else: try: except: bellow because either  way (succes or failure) 
@@ -37,10 +38,11 @@ def edit_user_phone(request):
         else:
             try:
                 found_u_p_data = user_phone.objects.get(userMobilePhone=request.user)
-                data = {'userMobilePhone':found_u_p_data.userMobilePhone, 
-                'phoneCountryCode': found_u_p_data.phoneCountryCode, 
-                "phoneNumber": found_u_p_data.phoneNumber
+                data = {'userMobilePhone':found_u_p_data.userMobilePhone 
+                ,'phoneCountryCode': found_u_p_data.phoneCountryCode 
+                ,"phoneNumber": found_u_p_data.phoneNumber
                 ,"sendWeatherSMS": found_u_p_data.sendWeatherSMS
+                ,"timeWeatherSMS": found_u_p_data.timeWeatherSMS
                 }
                 user_phone_form_data = user_mobile_phone_form(initial=data)
             except:
