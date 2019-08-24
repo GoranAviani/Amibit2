@@ -10,7 +10,7 @@ from amibit2.processing import *
 
 # Create your views here.
 
-def check_user_weather_SMS_time(usersWeatherSMSTimeList):
+def check_user_weather_SMS_time_format(usersWeatherSMSTimeList):
     #check if [0] us between 0 and 24 and if [1] is 0 or 30, if inside
     #these parameters it is ok, if not the time is wrong
     return usersWeatherSMSTimeList
@@ -24,7 +24,7 @@ def get_user_forecast_time(user_phone_instance):
     charForSplit = ":" #time hours and minutes are splitted by :
     status, usersWeatherSMSTimeList= split_by_char(usersWeatherSMSTime, charForSplit)
     if status != "error":
-        usersWeatherSMSTimeList = check_user_weather_SMS_time
+        usersWeatherSMSTimeList = check_user_weather_SMS_time_format(usersWeatherSMSTimeList)
     else:
         return "DontSentSMS", usersWeatherSMSTimeList
 
@@ -106,6 +106,13 @@ def send_daily_forecast(user):
         userMobileStatus, userMobileNumber, userForecastTimeList = get_user_mobile_and_time(user)
         #print(userMobileStatus)
         #print(userMobileNumber)
+
+        #if userForecastTimeList not "now" or in the last 2 hours (processig time was long)
+        # then dont send because its still not the time do send sms
+        #else the time is now so please send sms to user
+
+        check_if_time_to_send_sms()
+
 
         if userMobileStatus == "DontSentSMS":
             pass # user mobile is not approved /does not want to receive sms
