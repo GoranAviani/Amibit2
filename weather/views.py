@@ -10,25 +10,40 @@ from amibit2.processing import *
 
 # Create your views here.
 
-def check_user_weather_SMS_time_format(usersWeatherSMSTimeList):
-    #check if [0] us between 0 and 24 and if [1] is 0 or 30, if inside
-    #these parameters it is ok, if not the time is wrong
-    return usersWeatherSMSTimeList
-
-
-def get_user_forecast_time(user_phone_instance):
+def check_if_time_to_send_sms(userForecastTimeList):
     nowTime = datetime.datetime.now()
     nowHours = nowTime.hour
     nowHours = nowTime.minute
+    #userHours = userForecastTimeList[0] object?
+    #userMinutes = userForecastTimeList[1]
+
+    #if time not to send sms return "DontSentSMS"
+    return "sendSMSNow"
+
+
+def check_user_weather_SMS_time_format(usersWeatherSMSTimeList):
+    #check if [0] us between 0 and 24 and if [1] is 0 or 30, if inside
+    #these parameters it is ok, if not the time is wrong
+    #if format bad please return "error"
+    return "", check_user_weather_SMS_time_format
+
+
+def check_user_forecast_time(user_phone_instance):
     usersWeatherSMSTime = user_phone_instance.timeWeatherSMS
     charForSplit = ":" #time hours and minutes are splitted by :
     status, usersWeatherSMSTimeList= split_by_char(usersWeatherSMSTime, charForSplit)
     if status != "error":
-        usersWeatherSMSTimeList = check_user_weather_SMS_time_format(usersWeatherSMSTimeList)
+        status, usersWeatherSMSTimeList = check_user_weather_SMS_time_format(usersWeatherSMSTimeList)
+        if status != "error":
+            status = check_if_time_to_send_sms(usersWeatherSMSTimeList)
+            if status == "DontSentSMS":
+                return "DontSentSMS"
+        else:
+            return "DontSentSMS"
     else:
-        return "DontSentSMS", usersWeatherSMSTimeList
+        return "DontSentSMS"
 
-    return "sendSMS", usersWeatherSMSTimeList
+    return "sendSMS"
 
 def get_mobile_phone(user_phone_instance):
     if (user_phone_instance.isMobileValidated == True and user_phone_instance.sendWeatherSMS == True):
@@ -70,25 +85,24 @@ def process_forecast_for_sms_message(result, userCity):
 
 #This function witll return user mobile if user is approved and 
 # wants to receive weather forecast
-def get_user_mobile_and_time(user):
+def get_user_mobile_and_check_time(user):
     try:
         user_phone_instance = user_phone.objects.get(userMobilePhone=user)     
     except:
         #user does not have anything in user phone model
         status = "DontSentSMS"
         resultMobileNumber = ""
-        esultForecastTimeList = ""
-        return status, resultMobileNumber, resultForecastTimeList
+        return status, resultMobileNumber
 
-    status, resultForecastTimeList = get_user_forecast_time(user_phone_instance)
+    #check do we send sms now or not now
+    status = check_user_forecast_time(user_phone_instance)
     if status != "DontSentSMS":
         status, resuresultMobileNumber = get_mobile_phone(user_phone_instance)
-        return status, resuresultMobileNumber, resultForecastTimeList
+        return status, resuresultMobileNumber
     
     status = "DontSentSMS"
     resuresultMobileNumber = ""
-    resultForecastTimeList = ""
-    return status, resuresultMobileNumber, resultForecastTimeList
+    return status, resuresultMobileNumber
 
 #the actual sending of the forecast
 def send_daily_forecast(user):
@@ -97,22 +111,19 @@ def send_daily_forecast(user):
     userCity = user.userCity
     userCountry = user.userCountry
     
-    if (userCountry != None and userCountry != None):
+    if (userCity != None and userCountry != None):
         if userAddress != None:
             stringToSend = str(userAddress) + "," + str(userCity)+ "," + str(userCountry)
         else:
             stringToSend = str(userCity) + "," + str(userCountry)
 
-        userMobileStatus, userMobileNumber, userForecastTimeList = get_user_mobile_and_time(user)
+        userMobileStatus, userMobileNumber = get_user_mobile_and_check_time(user)
         #print(userMobileStatus)
         #print(userMobileNumber)
 
         #if userForecastTimeList not "now" or in the last 2 hours (processig time was long)
         # then dont send because its still not the time do send sms
         #else the time is now so please send sms to user
-
-        check_if_time_to_send_sms()
-
 
         if userMobileStatus == "DontSentSMS":
             pass # user mobile is not approved /does not want to receive sms
