@@ -11,13 +11,18 @@ from amibit2.processing import *
 # Create your views here.
 
 def check_if_time_to_send_sms(userForecastTimeList):
+    #if time not to send sms return "DontSentSMS"
+    # if time to send sms has passed by 59 minutes then send the sms (assuming it takes 59 minutes ti send all sms)
+    #if it didnt pass then it is now or will be sent in the next cronjon (every hour cron job starts)
     nowTime = datetime.datetime.now()
     nowHours = nowTime.hour
     nowHours = nowTime.minute
     userHours = userForecastTimeList[0]
     userMinutes = userForecastTimeList[1]
 
-    #if time not to send sms return "DontSentSMS"
+
+
+
     return "sendSMSNow"
 
 
@@ -32,12 +37,12 @@ def check_user_weather_SMS_time_format(usersWeatherSMSTimeList):
 
 
     try:
-        isHour0to24= (int(usersWeatherSMSTimeList[0]) >= 0 and int(usersWeatherSMSTimeList[0]) < 25)
+        isHour0to24= ((int(usersWeatherSMSTimeList[0]) >= 0) and (int(usersWeatherSMSTimeList[0]) < 25))
     except:
         return "error", usersWeatherSMSTimeList
 
     try:
-        isMinute0to60= (int(usersWeatherSMSTimeList[1]) == 0 or int(usersWeatherSMSTimeList[1]) == 30 )
+        isMinute0to60= ((int(usersWeatherSMSTimeList[1]) == 0) or (int(usersWeatherSMSTimeList[1]) == 30 ))
     except:
         return "error", usersWeatherSMSTimeList
 
