@@ -75,13 +75,13 @@ def check_user_forecast_time(user_phone_instance):
         if status != "error":
             status = check_if_time_to_send_sms(usersWeatherSMSTimeList)
             if status == "DontSendSMS":
-                return "DontSendSMS"
+                return "DontSendSMS", "Weather time is not now."
         else:
-            return "DontSendSMS"
+            return "DontSendSMS", "Weather time is in wrong time/number format."
     else:
-        return "DontSendSMS"
+        return "DontSendSMS", "Weather time is in wrong format."
 
-    return "sendSMS"
+    return "sendSMS", "Weater forecast time is OK."
 
 def get_mobile_phone(user_phone_instance):
     if (user_phone_instance.isMobileValidated == True and user_phone_instance.sendWeatherSMS == True):
@@ -97,7 +97,7 @@ def get_mobile_phone(user_phone_instance):
         else:
             status = "DontSendSMS"
             result = ""
-            statusMessage = "Mobile phone not in format"
+            statusMessage = "Mobile phone not in right format."
             return status, statusMessage, result
     else:
         status = "DontSendSMS"
@@ -137,15 +137,15 @@ def get_user_mobile_and_check_time(user):
         return status, statusMessage, resultMobileNumber
 
     #check do we send sms now or not now
-    status = check_user_forecast_time(user_phone_instance)
+    status, statusMessageWeather = check_user_forecast_time(user_phone_instance)
     if status != "DontSendSMS":
-        status, statusMessage, resuresultMobileNumber = get_mobile_phone(user_phone_instance)
-        return status, statusMessage , resuresultMobileNumber
+        status, statusMessageMobile, resuresultMobileNumber = get_mobile_phone(user_phone_instance)
+        return status, (statusMessageWeather + " " + statusMessageMobile), resuresultMobileNumber
     
     status = "DontSendSMS"
     resuresultMobileNumber = ""
-    statusMessage = "Forecast time for this user is not now or is in wring format. "
-    return status,statusMessage, resuresultMobileNumber
+    #statusMessage = "Forecast time for this user is not now or is in wrong format. "
+    return status, statusMessageWeather, resuresultMobileNumber
 
 #the actual sending of the forecast
 def send_daily_forecast(user):
