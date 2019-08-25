@@ -169,7 +169,7 @@ def send_daily_forecast(user):
         #else the time is now so please send sms to user
 
         if userMobileStatus == "DontSendSMS":
-            pass # user mobile is not approved /does not want to receive sms
+            return statusMessage # user mobile is not approved /does not want to receive sms
         else:
             #all user checks have passed and he is to receive his forecast sms
             
@@ -194,7 +194,7 @@ def send_daily_forecast(user):
             send_sms_message_api(userMobileNumber, processedForecastMessage)
             return statusMessage
     else:
-        pass
+        return "To use the wweather forecast feature the user needs to have a city and country written in the form."
 
 
     
