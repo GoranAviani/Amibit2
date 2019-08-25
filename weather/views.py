@@ -97,12 +97,12 @@ def get_mobile_phone(user_phone_instance):
         else:
             status = "DontSendSMS"
             result = ""
-            statusMessage = "Mobile phone not in right format."
+            statusMessage = "Mobile phone is not in right format."
             return status, statusMessage, result
     else:
         status = "DontSendSMS"
         result = ""
-        statusMessage = "Mobile phone needs to be validated and approved by user to receive SMS."
+        statusMessage = "Mobile phone needs to be validated and approved by user to receive weather forecast text messages."
         return status, statusMessage, result
 
 def process_forecast_for_sms_message(result, userCity):

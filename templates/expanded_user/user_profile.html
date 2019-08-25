@@ -16,7 +16,7 @@
     <div class="container <div class="normal-center-page margin-30-top"></div>">
       <div class="row">
         <div class="col-md-8 col-md-offset-2">
-            <h3 class="text-center">{{ user.username }}, here you can change your data</h3><br />
+            <h3 class="text-center">{{ user.username }}, here you can change user settings</h3><br />
             <div class="text-center">
              
               <br/>
@@ -31,15 +31,15 @@
                 Primary e-mail: {{user.email}}<br/><br/>
                 Secondary e-mail: {{user.userSecondEmail}}<br/><br/><br/><br/>
 							
-							<a href="{% url 'edit_user_profile' %}" class="btn btn-primary solid width-100 hover-black-text">Edit your personal info </a>
+							<a href="{% url 'edit_user_profile' %}" class="btn btn-primary solid width-100 hover-black-text">Edit user info </a>
 						</br><br/><br/><br/><br/>
-            <h4><p>Mobile phone & weather</p></h4>
-            <a href="{% url 'edit_mobile_phone' %}" class="btn btn-primary solid width-100 hover-black-text">Change your mobile and weather forecast settings</a>
+            <h4><p>Mobile phone & weather settings</p></h4>
+            <a href="{% url 'edit_mobile_phone' %}" class="btn btn-primary solid width-100 hover-black-text">Change mobile and weather forecast settings</a>
 						</br><br/><br/><br/><br/>
               
-							<h4><p>Security</p></h4>
+							<h4><p>Security settings</p></h4>
 							Password: ****************<br/><br/>
-							<a href="{% url 'edit_user_password' %}" class="btn btn-primary solid width-100 hover-black-text">Change your password</a>
+							<a href="{% url 'edit_user_password' %}" class="btn btn-primary solid width-100 hover-black-text">Change password</a>
             </div>
         </div>
       </div>
