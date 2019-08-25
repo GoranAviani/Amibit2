@@ -8,13 +8,13 @@
     Username: {{user.username}}
     <br/>
   
-    Mobile phone country code: {{user_phone_form_data.phoneCountryCode}}
+    Mobile phone country code: * {{user_phone_form_data.phoneCountryCode}}
     <br/>
-    Mobile phone number: {{user_phone_form_data.phoneNumber}}
+    Mobile phone number: * {{user_phone_form_data.phoneNumber}} 
     <br/>
-    Do you want to receive weather SMS to your mobile: {{user_phone_form_data.sendWeatherSMS}}
+    Do you want to receive weather SMS to your mobile: **  {{user_phone_form_data.sendWeatherSMS}} 
     <br/>
-    Time to receive weather forecast: {{user_phone_form_data.timeWeatherSMS}}
+    Set your time to receive weather forecast: *** {{user_phone_form_data.timeWeatherSMS}} 
     <br/>
 
     <button type="submit" class="btn btn-primary solid width-100 hover-black-text" >Save</button>
@@ -25,6 +25,18 @@
 <div class="col-md-12 col-sm-12 col-xs-12 footer-widget footer-about-us " align="center">
 							
 					</div><!--/ End Faq-->	
+* Please make sure the data is in correct format: Country code (+ and number) and the phone number.
+ <br/>
+
+** To receive SMS weather forecast messages you need to approve it by ticking this box.
+    <br/>
+*** Please write this in format: hours:minutes.
+    <br/>
+Please make sure the minutes are set to 00 or 30, due to current forecast time restrictions.
+    <br/>
+Please make sure you use UTC/GMT time due to current forecast time resctrictions.
+
+
 
 
 </div>
