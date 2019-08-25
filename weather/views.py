@@ -92,15 +92,18 @@ def get_mobile_phone(user_phone_instance):
         
             status = "OK"
             result = phoneCountryCode + phoneNumber
-            return status, result
+            statusMessage = "Mobile phone OK."
+            return status, statusMessage, result
         else:
             status = "DontSendSMS"
             result = ""
-            return status, result
+            statusMessage = "Mobile phone not in format"
+            return status, statusMessage, result
     else:
         status = "DontSendSMS"
         result = ""
-        return status, result
+        statusMessage = "Mobile phone needs to be validated and approved by user to receive SMS."
+        return status, statusMessage, result
 
 def process_forecast_for_sms_message(result, userCity):
     processedMessage = ("Today's forecast for {}! Now its {}. LT: {}, HT: {}. {} Your Amibit!" 
@@ -130,17 +133,18 @@ def get_user_mobile_and_check_time(user):
         #user does not have anything in user phone model
         status = "DontSendSMS"
         resultMobileNumber = ""
-        return status, resultMobileNumber
+        statusMessage = "No user phone instance"
+        return status, statusMessage, resultMobileNumber
 
     #check do we send sms now or not now
     status = check_user_forecast_time(user_phone_instance)
     if status != "DontSendSMS":
-        status, resuresultMobileNumber = get_mobile_phone(user_phone_instance)
-        return status, resuresultMobileNumber
+        status, statusMessage, resuresultMobileNumber = get_mobile_phone(user_phone_instance)
+        return status, statusMessage , resuresultMobileNumber
     
     status = "DontSendSMS"
     resuresultMobileNumber = ""
-    return status, resuresultMobileNumber
+    return status,"", resuresultMobileNumber
 
 #the actual sending of the forecast
 def send_daily_forecast(user):
