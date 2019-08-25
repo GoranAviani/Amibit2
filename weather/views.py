@@ -11,7 +11,7 @@ from amibit2.processing import *
 # Create your views here.
 
 def check_if_time_to_send_sms(userForecastTimeList):
-    #if time not to send sms return "DontSentSMS"
+    #if time not to send sms return "DontSendSMS"
     # if time to send sms has passed by 29 minutes then send the sms (assuming it takes 29 minutes ti send all sms)
     #if it didnt pass then it is now or will be sent in the next cronjon (every 30 minutes cron job runs)
     nowTime = datetime.datetime.now()
@@ -74,12 +74,12 @@ def check_user_forecast_time(user_phone_instance):
         status, usersWeatherSMSTimeList = check_user_weather_SMS_time_format(usersWeatherSMSTimeList)
         if status != "error":
             status = check_if_time_to_send_sms(usersWeatherSMSTimeList)
-            if status == "DontSentSMS":
-                return "DontSentSMS"
+            if status == "DontSendSMS":
+                return "DontSendSMS"
         else:
-            return "DontSentSMS"
+            return "DontSendSMS"
     else:
-        return "DontSentSMS"
+        return "DontSendSMS"
 
     return "sendSMS"
 
@@ -94,11 +94,11 @@ def get_mobile_phone(user_phone_instance):
             result = phoneCountryCode + phoneNumber
             return status, result
         else:
-            status = "DontSentSMS"
+            status = "DontSendSMS"
             result = ""
             return status, result
     else:
-        status = "DontSentSMS"
+        status = "DontSendSMS"
         result = ""
         return status, result
 
@@ -128,17 +128,17 @@ def get_user_mobile_and_check_time(user):
         user_phone_instance = user_phone.objects.get(userMobilePhone=user)     
     except:
         #user does not have anything in user phone model
-        status = "DontSentSMS"
+        status = "DontSendSMS"
         resultMobileNumber = ""
         return status, resultMobileNumber
 
     #check do we send sms now or not now
     status = check_user_forecast_time(user_phone_instance)
-    if status != "DontSentSMS":
+    if status != "DontSendSMS":
         status, resuresultMobileNumber = get_mobile_phone(user_phone_instance)
         return status, resuresultMobileNumber
     
-    status = "DontSentSMS"
+    status = "DontSendSMS"
     resuresultMobileNumber = ""
     return status, resuresultMobileNumber
 
@@ -163,7 +163,7 @@ def send_daily_forecast(user):
         # then dont send because its still not the time do send sms
         #else the time is now so please send sms to user
 
-        if userMobileStatus == "DontSentSMS":
+        if userMobileStatus == "DontSendSMS":
             pass # user mobile is not approved /does not want to receive sms
         else:
             #all user checks have passed and he is to receive his forecast sms
