@@ -144,7 +144,8 @@ def get_user_mobile_and_check_time(user):
     
     status = "DontSendSMS"
     resuresultMobileNumber = ""
-    return status,"", resuresultMobileNumber
+    statusMessage = "Forecast time for this user is not now or is in wring format. "
+    return status,statusMessage, resuresultMobileNumber
 
 #the actual sending of the forecast
 def send_daily_forecast(user):
@@ -159,7 +160,7 @@ def send_daily_forecast(user):
         else:
             stringToSend = str(userCity) + "," + str(userCountry)
 
-        userMobileStatus, userMobileNumber = get_user_mobile_and_check_time(user)
+        userMobileStatus, statusMessage, userMobileNumber = get_user_mobile_and_check_time(user)
         #print(userMobileStatus)
         #print(userMobileNumber)
 
@@ -191,7 +192,7 @@ def send_daily_forecast(user):
             
             #send him a text message with weather forecast
             send_sms_message_api(userMobileNumber, processedForecastMessage)
-
+            return statusMessage
     else:
         pass
 
@@ -206,12 +207,14 @@ def send_daily_forecast(user):
 def send_daily_forecast_to_all(request):
     users = custom_user.objects.all()
     for user in users:
-        send_daily_forecast(user)
+        statusMessage = send_daily_forecast(user)
+        #status message is not really used for now but can be used to print a list 
+        #of users and who got sms and who not with a reason why not
     return HttpResponse('Daily forecast has been sent to all users.')
 
 
 
 def send_daily_forecast_to_user(request):
     user = request.user
-    send_daily_forecast(user)
-    return HttpResponse('Daily forecast has been sent to {}' .format(user.username))
+    statusMessage = send_daily_forecast(user)
+    return HttpResponse( 'System message: {} for user: {}' .format(user.username))
