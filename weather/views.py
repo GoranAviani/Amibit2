@@ -194,7 +194,7 @@ def send_daily_forecast(user):
             send_sms_message_api(userMobileNumber, processedForecastMessage)
             return statusMessage
     else:
-        return "To use the wweather forecast feature the user needs to have a city and country written in the form."
+        return "To use the weather forecast feature the user needs to have a city and country inputed in the user profile secton."
 
 
     
@@ -217,4 +217,4 @@ def send_daily_forecast_to_all(request):
 def send_daily_forecast_to_user(request):
     user = request.user
     statusMessage = send_daily_forecast(user)
-    return HttpResponse( 'System message: {} for user: {}' .format(statusMessage, user.username))
+    return HttpResponse( 'Forecast status message: {} Message for user: {}' .format(statusMessage, user.username))
