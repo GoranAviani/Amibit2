@@ -17,8 +17,8 @@ def check_if_time_to_send_sms(userForecastTimeList):
     nowTime = datetime.datetime.now()
     nowHours = nowTime.hour
     nowMinutes = nowTime.minute
-    userHours = userForecastTimeList[0]
-    userMinutes = userForecastTimeList[1]
+    userHours = int(userForecastTimeList[0])
+    userMinutes = int(userForecastTimeList[1])
 
 
     
@@ -30,7 +30,7 @@ def check_if_time_to_send_sms(userForecastTimeList):
     #if the time is ecaxt
     if (userMinutes == nowMinutes):
         return "sendSMSNow"
-    elif (userMinutes in range(nowMinutes - 29)): 
+    elif (userMinutes in range(nowMinutes - 29, nowMinutes)): 
     #if the time has passed in the last 29 min
     # but obviously was not run in the last vron job (would be -30 min then)
         return "sendSMSNow"
