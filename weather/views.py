@@ -75,11 +75,11 @@ def check_user_forecast_time(user_phone_instance):
         if status != "error":
             status = check_if_time_to_send_sms(usersWeatherSMSTimeList)
             if status == "DontSendSMS":
-                return "DontSendSMS", "Weather time is not now."
+                return "DontSendSMS", "Time set for weather forecast is not now."
         else:
-            return "DontSendSMS", "Weather time is in wrong time/number format."
+            return "DontSendSMS", "Forecast time is in wrong time/number format."
     else:
-        return "DontSendSMS", "Weather time is in wrong format."
+        return "DontSendSMS", "Forecast time is in wrong format."
 
     return "sendSMS", "Weater forecast time is OK."
 
