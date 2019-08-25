@@ -25,6 +25,11 @@ def check_user_weather_SMS_time_format(usersWeatherSMSTimeList):
     #check if [0] us between 0 and 24 and if [1] is 0 or 30, if inside
     #these parameters it is ok, if not the time is wrong
     #if format bad please return "error"
+    try:
+        areBothDigits = ((usersWeatherSMSTimeList[0].isdigit()) and (usersWeatherSMSTimeList[1].isdigit()))
+    except:
+        return "error", usersWeatherSMSTimeList
+
 
     try:
         isHour0to24= (int(usersWeatherSMSTimeList[0]) >= 0 and int(usersWeatherSMSTimeList[0]) < 25)
