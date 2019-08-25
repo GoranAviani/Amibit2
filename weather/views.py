@@ -12,19 +12,34 @@ from amibit2.processing import *
 
 def check_if_time_to_send_sms(userForecastTimeList):
     #if time not to send sms return "DontSentSMS"
-    # if time to send sms has passed by 59 minutes then send the sms (assuming it takes 59 minutes ti send all sms)
-    #if it didnt pass then it is now or will be sent in the next cronjon (every hour cron job starts)
+    # if time to send sms has passed by 29 minutes then send the sms (assuming it takes 29 minutes ti send all sms)
+    #if it didnt pass then it is now or will be sent in the next cronjon (every 30 minutes cron job runs)
     nowTime = datetime.datetime.now()
     nowHours = nowTime.hour
-    nowHours = nowTime.minute
+    nowMinutes = nowTime.minute
     userHours = userForecastTimeList[0]
     userMinutes = userForecastTimeList[1]
 
 
+    
+    if (userHours == nowHours):
+        pass 
+    else:
+        return "DontSendSMS"
 
-
-    return "sendSMSNow"
-
+    #if the time is ecaxt
+    if (userMinutes == nowMinutes):
+        return "sendSMSNow"
+    elif (userMinutes in range(nowMinutes - 29)): 
+    #if the time has passed in the last 29 min
+    # but obviously was not run in the last vron job (would be -30 min then)
+        return "sendSMSNow"
+    else:
+        return "DontSendSMS"
+    
+    
+    
+    
 
 def check_user_weather_SMS_time_format(usersWeatherSMSTimeList):
     #check if [0] us between 0 and 24 and if [1] is 0 or 30, if inside
