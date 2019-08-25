@@ -25,7 +25,20 @@ def check_user_weather_SMS_time_format(usersWeatherSMSTimeList):
     #check if [0] us between 0 and 24 and if [1] is 0 or 30, if inside
     #these parameters it is ok, if not the time is wrong
     #if format bad please return "error"
-    return "", usersWeatherSMSTimeList
+
+    try:
+        isHour0to24= (int(usersWeatherSMSTimeList[0]) >= 0 and int(usersWeatherSMSTimeList[0]) < 25)
+    except:
+        return "error", usersWeatherSMSTimeList
+
+    try:
+        isMinute0to60= (int(usersWeatherSMSTimeList[1]) == 0 or int(usersWeatherSMSTimeList[1]) == 30 )
+    except:
+        return "error", usersWeatherSMSTimeList
+
+
+    
+    return "sendSMS", usersWeatherSMSTimeList
 
 
 def check_user_forecast_time(user_phone_instance):
