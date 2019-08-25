@@ -217,4 +217,4 @@ def send_daily_forecast_to_all(request):
 def send_daily_forecast_to_user(request):
     user = request.user
     statusMessage = send_daily_forecast(user)
-    return HttpResponse( 'System message: {} for user: {}' .format(user.username))
+    return HttpResponse( 'System message: {} for user: {}' .format(statusMessage, user.username))
