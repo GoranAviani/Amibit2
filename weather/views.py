@@ -126,7 +126,7 @@ def process_forecast_for_sms_message(result, userCity):
 
 #This function witll return user mobile if user is approved and 
 # wants to receive weather forecast
-def get_user_mobile_and_check_time(user):
+def get_user_mobile_and_check_time(user, typeOfRequest):
     try:
         user_phone_instance = user_phone.objects.get(userMobilePhone=user)     
     except:
@@ -137,7 +137,13 @@ def get_user_mobile_and_check_time(user):
         return status, statusMessage, resultMobileNumber
 
     #check do we send sms now or not now
-    status, statusMessageWeather = check_user_forecast_time(user_phone_instance)
+    #If it is a manual request for weather prognosis (done by user), there is no need to check the time
+    if typeOfRequest == "manualWeatherRequest":
+        status = "SendSMS"
+        statusMessageWeather = "Mobile Phone approved. No forecast time check for manual weather request"
+    else:
+        status, statusMessageWeather = check_user_forecast_time(user_phone_instance)
+    
     if status != "DontSendSMS":
         status, statusMessageMobile, resuresultMobileNumber = get_mobile_phone(user_phone_instance)
         return status, (statusMessageWeather + " " + statusMessageMobile), resuresultMobileNumber
@@ -148,7 +154,7 @@ def get_user_mobile_and_check_time(user):
     return status, statusMessageWeather, resuresultMobileNumber
 
 #the actual sending of the forecast
-def send_daily_forecast(user):
+def send_daily_forecast(user, typeOfRequest):
     stringToSend =""
     userAddress = user.userAddress
     userCity = user.userCity
@@ -160,7 +166,7 @@ def send_daily_forecast(user):
         else:
             stringToSend = str(userCity) + "," + str(userCountry)
 
-        userMobileStatus, statusMessage, userMobileNumber = get_user_mobile_and_check_time(user)
+        userMobileStatus, statusMessage, userMobileNumber = get_user_mobile_and_check_time(user, typeOfRequest)
         #print(userMobileStatus)
         #print(userMobileNumber)
 
@@ -206,8 +212,9 @@ def send_daily_forecast(user):
 # and have been approved and want to receive sms messages
 def send_daily_forecast_to_all(request):
     users = custom_user.objects.all()
+    typeOfRequest = "autoWeatherRequest"
     for user in users:
-        statusMessage = send_daily_forecast(user)
+        statusMessage = send_daily_forecast(user, typeOfRequest)
         #status message is not really used for now but can be used to print a list 
         #of users and who got sms and who not with a reason why not
     return HttpResponse('Daily forecast has been sent to all users.')
@@ -216,5 +223,6 @@ def send_daily_forecast_to_all(request):
 
 def send_daily_forecast_to_user(request):
     user = request.user
-    statusMessage = send_daily_forecast(user)
+    typeOfRequest = "manualWeatherRequest"
+    statusMessage = send_daily_forecast(user, typeOfRequest)
     return HttpResponse( 'Forecast status message: {} Message for user: {}' .format(statusMessage, user.username))
