@@ -140,7 +140,7 @@ def get_user_mobile_and_check_time(user, typeOfRequest):
     #If it is a manual request for weather prognosis (done by user), there is no need to check the time
     if typeOfRequest == "manualWeatherRequest":
         status = "SendSMS"
-        statusMessageWeather = "Mobile Phone approved. No forecast time check for manual weather request"
+        statusMessageWeather = "Mobile Phone approved. Forecast time check is skipped for manual weather request."
     else:
         status, statusMessageWeather = check_user_forecast_time(user_phone_instance)
     
