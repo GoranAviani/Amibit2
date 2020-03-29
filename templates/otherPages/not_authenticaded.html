@@ -1,11 +1,17 @@
 {% extends "base.html" %}
-
 {% block content %}
-<br>
-    <br>
-    <br>
-    <br>
- You are not logged in. To continue using Amibit please <a href="{% url 'login' %}" class="dropdown-toggle">Log in</a>
- 
+<section id="main-container">
+		<div class="container">
+
+			<!-- Company Profile -->
+			<div class="row">
+				<div class="col-md-12 heading">
+					<h2 class="title classic">You are not logged in. To continue using Amibit please <a href="{% url 'login' %}" class="dropdown-toggle">Log in</a>
+                    </h2>
+				</div>
+			</div><!-- Title row end -->
+            </div>
+    </div>
+
 
 {% endblock %}
