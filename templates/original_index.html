@@ -1,0 +1,456 @@
+<!-- templates/index.html -->
+
+{% load static %}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+    <title>Amibit 2</title>
+<head> 
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  <link type="text/css" href="{% static 'css/bootstrap_social_buttons/bootstrap-social.css' %} " rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link type="text/css" href="{% static 'css/login_css.css' %} " rel="stylesheet">
+	<link type="text/css" href="{% static 'css/design.css' %} " rel="stylesheet">
+  <script src="{% static 'js/login_js.js' %}"></script>
+ 
+
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+
+	
+	<!-- Template styles-->
+	<link rel="stylesheet" href="{% static 'css/design/style.css' %}">
+	<!-- Responsive styles-->
+	<link rel="stylesheet" href="{% static 'css/design/responsive.css' %}">
+	<!-- Animation -->
+	<link rel="stylesheet" href="{% static 'css/design/animate.css' %}">
+	<!-- Prettyphoto -->
+	<link rel="stylesheet" href="{% static 'css/design/prettyPhoto.css' %}">
+	<!-- Owl Carousel -->
+	<link rel="stylesheet" href="{% static 'css/design/owl.carousel.css' %}">
+	<link rel="stylesheet" href="{% static 'css/design/owl.theme.css' %}">
+	<!-- Flexslider -->
+	<link rel="stylesheet" href="{% static 'css/design/flexslider.css' %}">
+	<!-- Flexslider -->
+	<link rel="stylesheet" href="{% static 'css/design/cd-hero.css' %}">
+	<!-- Style Swicther -->
+	<link id="style-switch" href="{% static 'css/design/presets/preset3.css' %}" media="screen" rel="stylesheet" type="text/css">
+
+
+
+</head>
+<body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<div class="body-inner">
+
+	<!-- Header start -->
+	<header id="header" class="navbar-fixed-top header" role="banner">
+		<div class="container">
+			<div class="row">
+				<!-- Logo start -->
+				<div class="navbar-header">
+				   
+				    <div class="navbar-brand navbar-bg">
+					    <a href="{% url 'index' %}">
+					    	<img class="img-responsive" src="{% static 'images/images/amibit_white_logo.png' %}" alt="logo">
+					    </a> 
+				    </div>                   
+				</div>
+				<!--/ Logo end -->
+	
+				<!--/ Navigation end -->
+			</div>
+			<!--/ Row end -->
+		</div>
+		<!--/ Container end -->
+	</header>
+	<!--/ Header end -->
+
+
+	<!-- Slider start -->
+	<section id="home" class="no-padding">	
+    	<div id="main-slide" class="cd-hero">
+          
+
+
+          <ul class="cd-hero-slider1  ">
+              <li class="cd-bg-video">
+                    <div class="cd-full-width">
+                      
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 col-md-offset-4">
+        <div class="panel panel-login">
+          <div class="panel-heading">
+            <div class="row">
+              <div class="col-xs-6">
+                <a href="#" class="active" id="login-form-link">Login</a>
+              </div>
+              <div class="col-xs-6">
+                <a href="#" id="register-form-link">Register</a>
+              </div>
+            </div>
+            <hr>
+          </div>
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-lg-12">
+                <form id="login-form" action="/users/login/" method="post" role="form" style="display: block;">
+                  {% csrf_token %}
+                  <div class="form-group">
+                    <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
+                  </div>
+                  <div class="form-group">
+                    <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
+                  </div>
+                  <div class="form-group">
+										<input type="submit" name="login-submit" id="login-submit" tabindex="4" class="btn btn-primary solid btn-block" value="Log In">
+                  </div>
+                  <div class="form-group">
+										<a href="{% url 'social:begin' 'google-oauth2' %}" class="btn btn-primary solid btn-block">
+											<!-- originalno: btn btn-block btn-social btn-lg btn-google -->
+											Sign in with Google
+										</a>
+									</div>	        
+                  <div class="form-group">
+                    <div class="row">
+                      <div class="col-lg-12">
+                        <div class="text-center">
+                          <a href= "{% url 'password_reset' %}" tabindex="5" class="btn btn-primary solid">Forgot Password?</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+                <form id="register-form" action="/users/signup/" method="post" role="form" style="display: none;">
+                  {% csrf_token %}
+                  <div class="form-group">
+                    <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
+                  </div>
+                  <div class="form-group">
+                    <input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Email Address" value="">
+                  </div>
+                  <div class="form-group">
+                    <input type="password" name="password1" id="password" tabindex="2" class="form-control" placeholder="Password">
+                  </div>
+                  <div class="form-group">
+                    <input type="password" name="password2" id="confirm-password" tabindex="2" class="form-control" placeholder="Confirm Password">
+                  </div>
+                  <div class="form-group">
+                    <div class="row">
+                      <div class="col-sm-12">
+                        <input type="submit" name="register-submit" id="register-submit" tabindex="4" class="btn btn-primary solid form-control" value="Register Now">
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+                     </div> <!-- .cd-full-width -->
+                    <div class="cd-bg-video-wrapper">
+                    <video id="video"  autoplay muted loop >
+                        <source src="{% static 'videos/video.mp4' %}" type="video/mp4" />
+                    </video>
+                  </div>
+                  </li>
+                </ul>
+
+
+          
+
+
+
+          
+			
+
+			
+
+		</div><!--/ Main slider end -->    	
+    </section> <!--/ Slider end -->
+
+
+    <!-- Service box start -->
+	<section id="service" class="service angle">
+		<div class="container">
+            <div class="row">
+				<div class="col-md-12 heading">
+					<span class="title-icon pull-left"><i class="fa fa-cogs"></i></span>
+                    <h2 class="title">Save Anything. Read Anywhere.<span class="title-desc">Save your online resources for easy access anytime, anywhere.</span></h2>
+
+                </div>
+			</div><!-- Title row end -->
+			<div class="row">
+				<div class="col-md-12">
+					<div class="col-md-3 col-sm-3 wow fadeInDown" data-wow-delay=".5s">
+						<div class="service-content text-center">
+							<span class="service-icon icon-pentagon"><i class="fa fa-link"></i></span>
+							<h3>Save links</h3>
+							<p>Save articles, videos and stories from all over the internet. Access them later without distraction, on any device.</p>
+						</div>
+					</div><!--/ End first service -->
+
+					<div class="col-md-3 col-sm-3 wow fadeInDown" data-wow-delay=".8s" >
+						<div class="service-content text-center">
+							<span class="service-icon icon-pentagon"><i class="fa fa-pencil"></i></span>
+							<h3>Save notes</h3>
+							<p>Write down anything at anytime, and have it on the go.</p>
+						</div>
+						
+					</div><!--/ End Second service -->
+
+					<div class="col-md-3 col-sm-3 wow fadeInDown" data-wow-delay="1.1s">
+						<div class="service-content text-center">
+							<span class="service-icon icon-pentagon"><i class="fa fa-search"></i></span>
+							<h3>Search the internet</h3>
+							<p>Search the internet with one of several different search engines: Google, Duck Duck Go </p>
+						</div>
+					</div><!--/ End Third service -->
+
+					<div class="col-md-3 col-sm-3 wow fadeInDown" data-wow-delay="1.4s">
+						<div class="service-content text-center">
+							<span class="service-icon icon-pentagon"><i class="fa fa-btc"></i></span>
+							<h3>Track your Cryptocurrency portfolio</h3>
+							<p>Track your portfolio with our cryptocurrency tracker.</p>
+						</div>
+					</div><!--/ End 4th service -->
+				</div>
+			</div><!-- Content row end -->
+		</div><!--/ Container end -->
+	</section><!--/ Service box end -->
+   
+	<!-- Portfolio start -->
+	
+	<!-- Portfolio end -->
+
+	<!-- Counter Strat -->
+	
+	<!--/ Container end -->
+    <!--/ Counter end -->
+
+	<!-- Feature box start -->
+	<!--/ Feature box end -->
+
+
+	<section id="image-block" class="image-block no-padding">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-6 ts-padding" style="height:650px;background:url('{% static 'images/images/amibithighfive.jpg' %}') 75% 75% / cover no-repeat;">
+				</div>
+				<div class="col-md-6 ts-padding img-block-right">
+					<div class="img-block-head text-center">
+						<h3>We are there for you</h3>
+						<h4> We provide Same Experience on all devices. </h4>
+						<!--	<p> We provide the same Experience on all devices. -->
+						</p>
+					</div>
+
+					<div class="gap-30"></div>
+
+					<div class="image-block-content">
+						<span class="feature-icon pull-left" ><i class="fa fa-usd"></i></span>
+						<div class="feature-content">
+							<h3>Always Free</h3>
+							<p>
+								We will never ask for any payment or show adds.
+							</p>
+						</div>
+					</div><!--/ End 1st block -->
+
+					<div class="image-block-content">
+						<span class="feature-icon pull-left" ><i class="fa fa-diamond"></i></span>
+						<div class="feature-content">
+							<h3>Always private</h3>
+							<p>
+								We will not ask for you private data or track your activity.
+							</p>
+						</div>
+					</div><!--/ End 1st block -->
+
+					<div class="image-block-content">
+						<span class="feature-icon pull-left" ><i class="fa fa-street-view"></i></span>
+						<div class="feature-content">
+							<h3>Always available</h3>
+							<p>Day or night, 24/7 online availability.</p>
+						</div>
+					</div><!--/ End 1st block -->
+
+				</div>
+			</div>
+		</div>
+	</section><!--/ Image block end -->
+
+
+
+
+
+	<div class="gap-40">    
+	</div>   <div class="gap-40">    
+	</div>   <div class="gap-40">    
+	</div>   <div class="gap-40">    
+	</div>   <div class="gap-40">    
+	</div>   <div class="gap-40">    
+	</div>   <div class="gap-40">    
+	</div>   <div class="gap-40">    
+	</div>   <div class="gap-40">    
+	</div>   <div class="gap-40">    
+	</div>   <div class="gap-40">    
+	</div>
+
+	
+	<!-- Team start -->
+<!--/ Team end -->
+
+    <!-- Parallax 1 start -->
+	<!-- Parallax 1 end -->
+
+    <!-- Pricing table start -->
+	<!--/ Pricing table end -->
+
+
+	<!-- Testimonial start-->
+	<!--/ Testimonial end-->
+
+
+	<!-- Clients start -->
+	<!--/ Clients end -->
+	
+
+	<!-- Footer start -->
+	<footer id="footer" class="footer">
+		<div class="container">
+			<div class="row">
+
+					<div class="col-md-12 col-sm-12 col-xs-12 footer-widget footer-about-us " align="center">
+							<h3 class="widget-title"><a href="{% url 'faq' %}" class="btn btn-primary solid ">Faq</a></h3>	
+		
+					</div><!--/ End Faq-->	
+
+			<!--	<div class="col-md-4 col-sm-12 col-xs-12 footer-widget footer-about-us " align="center">
+						<h3 class="widget-title"><a href="" class="btn btn-primary solid ">Faq</a></h3>	
+	
+				</div><!--/ End Faq-->
+				
+
+			<!--	<div class="col-md-4 col-sm-12 col-xs-12 footer-widget footer-about-us" align="center">
+					<h3 class="widget-title"><a href="" class="btn btn-primary solid ">About</a></h3>
+				</div><!--/ end About -->
+
+			<!--	<div class="col-md-3 col-sm-12 col-xs-12 footer-widget footer-about-us" align="center">
+					<h3 class="widget-title"><a href="" class="btn btn-primary solid ">Contact</a></h3>          
+				</div><!--/ end Contact us -->
+
+			</div><!-- Row end -->
+		</div><!-- Container end -->
+	</footer><!-- Footer end -->
+	
+
+	<!-- Copyright start -->
+	<section id="copyright" class="copyright angle">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 text-center">
+					<ul class="footer-social unstyled">
+						<li>
+							<a title="Linkedin" href="https://se.linkedin.com/in/goran-aviani">
+								<span class="icon-pentagon wow bounceIn"><i class="fa fa-linkedin"></i></span>
+							</a>
+							<a title="freeCodeCamp" href="https://www.freecodecamp.org/news/author/goran/">
+								<span class="icon-pentagon wow bounceIn"><i class="fa fa-free-code-camp"></i></span>
+							</a>
+							<a title="Medium" href="https://medium.com/@goranaviani">
+								<span class="icon-pentagon wow bounceIn"><i class="fa fa-medium"></i></span>
+							</a>
+							<a title="Skype" href="skype:inaiva11?call">
+								<span class="icon-pentagon wow bounceIn"><i class="fa fa-skype"></i></span>
+							</a>
+							<a title="GitHub" href="https://github.com/GoranAviani">
+								<span class="icon-pentagon wow bounceIn"><i class="fa fa-github"></i></span>
+							</a>
+							<a title="Email" href="mailto: goran.aviani@gmail.com">
+								<span class="icon-pentagon wow bounceIn"><i class="fa fa-envelope-o"></i></span>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div><!--/ Row end -->
+			<div class="row">
+				<div class="col-md-12 text-center">
+					<div class="copyright-info">
+         			 An open source portfolio project by <a href="https://github.com/GoranAviani">Goran Aviani</a>
+        			</div>
+				</div>
+			</div><!--/ Row end -->
+		   <div id="back-to-top" data-spy="affix" data-offset-top="10" class="back-to-top affix">
+				<button class="btn btn-primary" title="Back to Top"><i class="fa fa-angle-double-up"></i></button>
+			</div>
+		</div><!--/ Container end -->
+	</section><!--/ Copyright end -->
+
+	<!-- Javascript Files
+	================================================== -->
+
+
+	<!-- Bootstrap jQuery -->
+	<script type="text/javascript" src="{% static 'js/js/bootstrap.min.js' %}"></script>
+	
+	<!-- Owl Carousel -->
+	<script type="text/javascript" src="{% static 'js/js/owl.carousel.js' %}"></script>
+	<!-- PrettyPhoto -->
+	<script type="text/javascript" src="{% static 'js/js/jquery.prettyPhoto.js' %}"></script>
+	<!-- Bxslider -->
+	<script type="text/javascript" src="{% static 'js/js/jquery.flexslider.js' %} "></script>
+	<!-- CD Hero slider -->
+	<script type="text/javascript" src="{% static 'js/js/cd-hero.js' %}"></script>
+	<!-- Isotope -->
+	<script type="text/javascript" src="{% static 'js/js/isotope.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/js/ini.isotope.js' %}"></script>
+	<!-- Wow Animation -->
+	<script type="text/javascript" src="{% static 'js/js/wow.min.js' %}"></script>
+	<!-- SmoothScroll -->
+	<script type="text/javascript" src="{% static 'js/js/smoothscroll.js' %}"></script>
+	<!-- Eeasing -->
+	<script type="text/javascript" src="{% static 'js/js/jquery.easing.1.3.js' %}"></script>
+	<!-- Counter -->
+	<script type="text/javascript" src="{% static 'js/js/jquery.counterup.min.js' %}"></script>
+	<!-- Waypoints -->
+	<script type="text/javascript" src="{% static 'js/js/waypoints.min.js' %}"></script>
+	<!-- Template custom -->
+	<script type="text/javascript" src="{% static 'js/js/custom.js' %}"></script>
+	</div><!-- Body inner end -->
+
+</body>
+</html>
+
+
+
+
