@@ -1,0 +1,166 @@
+<!-- templates/base.html -->
+{% load static %}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Amibit 2</title>
+  <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link type="text/css" href="{% static 'css/base_nav.css' %} " rel="stylesheet">
+  <link type="text/css" href="{% static 'css/custom.css' %} " rel="stylesheet">
+  <link type="text/css" href="{% static 'css/dashboard.css' %} " rel="stylesheet">
+  <script src="{% static 'js/base.js' %}"></script>
+  <script src="{% static 'js/notelink.js' %}"></script>
+
+  <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.js"></script>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+
+
+
+
+
+
+
+
+
+  	<!-- Template styles-->
+	<link rel="stylesheet" href="{% static 'css/design/style.css' %}">
+	<!-- Responsive styles-->
+	<link rel="stylesheet" href="{% static 'css/design/responsive.css' %}">
+	<!-- Animation -->
+	<link rel="stylesheet" href="{% static 'css/design/animate.css' %}">
+	<!-- Prettyphoto -->
+	<link rel="stylesheet" href="{% static 'css/design/prettyPhoto.css' %}">
+	<!-- Owl Carousel -->
+	<link rel="stylesheet" href="{% static 'css/design/owl.carousel.css' %}">
+	<link rel="stylesheet" href="{% static 'css/design/owl.theme.css' %}">
+	<!-- Flexslider -->
+	<link rel="stylesheet" href="{% static 'css/design/flexslider.css' %}">
+	<!-- Flexslider -->
+	<link rel="stylesheet" href="{% static 'css/design/cd-hero.css' %}">
+	<!-- Style Swicther -->
+	<link id="style-switch" href="{% static 'css/design/presets/preset3.css' %}" media="screen" rel="stylesheet" type="text/css">
+
+
+
+</head>
+<body>
+  <!-- <script type="text/javascript">
+    // Prevent dropdown menu from closing when click inside the form
+    $(document).on("click", ".navbar-right .dropdown-menu", function(e){
+      e.stopPropagation();
+    });
+  </script>
+-->
+
+
+<nav class="navbar navbar-default navbar-expand-lg navbar-light">
+
+<!-- Header start -->
+<header id="header" class="navbar-fixed-top header" role="banner">
+  <div class="container">
+    <div class="row">
+      <!-- Logo start -->
+      <div class="navbar-header">
+         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+          </button>
+          <div class="navbar-brand navbar-bg">
+            <a href="{% url 'index' %}">
+              <img class="img-responsive" src="{% static 'images/images/amibit_white_logo.png' %}" alt="logo">
+            </a> 
+          </div>                   
+      </div><!--/ Logo end -->
+      <nav class="collapse navbar-collapse clearfix" role="navigation">
+        <ul class="nav navbar-nav navbar-right width-80">
+          <li class="dropdown active col-lg-6 col-md-6">
+            <form class="navbar-form" action="/search/" method="GET" >
+              {% csrf_token %}
+              <div class="input-group search-box  white-bckg width-100">                
+                <input autofocus type="text" name="search_bar" id="base_search" class="form-control" placeholder="Search here...">
+                <button type="submit" class="input-group-addon" ><i class="material-icons display-block">&#xE8B6;</i></button>  
+              </div>
+            </form>    
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Qucik links <i class="fa fa-angle-down"></i></a>
+            <div class="dropdown-menu social-media-btn">
+              <ul>
+                <li><a href="https://www.gmail.com/" target="_self" class=""><i class="fa fa-google"></i> - Gmail</a></li>
+                <li><a href="https://www.youtube.com/" target="_self" class=""><i class="fa fa-youtube"></i> - Youtube</a></li>
+                <li><a href="https://www.linkedin.com/" target="_self" class=""><i class="fa fa-linkedin"></i> - LinkedIn</a></li>
+                <li><a href="https://tools.incodaq.com/" target="_self" class=""><i class="fa fa-paperclip"></i> - Incodaq Tools</a></li>
+                <li><a href="https://weather.incodaq.com/" target="_self" class=""><i class="fa fa-paperclip"></i> - Incodaq Weather</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="dropdown">
+              <a href="{% url 'faq' %}" class="dropdown-toggle" data-toggle="dropdown">FAQ</i></a>
+          </li>
+          {% if user.is_authenticated %}         
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Account <i class="fa fa-angle-down"></i></a>
+                <div class="dropdown-menu">
+                <ul>
+                    <li><a href="{% url 'user_settings_menu' %}">Profile</a></li>
+                      <li><a href="{% url 'logout' %}" class="btn btn-primary solid hover-black-text ">Log out</a></li>
+                  </ul>
+              </div>
+            </li>
+          {% else %}
+            <li class="dropdown">
+              <li><a href="{% url 'login' %}" class="dropdown-toggle">Log in</a></li>
+            </li>
+          {% endif %}       
+        
+        
+        
+        </ul>
+
+        
+      </nav><!--/ Navigation end -->
+    </div><!--/ Row end -->
+  </div><!--/ Container end -->
+</header><!--/ Header end -->
+
+</nav>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                                 
+
+
+
+
+    <main>
+    {% block content %}
+   
+    {% endblock %}
+  </main>
+
+</body>
+</html>
